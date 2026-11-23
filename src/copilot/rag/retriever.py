@@ -94,6 +94,11 @@ class HybridRetriever:
     def __init__(self, bm25: BM25Retriever, dense: DenseRetriever, rrf_k: int = 60) -> None:
         self.bm25, self.dense, self.rrf_k = bm25, dense, rrf_k
 
+    @property
+    def chunks(self) -> list[Chunk]:
+        """All indexed chunks."""
+        return self.bm25.chunks
+
     def search(self, query: str, k: int) -> list[Hit]:
         depth = max(20, k * 4)
         fused: dict[str, float] = {}

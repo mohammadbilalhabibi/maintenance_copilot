@@ -61,13 +61,13 @@ async function loadConversations() {
 }
 
 function newChat() {
-  state.conv = null; hideTickets();
+  state.conv = null; hideTickets(); closeSource();
   $("messages").innerHTML = document.querySelector("#empty-template")?.innerHTML || emptyHtml;
   bindExamples(); loadConversations();
 }
 
 async function openConversation(id) {
-  hideTickets();
+  hideTickets(); closeSource();
   const data = await (await api(`/api/conversations/${id}`)).json();
   state.conv = id; $("messages").innerHTML = "";
   for (const m of data.messages) {
@@ -85,7 +85,7 @@ function markdown(text) {
   const lines = escapeHtml(text).split("\n"); let html = ""; let inList = false;
   for (const raw of lines) {
     const line = raw.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/`([^`]+)`/g, "<code>$1</code>")
-      .replace(/\[((?:S\d+)(?:\s*,\s*S\d+)*)\]/g, (_, ids) => ids.split(/\s*,\s*/).map((i) => `<span class="cite">${i}</span>`).join(""));
+      .replace(/\[((?:S\d+)(?:\s*,\s*S\d+)*)\]/g, (_, ids) => ids.split(/\s*,\s*/).map((i) => `<button type="button" class="cite" data-sid="${i}" title="Show source ${i}">${i}</button>`).join(""));
     const item = line.match(/^\s*(?:[-*]|\d+\.)\s+(.*)/);
     if (item) { if (!inList) { html += "<ul>"; inList = true; } html += `<li>${item[1]}</li>`; continue; }
     if (inList) { html += "</ul>"; inList = false; }
@@ -112,9 +112,10 @@ function renderAssistant(el, answer, meta) {
   if (meta.tools && !tools.children.length) for (const t of meta.tools) tools.append(chip(t.tool, t.ok ? "ok" : "err"));
   const extra = el.querySelector(".extra"); extra.innerHTML = "";
   const sources = meta.sources || [];
+  el._sources = sources;
   if (sources.length) {
     const cited = new Set(meta.cited || []);
-    const items = sources.map((s) => `<li><span class="cite">${s.id}</span> ${escapeHtml(s.label)}${cited.has(s.id) ? "" : " <span class=\"muted\">(not cited)</span>"}</li>`).join("");
+    const items = sources.map((s) => `<li><button type="button" class="src" data-sid="${s.id}"><span class="cite">${s.id}</span> ${escapeHtml(s.label)}${cited.has(s.id) ? "" : " <span class=\"muted\">(not cited)</span>"}</button></li>`).join("");
     extra.insertAdjacentHTML("beforeend", `<details class="sources"><summary>${sources.length} sources, ${cited.size} cited</summary><ul>${items}</ul></details>`);
   }
   if (meta.latency_s != null) {
@@ -122,6 +123,47 @@ function renderAssistant(el, answer, meta) {
     const cost = meta.cost_usd != null ? ` · $${meta.cost_usd.toFixed(5)}` : "";
     extra.insertAdjacentHTML("beforeend", `<div class="meta">${meta.latency_s.toFixed(1)} s · ${u.llm_calls || 0} LLM calls · ${(u.input || 0) + (u.output || 0)} tokens${cost}</div>`);
   }
+}
+
+// ------------------------------------------------------------- sources
+function slugify(t) { return t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || "section"; }
+
+function dataTable(obj) {
+  const rows = Object.entries(obj || {}).filter(([k]) => k !== "source_id").map(([k, v]) => {
+    const val = v !== null && typeof v === "object" ? `<pre>${escapeHtml(JSON.stringify(v, null, 2))}</pre>` : escapeHtml(String(v));
+    return `<tr><th>${escapeHtml(k)}</th><td>${val}</td></tr>`;
+  }).join("");
+  return `<table class="kv">${rows}</table>`;
+}
+
+async function openSource(source) {
+  const panel = $("source-panel"); const body = $("source-body");
+  $("source-title").textContent = `${source.id} · ${source.label}`;
+  if (source.tool === "search_manuals") {
+    let s = source;
+    if (!s.text && s.chunk_id) {  // answers saved before passages were stored
+      try { s = { ...s, ...(await (await api(`/api/passages/${encodeURIComponent(s.chunk_id)}`)).json()) }; } catch { /* shown below */ }
+    }
+    const docId = s.doc_id || (s.chunk_id || "").split("#")[0];
+    const anchor = s.page ? `page-${s.page}` : slugify(s.section || "");
+    const pageNote = s.page ? ` · page ${s.page}` : "";
+    const links = [`<a href="/docs/${encodeURIComponent(docId)}#${anchor}" target="_blank" rel="noopener">Open full document${pageNote}</a>`];
+    if ((s.source_url || "").startsWith("http")) links.push(`<a href="${escapeHtml(s.source_url)}${s.page ? `#page=${s.page}` : ""}" target="_blank" rel="noopener">Original PDF${pageNote}</a>`);
+    body.innerHTML = `<p class="muted">${escapeHtml(s.doc || s.title || "")} &rsaquo; ${escapeHtml(s.section || "")}${pageNote}${s.synthetic ? ' · <span class="badge">synthetic</span>' : ""}</p>`
+      + `<blockquote class="passage">${escapeHtml(s.text || "Passage text not available.")}</blockquote>`
+      + `<p class="links">${links.join("")}</p>`;
+  } else {
+    const args = escapeHtml(JSON.stringify(source.args || {}));
+    body.innerHTML = `<p class="muted">What the agent got from <code>${escapeHtml(source.tool)}</code>(${args}):</p>`
+      + (source.data ? dataTable(source.data) : '<p class="muted">Tool output was not stored for this older answer.</p>');
+  }
+  panel.classList.remove("hidden");
+  document.querySelector(".main").classList.add("panel-open");
+}
+
+function closeSource() {
+  $("source-panel").classList.add("hidden");
+  document.querySelector(".main").classList.remove("panel-open");
 }
 
 function chip(name, cls) { const c = document.createElement("span"); c.className = `chip ${cls}`; c.textContent = name; return c; }
@@ -199,5 +241,12 @@ $("new-chat").onclick = newChat;
 $("show-tickets").onclick = showTickets;
 $("chat-form").onsubmit = (e) => { e.preventDefault(); const t = $("input").value; $("input").value = ""; send(t); };
 $("input").addEventListener("keydown", (e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); $("chat-form").requestSubmit(); } });
+$("messages").addEventListener("click", (e) => {
+  const btn = e.target.closest("[data-sid]"); if (!btn) return;
+  const msg = btn.closest(".msg"); const src = (msg?._sources || []).find((x) => x.id === btn.dataset.sid);
+  if (src) openSource(src);
+});
+$("source-close").onclick = closeSource;
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeSource(); });
 bindExamples();
 if (state.token) showApp().catch(logout); else logout();

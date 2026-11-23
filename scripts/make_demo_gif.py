@@ -1,6 +1,6 @@
 """Record docs/demo.gif from a running app (real LLM): question, streamed answer, ticket.
 
-Needs: playwright + chromium, Pillow, and the app running (default http://127.0.0.1:8010).
+Needs: playwright + chromium, Pillow, and the app running (default http://127.0.0.1:8700).
 """
 
 from __future__ import annotations
@@ -54,7 +54,7 @@ class Recorder:
 def main() -> None:
     """CLI entry point."""
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--url", default="http://127.0.0.1:8010")
+    parser.add_argument("--url", default="http://127.0.0.1:8700")
     parser.add_argument("--out", type=Path, default=ROOT / "docs" / "demo.gif")
     parser.add_argument("--width", type=int, default=880)
     args = parser.parse_args()
@@ -73,8 +73,14 @@ def main() -> None:
         page.keyboard.press("Enter")
         rec.until(lambda: page.locator(".meta").count() >= 1)
         rec.hold(2500)
-        page.locator(".sources summary").last.click()
-        rec.shot(2500)
+        # Click a handbook citation: the side panel shows the exact passage and links.
+        docs = page.locator(".msg.assistant").last.locator(".src", has_text="Handbook")
+        sid = docs.first.get_attribute("data-sid") if docs.count() else "S1"
+        page.locator(f".answer button.cite[data-sid={sid}]").first.click()
+        rec.shot(3500)
+        page.locator(".answer button.cite[data-sid=S2]").first.click()  # model output
+        rec.shot(3500)
+        page.keyboard.press("Escape")
         page.fill("#input", TICKET)
         rec.shot(1000)
         page.keyboard.press("Enter")

@@ -28,6 +28,7 @@ GUIDES = {
     ),
 }
 LICENCE = "Public domain (U.S. federal government work, 17 U.S.C. 105)"
+PAGE_MARKER = "[[page {}]]"
 
 
 def pdf_to_markdown(pdf: Path) -> str:
@@ -36,7 +37,9 @@ def pdf_to_markdown(pdf: Path) -> str:
 
     doc = pymupdf.open(pdf)
     lines: list[tuple[float, bool, str]] = []
-    for page in doc:
+    for number, page in enumerate(doc, start=1):
+        # Page marker (removed again by the chunker, which keeps it as chunk.page).
+        lines.append((0.0, False, PAGE_MARKER.format(number)))
         for block in page.get_text("dict")["blocks"]:
             for line in block.get("lines", []):
                 spans = [s for s in line["spans"] if s["text"].strip()]
@@ -46,13 +49,20 @@ def pdf_to_markdown(pdf: Path) -> str:
                     lines.append((max(s["size"] for s in spans), bold, text))
     body = Counter(round(size) for size, _, _ in lines).most_common(1)[0][0]
     out: list[str] = []
+    pending = ""  # page marker waiting for the page's first body line
     for size, bold, text in lines:
+        if text.startswith("[[page "):
+            pending = text
+            continue
         if re.fullmatch(r"\d{1,3}", text) or "...." in text:  # page numbers, contents
             continue
         if (size >= body + 2 or bold) and len(text) < 100:
             out.append(f"\n## {text}\n")
         else:
-            out.append(text)
+            # The marker goes inside a body line, never between headings, so heading
+            # merging and paragraph re-flow work exactly as without markers.
+            out.append(f"{pending} {text}" if pending else text)
+            pending = ""
     md = "\n".join(out)
     md = re.sub(r"-\n(?=[a-z])", "", md)  # re-join hyphenated words
     md = re.sub(r"(?<![\n.:;!?])\n(?![\n#•\-])", " ", md)  # re-flow paragraphs

@@ -13,26 +13,26 @@ synthetic: false
 
 ## Hazardous Energy Lockout/ Tagout
 
-U.S. Department of Labor Elaine L. Chao, Secretary Occupational Safety and Health Administration John L. Henshaw, Assistant Secretary OSHA 3120 2002 (Revised)
+[[page 2]] U.S. Department of Labor Elaine L. Chao, Secretary Occupational Safety and Health Administration John L. Henshaw, Assistant Secretary OSHA 3120 2002 (Revised)
 
 ## Contents
 
-Page Why do I need to be concerned How do I know if the OSHA standard When does the standard not apply to service and maintenance activities performed How does the standard apply to general What must workers do before they What must workers do before they remove their lockout or tagout device When do I use lockout and how do I do it?
-How can I determine if the energy-isolating What do I do if I cannot lock out Contents i When can tagout devices be used What are the limitations of tagout devices?
+[[page 3]] Page Why do I need to be concerned How do I know if the OSHA standard When does the standard not apply to service and maintenance activities performed How does the standard apply to general What must workers do before they What must workers do before they remove their lockout or tagout device When do I use lockout and how do I do it?
+How can I determine if the energy-isolating What do I do if I cannot lock out Contents i [[page 4]] When can tagout devices be used What are the limitations of tagout devices?
 What are the requirements for What do employees need to know When is training necessary?
-What if I need power to test or position What if I use outside contractors for What if a group performs service What if a shift changes during How often do I need to review What additional information does OSHA How does safety and health program management Control of Hazardous Energy (Lockout/Tagout) ii How can consultation assistance Who can get consultation assistance Can OSHA assure privacy to an employer Can an employer be cited for violations What incentives does OSHA provide for What are the Voluntary Protection Programs?
-Can OSHA inspect an employer How can a partnership with OSHA What is OSHA's Strategic Partnership Does OSHA have occupational safety and Does OSHA give money to organizations Contents iii Does OSHA have other assistance What do I do in case of an emergency Control of Hazardous Energy (Lockout/Tagout) iv
+What if I need power to test or position What if I use outside contractors for What if a group performs service What if a shift changes during How often do I need to review What additional information does OSHA How does safety and health program management Control of Hazardous Energy (Lockout/Tagout) ii [[page 5]] How can consultation assistance Who can get consultation assistance Can OSHA assure privacy to an employer Can an employer be cited for violations What incentives does OSHA provide for What are the Voluntary Protection Programs?
+Can OSHA inspect an employer How can a partnership with OSHA What is OSHA's Strategic Partnership Does OSHA have occupational safety and Does OSHA give money to organizations Contents iii [[page 6]] Does OSHA have other assistance What do I do in case of an emergency Control of Hazardous Energy (Lockout/Tagout) iv
 
 ## Background How should I use this booklet?
 
-This booklet presents OSHA's general requirements for controlling hazardous energy during service or maintenance of machines or equipment. It is not intended to replace or to supplement OSHA standards regarding the control of hazardous energy.  After reading this booklet, employers and other interested parties are urged to review the OSHA standards on the control of hazardous energy to gain a complete understanding of the requirements regarding the control of hazardous energy.  These standards, as well as other relevant resources, are identified throughout this publication.
+[[page 7]] This booklet presents OSHA's general requirements for controlling hazardous energy during service or maintenance of machines or equipment. It is not intended to replace or to supplement OSHA standards regarding the control of hazardous energy.  After reading this booklet, employers and other interested parties are urged to review the OSHA standards on the control of hazardous energy to gain a complete understanding of the requirements regarding the control of hazardous energy.  These standards, as well as other relevant resources, are identified throughout this publication.
 
 ## What is “lockout/tagout”?
 
 “Lockout/tagout” refers to specific practices and procedures to safeguard employees from the unexpected energization or startup of machinery and equipment, or the release of hazardous energy during service or maintenance activities.1 This requires, in part, that a designated individual turns off and disconnects the machinery or equipment from its energy source(s) before performing service or maintenance and that the authorized employee(s) either lock or tag the energy-isolating device(s) to prevent the release of hazardous energy and take steps to verify that the energy has been isolated effectively. If the potential exists for the release of hazardous stored energy or for the reaccumulation of stored energy to a hazardous level, the employer must ensure that the employee(s) take steps to prevent injury that may result from the release of the stored energy.
 Lockout devices hold energy-isolation devices in a safe or “off” position. They provide protection by preventing machines or equipment from becoming energized because they are 1 The standard refers to servicing and maintaining “machines or equipment.” Although the terms “machine” and “equipment” have distinct meanings, this booklet uses the term “machines” to refer both to machines and equipment. This is done for purposes of brevity only, and readers should not infer that it is intended to limit the scope of the standard. The term “equipment” is broad in scope and encompasses all types of equipment, including process equipment such as piping systems.
 How should I use this booklet?
-positive restraints that no one can remove without a key or other unlocking mechanism, or through extraordinary means, such as bolt cutters. Tagout devices, by contrast, are prominent warning devices that an authorized employee fastens to energy-isolating devices to warn employees not to reenergize the machine while he or she services or maintains it. Tagout devices are easier to remove and, by themselves, provide employees with less protection than do lockout devices.
+[[page 8]] positive restraints that no one can remove without a key or other unlocking mechanism, or through extraordinary means, such as bolt cutters. Tagout devices, by contrast, are prominent warning devices that an authorized employee fastens to energy-isolating devices to warn employees not to reenergize the machine while he or she services or maintains it. Tagout devices are easier to remove and, by themselves, provide employees with less protection than do lockout devices.
 
 ## Why do I need to be concerned about lockout/tagout?
 
@@ -44,7 +44,7 @@ Control of Hazardous Energy (Lockout/Tagout)
 
 ## OSHA Coverage How do I know if the OSHA standard applies to me?
 
-If your employees service or maintain machines where the unexpected startup, energization, or the release of stored energy could cause injury, the standard likely applies to you.
+[[page 9]] If your employees service or maintain machines where the unexpected startup, energization, or the release of stored energy could cause injury, the standard likely applies to you.
 The standard applies to all sources of energy, including, but not limited to: mechanical, electrical, hydraulic, pneumatic, chemical, and thermal energy.
 The standard does not cover electrical hazards from work on, near, or with conductors or equipment in electric utilization (premise wiring) installations, which are outlined by Subpart S of 29 CFR Part 1910. You can find the specific lockout and tagout provisions for electrical shock and burn hazards in 29 CFR Part 1910.333. Controlling hazardous energy in installations for the exclusive purpose of power generation, transmission, and distribution, including related equipment for communication or metering, is covered by 29 CFR 1910.269.
 The standard also does not cover the agriculture, construction, and maritime industries or oil and gas well drilling and servicing.
@@ -55,7 +55,7 @@ Other standards concerning the control of hazardous energy, however, apply in ma
 The standard does not apply to general industry service and maintenance activities in the following situations, when:
 • Exposure to hazardous energy is controlled completely by unplugging the equipment from an electric outlet and where the employee doing the service or maintenance has exclusive control of the plug. This applies only if electricity is the only form of hazardous energy to which employees may be exposed. This exception encompasses many portable hand tools and some cord and plug connected machinery and equipment.
 How do I know if the OSHA standard applies to me?
-• An employee performs hot-tap operations on pressurized pipelines that distribute gas, steam, water, or petroleum products, for which the employer shows the following:
+[[page 10]] • An employee performs hot-tap operations on pressurized pipelines that distribute gas, steam, water, or petroleum products, for which the employer shows the following:
 – Continuity of service is essential;
 – Shutdown of the system is impractical; and – The employee follows documented procedures and uses special equipment that provides proven, effective employee protection.
 • The employee is performing minor tool changes or other minor servicing activities that are routine, repetitive, and integral to production, and that occur during normal production operations. In these cases, employees must have effective, alternative protection.
@@ -66,8 +66,7 @@ The standard applies to the control of hazardous energy when employees are invol
 These activities include lubricating, cleaning or unjamming machines, and making adjustments or tool changes, where the employees may be exposed to hazardous energy.
 If a service or maintenance activity is part of the normal production operation, the employee performing the servicing may be subjected to hazards not normally associated with the production operation itself. Although machine guarding provisions in Subpart O of 29 CFR 1910 cover most normal production operations, workers doing service or maintenance activities during normal production operations must follow lockout/tagout procedures if they:
 • Remove or bypass machine guards or other safety devices,
-• Place any part of their bodies in or near a machine's point of operation, or Control of Hazardous Energy (Lockout/Tagout)
-• Place any part of their bodies in a danger zone associated with machine operations.
+• Place any part of their bodies in or near a machine's point of operation, or Control of Hazardous Energy (Lockout/Tagout) [[page 11]] • Place any part of their bodies in a danger zone associated with machine operations.
 Work involving minor tool changes and adjustments or other minor servicing activities that are routine, repetitive, and integral to the use of the production equipment and that occur during normal production operations are not covered by the lockout/tagout standard. This exception is limited, however, and applies only when economic considerations prevent the use of prescribed energy-isolation measures and when the employer provides and requires alternative measures to ensure effective, alternative protection.
 Whenever the standard is applicable, the machinery must be shut off and isolated from its energy sources, and lockout or tagout devices must be applied to the energy-isolation devices.
 In addition, the authorized employee(s) must take steps to verify that he or she has effectively isolated the energy.  When there is stored or residual energy, the authorized employee(s) must take steps to render that energy safe. If the possibility exists for reaccumulation of stored energy to hazardous levels, the employer must ensure that the worker(s) perform verification steps regularly to detect such reaccumulation before it has the potential to cause injury.
@@ -75,7 +74,7 @@ How does the standard apply to general industry operations?
 
 ## Requirements of the Standard What are OSHA's requirements?
 
-OSHA's standard establishes minimum performance requirements for controlling hazardous energy.  The standard specifies that employers must establish an energy-control program to ensure that employees isolate machines from their energy sources and render them inoperative before any employee services or maintains them.
+[[page 12]] OSHA's standard establishes minimum performance requirements for controlling hazardous energy.  The standard specifies that employers must establish an energy-control program to ensure that employees isolate machines from their energy sources and render them inoperative before any employee services or maintains them.
 As part of an energy-control program, employers must:
 • Establish energy-control procedures for removing the energy supply from machines and for putting appropriate lockout or tagout devices on the energy-isolating devices to prevent unexpected reenergization. When appropriate, the procedure also must address stored or potentially reaccumulated energy;
 • Train employees on the energy-control program, including the safe application, use, and removal of energy controls;
@@ -86,7 +85,7 @@ Control of Hazardous Energy (Lockout/Tagout)
 
 ## What must an energy-control procedure include?
 
-Employers must develop, document, and use procedures to control potentially hazardous energy.3 The procedures explain what employees must know and do to control hazardous energy effectively when they service or maintain machinery.
+[[page 13]] Employers must develop, document, and use procedures to control potentially hazardous energy.3 The procedures explain what employees must know and do to control hazardous energy effectively when they service or maintain machinery.
 If this information is the same for the various machines used at a workplace, then a single energy-control procedure may suffice.
 For example, similar machines (those using the same type and magnitude of energy) that have the same or similar types of control measures can be covered by a single procedure.
 Employers must develop separate energy-control procedures if their workplaces have more variable conditions such as multiple energy sources, different power connections, or different control sequences that workers must follow to shut down various pieces of machinery.
@@ -98,7 +97,7 @@ The energy-control procedures must outline the scope, purpose, authorization, ru
 3 The standard provides a limited exception to the requirement that energy control procedures be documented. If an employer can demonstrate the existence of EACH of the eight elements listed in 1910.147(c)(4)(i), the employer is not required to document the energy control procedure.
 However, the exception terminates if circumstances change and ANY of the elements no longer exist.
 What must an energy-control procedure include?
-In Appendix A to 1910.147, OSHA provides a Typical Minimal Lockout Procedure for employers to consult when preparing their own specific energy-control procedures. The outline is a nonmandatory guideline to help employers and employees comply with the standard. Nothing in the appendix adds to or detracts from any of the requirements in the standard.
+[[page 14]] In Appendix A to 1910.147, OSHA provides a Typical Minimal Lockout Procedure for employers to consult when preparing their own specific energy-control procedures. The outline is a nonmandatory guideline to help employers and employees comply with the standard. Nothing in the appendix adds to or detracts from any of the requirements in the standard.
 
 ## What must workers do before they begin service or maintenance activities?
 
@@ -113,7 +112,7 @@ Before beginning service or maintenance, the following steps must be accomplishe
 
 Employees who work on deenergized machinery may be seriously injured or killed if someone removes lockout/tagout devices and reenergizes machinery without their knowledge.
 Thus, it is extremely important that all employees respect lockout and tagout devices and that only the person(s) who applied these devices remove them.
-Control of Hazardous Energy (Lockout/Tagout) Before removing lockout or tagout devices, the employees must take the following steps in accordance with the specific provisions of the employer's energy-control procedure:
+Control of Hazardous Energy (Lockout/Tagout) [[page 15]] Before removing lockout or tagout devices, the employees must take the following steps in accordance with the specific provisions of the employer's energy-control procedure:
 • Inspect machines or their components to assure that they are operationally intact and that nonessential items are removed from the area; and
 • Check to assure that everyone is positioned safely and away from machines.
 After removing the lockout or tagout devices but before reenergizing the machine, the employer must assure that all employees who operate or work with the machine, as well as those in the area where service or maintenance is performed, know that the devices have been removed and that the machine is capable of being reenergized. (See Sections 6(e) and (f) of 29 CFR Part 1910.147 for specific requirements.) In the rare situation in which the employee who placed the lockout/tagout device is unable to remove that device, another person may remove it under the direction of the employer, provided that the employer strictly adheres to the specific procedures outlined in the standard. (See 29 CFR 1910.147(e)(3).)
@@ -122,7 +121,7 @@ After removing the lockout or tagout devices but before reenergizing the machine
 
 You must use a lockout program (or tagout program that provides a level of protection equal to that achieved through lockout) whenever your employees engage in service or maintenance operations on machines that are capable of being locked out and that expose them to hazardous energy from unexpected energization, startup, or release of stored energy.
 The primary way to prevent the release of hazardous energy during service and maintenance activities is by using energy-isolating devices such as manually operated circuit breakers, disconnect switches, and line valves and safety blocks. Lockout requires use of a lock or other lockout device to hold the energy-isolating device in a safe position to prevent machinery from becoming reenergized. Lockout also requires What must workers do before they remove their lockout or tagout device?
-employees to follow an established procedure to ensure that machinery will not be reenergized until the same employee who placed the lockout device on the energy-isolating device removes it.
+[[page 16]] employees to follow an established procedure to ensure that machinery will not be reenergized until the same employee who placed the lockout device on the energy-isolating device removes it.
 
 ## How can I determine if the energy-isolating device can be locked out?
 
@@ -138,7 +137,7 @@ Control of Hazardous Energy (Lockout/Tagout)
 
 ## What other options do I have?
 
-If it is possible to lock out an energy-isolating device, employers must use lockout devices unless they develop, document, and use a tagout procedure that provides employees with a level of protection equal to that provided by a lockout device. In a tagout program, an employer can attain an equal level of protection by complying with all tagout-related provisions of the standard and using at least one added safety measure that prevents unexpected reenergization.
+[[page 17]] If it is possible to lock out an energy-isolating device, employers must use lockout devices unless they develop, document, and use a tagout procedure that provides employees with a level of protection equal to that provided by a lockout device. In a tagout program, an employer can attain an equal level of protection by complying with all tagout-related provisions of the standard and using at least one added safety measure that prevents unexpected reenergization.
 Such measures might include removing an isolating circuit element, blocking a controlling switch, opening an extra disconnecting device, or removing a valve handle to minimize the possibility that machines might inadvertently be reenergized while employees perform service and maintenance activities.
 
 ## When can tagout devices be used instead of lockout devices?
@@ -151,7 +150,7 @@ What other options do I have?
 
 ## What are the limitations of tagout devices?
 
-A tagout device is a prominent warning that clearly states that the machinery being controlled must not be operated until the tag is removed in accordance with an established procedure.
+[[page 18]] A tagout device is a prominent warning that clearly states that the machinery being controlled must not be operated until the tag is removed in accordance with an established procedure.
 Tags are essentially warning devices and do not provide the physical restraint of a lock. Tags may evoke a false sense of security.  For these reasons, OSHA considers lockout devices to be more secure and more effective than tagout devices in protecting employees from hazardous energy.
 
 ## What are the requirements for lockout/tagout devices?
@@ -162,7 +161,7 @@ In addition, they must have the following characteristics:
 • Durable enough to withstand workplace conditions.
 Tagout devices must not deteriorate or become illegible even when used with corrosive components such as acid or alkali chemicals or in wet environments.
 • Standardized according to color, shape, or size.  Tagout devices also must be standardized according to print and format. Tags must be legible and understandable by all employees. They must warn employees about the hazards if the machine is energized, and offer employees clear instruction such as: “Do Not Start,” “Do Not Open,” “Do Not Close,” “Do Not Energize,” or “Do Not Operate.”
-• Substantial enough to minimize the likelihood of premature or accidental removal. Employees should be able to remove locks only by using excessive force with special tools such as bolt cutters or other metal-cutting tools. Tag attachments must be non-reusable, self-locking, and non-releasable, with a minimum unlocking strength Control of Hazardous Energy (Lockout/Tagout) of 50 pounds. Tags must be attachable by hand, and the device for attaching the tag should be a one-piece nylon cable tie or its equivalent so it can withstand all environments and conditions.
+• Substantial enough to minimize the likelihood of premature or accidental removal. Employees should be able to remove locks only by using excessive force with special tools such as bolt cutters or other metal-cutting tools. Tag attachments must be non-reusable, self-locking, and non-releasable, with a minimum unlocking strength Control of Hazardous Energy (Lockout/Tagout) [[page 19]] of 50 pounds. Tags must be attachable by hand, and the device for attaching the tag should be a one-piece nylon cable tie or its equivalent so it can withstand all environments and conditions.
 • Labeled to identify the specific employees authorized to apply and remove them.
 
 ## What do employees need to know about lockout/tagout programs?
@@ -174,7 +173,7 @@ Training must ensure that employees understand the purpose, function, and restri
 • Energy-control procedures, including the methods and means to isolate and control those energy sources.
 “Affected” employees (usually machine operators or users) are employees who operate the relevant machinery or whose jobs require them to be in the area where service or maintenance is performed. These employees do not service or maintain machinery or perform lockout/tagout activities. Affected employees must receive training in the purpose and use of energy-control procedures. They also need to be able to do the following:
 • Recognize when the energy-control procedure is being used, What are the requirements for lockout/tagout devices?
-• Understand the purpose of the procedure, and
+[[page 20]] • Understand the purpose of the procedure, and
 • Understand the importance of not tampering with lockout or tagout devices and not starting or using equipment that has been locked or tagged out.
 All other employees whose work operations are or may be in an area where energy-control procedures are used must receive instruction regarding the energy-control procedure and the prohibition against removing a lockout or tagout device and attempting to restart, reenergize, or operate the machinery.
 In addition, if tagout devices are used, all employees must receive training regarding the limitations of tags.
@@ -192,7 +191,7 @@ Control of Hazardous Energy (Lockout/Tagout)
 
 ## What if I need power to test or position machines, equipment, or components?
 
-OSHA allows the temporary removal of lockout or tagout devices and the reenergization of the machine only in limited situations for particular tasks that require energization—for example, when power is needed to test or position machines, equipment, or components. However, this temporary exception applies only for the limited time required to perform the particular task requiring energization. Employers must provide effective protection from hazardous energy when employees perform these operations. The following steps must be performed in sequence before reenergization:
+[[page 21]] OSHA allows the temporary removal of lockout or tagout devices and the reenergization of the machine only in limited situations for particular tasks that require energization—for example, when power is needed to test or position machines, equipment, or components. However, this temporary exception applies only for the limited time required to perform the particular task requiring energization. Employers must provide effective protection from hazardous energy when employees perform these operations. The following steps must be performed in sequence before reenergization:
 1. Clear tools and materials from machines.
 2. Clear employees from the area around the machines.
 3. Remove the lockout or tagout devices as specified in the standard.
@@ -203,7 +202,7 @@ What if I need power to test or position machines?
 
 ## What if I use outside contractors for service or maintenance procedures?
 
-If an outside contractor services or maintains machinery, the onsite employer and the contractor must inform each other of their respective lockout or tagout procedures. The onsite employer also must ensure that employees understand and comply with all requirements of the contractor's energy-control program(s).
+[[page 22]] If an outside contractor services or maintains machinery, the onsite employer and the contractor must inform each other of their respective lockout or tagout procedures. The onsite employer also must ensure that employees understand and comply with all requirements of the contractor's energy-control program(s).
 
 ## What if a group performs service or maintenance activities?
 
@@ -217,7 +216,7 @@ Control of Hazardous Energy (Lockout/Tagout)
 
 ## How often do I need to review my lockout/tagout procedures?
 
-Employees are required to review their procedures at least once a year to ensure that they provide adequate worker protection. As part of the review, employers must correct any deviations and inadequacies identified in the energy-control procedure or its application.
+[[page 23]] Employees are required to review their procedures at least once a year to ensure that they provide adequate worker protection. As part of the review, employers must correct any deviations and inadequacies identified in the energy-control procedure or its application.
 
 ## What does a review entail?
 
@@ -236,7 +235,7 @@ How often do I need to review my lockout/tagout procedures?
 
 ## What additional information does OSHA provide about lockout/tagout?
 
-To gain a more comprehensive understanding of the requirements for controlling hazardous energy, employers and other interested persons should review the following:
+[[page 24]] To gain a more comprehensive understanding of the requirements for controlling hazardous energy, employers and other interested persons should review the following:
 • OSHA standards with provisions regarding the control of hazardous energy such as 29 CFR 1910.147, The control of hazardous energy (lockout/tagout); 29 CFR 1910.269, Electric power generation, transmission, and distribution;
 and 29 CFR 1910.333, Selection and use of work practices.
 Employers in the maritime, agriculture, and construction industries are urged to review the provisions for the control of hazardous energy contained in 29 CFR Parts 1915, 1917, 1918, 1925, and 1926.
@@ -244,7 +243,7 @@ Employers in the maritime, agriculture, and construction industries are urged to
 • OSHA instructions concerning the control of hazardous energy—Directive CPL 2-1.18A, Enforcement of the Electrical Power Generation, Transmission, and Distribution Standard (October 20, 1997) and OSHA Directive STD 1-7.3, 29 CFR 1910.147, the Control of Hazardous Energy (Lockout/Tagout)-Inspection Procedures and Interpretive Guidance, (September 11, 1990).
 • OSHA letters of interpretation regarding the application of standards concerning the control of hazardous energy.
 Most of these documents are available on the OSHA website at www.osha.gov.
-Control of Hazardous Energy (Lockout/Tagout) Additionally, OSHA offers a variety of web-based tools to help educate employers and employees about the lockout/tagout standard and how to apply it in their workplace. These include the following:
+Control of Hazardous Energy (Lockout/Tagout) [[page 25]] Additionally, OSHA offers a variety of web-based tools to help educate employers and employees about the lockout/tagout standard and how to apply it in their workplace. These include the following:
 • The Lockout/Tagout Interactive Training Program, which includes a tutorial, five abstracts with a detailed discussion of major lockout/tagout issues involved, and interactive case studies;
 • The Lockout/Tagout Plus Expert Advisor, an interactive, expert, diagnostic software package to help users understand and apply OSHA standards that protect workers from the release of hazardous energy; and
 • The Lockout/Tagout electronic Compliance Assistant Tool (eCAT), an illustrated tool to help businesses identify and correct workplace hazards.
@@ -253,13 +252,13 @@ What additional information does OSHA provide about lockout/tagout?
 
 ## Commonly Used Terms
 
-Affected employee. An employee whose job requires him/her to operate or use a machine or equipment on which servicing or maintenance is being performed under lockout or tagout, or whose job requires him/her to work in an area in which such servicing or maintenance is being performed.
+[[page 26]] Affected employee. An employee whose job requires him/her to operate or use a machine or equipment on which servicing or maintenance is being performed under lockout or tagout, or whose job requires him/her to work in an area in which such servicing or maintenance is being performed.
 Authorized employee. A person who locks out or tags out machines or equipment in order to perform servicing or maintenance on that machine or equipment. An affected employee becomes an authorized employee when that employee's duties include performing servicing or maintenance covered under the standard.
 Capable of being locked out. An energy-isolating device is capable of being locked out if it has a hasp or other means of attachment to which, or through which, a lock can be affixed, or it has a locking mechanism built into it. Other energy-isolating devices are capable of being locked out, if lockout can be achieved, without the need to dismantle, rebuild, or replace the energyisolating device or permanently alter its energy control capability.
 Energized. Connected to an energy source or containing residual or stored energy.
 Energy-isolating device. A mechanical device that physically prevents the transmission or release of energy, including but not limited to the following: a manually operated electrical circuit breaker; a disconnect switch; a manually operated switch by which the conductors of a circuit can be disconnected from all ungrounded supply conductors, and in addition, no pole can be operated independently; a line valve; a block; and any similar device used to block or isolate energy.  Push buttons, selector switches and other control circuit-type devices are not energy-isolating devices.
 Energy source. Any source of electrical, mechanical, hydraulic, pneumatic, chemical, thermal, or other energy.
-Hot tap. A procedure used in the repair, maintenance, and services activities, which involve welding on a piece of equipment (pipelines, vessels, or tanks) under pressure, in order to install connections or appurtenances. It is commonly used Control of Hazardous Energy (Lockout/Tagout) to replace or add sections of pipeline without the interruption of service for air, gas, water, steam, and petrochemical distribution systems.
+Hot tap. A procedure used in the repair, maintenance, and services activities, which involve welding on a piece of equipment (pipelines, vessels, or tanks) under pressure, in order to install connections or appurtenances. It is commonly used Control of Hazardous Energy (Lockout/Tagout) [[page 27]] to replace or add sections of pipeline without the interruption of service for air, gas, water, steam, and petrochemical distribution systems.
 Lockout. The placement of a lockout device on an energy-isolating device, in accordance with an established procedure, ensuring that the energy-isolating device and the equipment being controlled cannot be operated until the lockout device is removed.
 Lockout device. A device that uses a positive means such as a lock, either key or combination type, to hold an energyisolating device in the safe position and prevent the energizing of a machine or equipment. Included are blank flanges and bolted slip blinds.
 Normal production operations. The utilization of a machine or equipment to perform its intended production function.
@@ -271,7 +270,7 @@ Commonly Used Terms
 
 ## OSHA Assistance, Programs, and Services How can OSHA help me?
 
-OSHA can provide extensive help through a variety of programs, including assistance about safety and health programs, state plans, workplace consultations, voluntary protection programs, strategic partnerships, training and education, and more.
+[[page 28]] OSHA can provide extensive help through a variety of programs, including assistance about safety and health programs, state plans, workplace consultations, voluntary protection programs, strategic partnerships, training and education, and more.
 
 ## How does safety and health program management assistance help employers and employees?
 
@@ -287,7 +286,7 @@ Control of Hazardous Energy (Lockout/Tagout)
 
 ## What are state plans?
 
-State plans are OSHA-approved job safety and health programs operated by individual states or territories instead of Federal OSHA. The Occupational Safety and Health Act of 1970 (OSH Act) encourages states to develop and operate their own job safety and health plans and permits state enforcement of OSHA standards if the state has an approved plan. Once OSHA approves a state plan, it funds 50 percent of the program's operating costs.  State plans must provide standards and enforcement programs, as well as voluntary compliance activities that are at least as effective as those of Federal OSHA.
+[[page 29]] State plans are OSHA-approved job safety and health programs operated by individual states or territories instead of Federal OSHA. The Occupational Safety and Health Act of 1970 (OSH Act) encourages states to develop and operate their own job safety and health plans and permits state enforcement of OSHA standards if the state has an approved plan. Once OSHA approves a state plan, it funds 50 percent of the program's operating costs.  State plans must provide standards and enforcement programs, as well as voluntary compliance activities that are at least as effective as those of Federal OSHA.
 There are 26 state plans: 23 cover both private and public (state and local governments) employment, and 3 (Connecticut, New Jersey, and New York) cover only the public sector.
 For more information on state plans, see the listing at the end of this publication, or visit OSHA's website at www.osha.gov.
 
@@ -299,7 +298,7 @@ What are state plans?
 
 ## Who can get consultation assistance and what does it cost?
 
-Consultation assistance is available to small employers with fewer than 250 employees at a fixed site and no more than 500 corporatewide who want help in establishing and maintaining a safe and healthful workplace.
+[[page 30]] Consultation assistance is available to small employers with fewer than 250 employees at a fixed site and no more than 500 corporatewide who want help in establishing and maintaining a safe and healthful workplace.
 Funded largely by OSHA, the service is provided at no cost to the employer. Primarily developed for smaller employers with more hazardous operations, the consultation service is delivered by state governments employing professional safety and health consultants. No penalties are proposed or citations issued for hazards identified by the consultant. The employer's only obligation is to correct all identified serious hazards within the agreed-upon correction time frame.
 
 ## Can OSHA assure privacy to an employer who asks for consultation assistance?
@@ -312,7 +311,7 @@ If an employer fails to eliminate or control a serious hazard within the agreed-
 
 ## What incentives does OSHA provide for seeking consultation assistance?
 
-Under the consultation program, certain exemplary employers may request participation in OSHA's Safety and Health Achievement Recognition Program (SHARP).  Eligibility Control of Hazardous Energy (Lockout/Tagout) for participation in SHARP includes, but is not limited to, receiving a full-service, comprehensive consultation visit, correcting all identified hazards, and developing an effective safety and health management system.
+Under the consultation program, certain exemplary employers may request participation in OSHA's Safety and Health Achievement Recognition Program (SHARP).  Eligibility Control of Hazardous Energy (Lockout/Tagout) [[page 31]] for participation in SHARP includes, but is not limited to, receiving a full-service, comprehensive consultation visit, correcting all identified hazards, and developing an effective safety and health management system.
 Employers accepted into SHARP may receive an exemption from programmed inspections (not complaint or accident investigation inspections) for a period of 1 year initially, or 2 years upon renewal.
 For more information concerning consultation assistance, see the list of consultation offices beginning on page 34, contact your regional or area OSHA office, or visit OSHA's website at www.osha.gov.
 
@@ -332,7 +331,7 @@ What incentives does OSHA provide for seeking consultation assistance?
 
 ## How does VPP help employers and employees?
 
-VPP participation can mean the following:
+[[page 32]] VPP participation can mean the following:
 • Reduced numbers of worker fatalities, injuries, and illnesses;
 • Lost-workday case rates generally 50 percent below industry averages;
 • Lower workers' compensation and other injury- and illness-related costs;
@@ -348,7 +347,7 @@ OSHA reviews an employer's VPP application and conducts a VPP Onsite Evaluation 
 ## Can OSHA inspect an employer who is participating in the VPP?
 
 Sites participating in VPP are not scheduled for regular, programmed inspections. OSHA handles any employee complaints, serious accidents, or significant chemical releases that may occur at VPP sites according to routine enforcement procedures.
-Control of Hazardous Energy (Lockout/Tagout) Additional information on VPP is available from OSHA national, regional, and area offices, listed beginning on page 34.
+Control of Hazardous Energy (Lockout/Tagout) [[page 33]] Additional information on VPP is available from OSHA national, regional, and area offices, listed beginning on page 34.
 Also, see Outreach at OSHA's website at www.osha.gov.
 
 ## How can a partnership with OSHA improve worker safety and health?
@@ -366,7 +365,7 @@ Can OSHA inspect an employer who is participating in the VPP?
 
 ## What are the different kinds of OSPPs?
 
-There are two major types:
+[[page 34]] There are two major types:
 • Comprehensive, which focuses on establishing comprehensive safety and health management systems at partnering worksites; and
 • Limited, which helps identify and eliminate hazards associated with worker deaths, injuries, and illnesses, or have goals other than establishing comprehensive worksite safety and health programs.
 OSHA is interested in creating new OSPPs at the national, regional, and local levels. OSHA also has found limited partnerships to be valuable. Limited partnerships might address the elimination or control of a specific industry hazard.
@@ -385,7 +384,7 @@ Control of Hazardous Energy (Lockout/Tagout)
 
 ## Does OSHA have occupational safety and health training for employers and employees?
 
-Yes.  The OSHA Training Institute in Des Plaines, IL, provides basic and advanced training and education in safety and health for federal and state compliance officers, state consultants, other federal agency personnel, and private-sector employers, employees, and their representatives.
+[[page 35]] Yes.  The OSHA Training Institute in Des Plaines, IL, provides basic and advanced training and education in safety and health for federal and state compliance officers, state consultants, other federal agency personnel, and private-sector employers, employees, and their representatives.
 Institute courses cover diverse safety and health topics including electrical hazards, machine guarding, personal protective equipment, ventilation, and ergonomics. The facility includes classrooms, laboratories, a library, and an audiovisual unit. The laboratories contain various demonstrations and equipment, such as power presses, woodworking and welding shops, a complete industrial ventilation unit, and a sound demonstration laboratory.  More than 57 courses dealing with subjects such as safety and health in the construction industry and methods of compliance with OSHA standards are available for personnel in the private sector.
 In addition, OSHA's 73 area offices are full-service centers offering a variety of informational services such as personnel for speaking engagements, publications, audiovisual aids on workplace hazards, and technical advice.
 
@@ -393,7 +392,7 @@ In addition, OSHA's 73 area offices are full-service centers offering a variety 
 
 OSHA awards grants through its Susan Harwood Training Grant Program to nonprofit organizations to provide safety and health training and education to employers and workers in the workplace. The grants focus on programs that will educate workers and employers in small business (fewer than 250 employees), train workers and employers about new OSHA standards, or a high-risk activities or hazards. Grants are awarded for 1 year and may be renewed for an additional 12 months depending on whether the grantee has performed satisfactorily.
 Does OSHA have occupational safety and health training?
-OSHA expects each organization awarded a grant to develop a training and/or education program that addresses a safety and health topic named by OSHA, recruit workers and employers for the training, and conduct the training. Grantees are also expected to follow up with people who have been trained to find out what changes were made to reduce the hazards in their workplaces as a result of the training.
+[[page 36]] OSHA expects each organization awarded a grant to develop a training and/or education program that addresses a safety and health topic named by OSHA, recruit workers and employers for the training, and conduct the training. Grantees are also expected to follow up with people who have been trained to find out what changes were made to reduce the hazards in their workplaces as a result of the training.
 Each year OSHA has a national competition that is announced in the Federal Register and on the Internet at www.osha-slc.gov/ Training/sharwood/sharwood.html.  If you do not have access to the Internet, you can contact the OSHA Office of Training and Education, 1555 Times Drive, Des Plaines, IL 60018, (847) 297–4810, for more information.
 
 ## Does OSHA have other assistance materials available?
@@ -404,7 +403,7 @@ Control of Hazardous Energy (Lockout/Tagout)
 
 ## What do I do in case of an emergency or to file a complaint?
 
-To report an emergency, file a complaint, or seek OSHA advice, assistance, or products, call (800) 321–OSHA or contact your nearest OSHA regional or area office listed at the end of this publication. The teletypewriter (TTY) number is (877) 889–5627.
+[[page 37]] To report an emergency, file a complaint, or seek OSHA advice, assistance, or products, call (800) 321–OSHA or contact your nearest OSHA regional or area office listed at the end of this publication. The teletypewriter (TTY) number is (877) 889–5627.
 You can also file a complaint online and obtain more information on OSHA federal and state programs by visiting OSHA's website at www.osha.gov.
 For more information on grants, training, and education, write: OSHA Training Institute, Office of Training and Education, 1555 Times Drive, Des Plaines, IL 60018;
 call (847) 297-4810; or see Outreach on OSHA's website at www.osha.gov.
@@ -414,7 +413,7 @@ What do I do in case of an emergency or to file a complaint?
 
 ## Region I
 
-(CT,* MA, ME, NH, RI, VT*) JFK Federal Building Room E-340 Boston, MA 02203 Telephone:  (617) 565–9860
+[[page 38]] (CT,* MA, ME, NH, RI, VT*) JFK Federal Building Room E-340 Boston, MA 02203 Telephone:  (617) 565–9860
 
 ## Region II
 
@@ -455,12 +454,12 @@ Control of Hazardous Energy (Lockout/Tagout)
 
 ## OSHA Area Offices
 
-Anchorage, AK (907) 271–5152 Birmingham, AL (205) 731–1534 Mobile, AL (334) 441–6131 Little Rock, AR (501) 324–6291 (5818) Phoenix, AZ (602) 640–2348 Sacramento, CA (916) 566–7471 San Diego, CA (619) 557–5909 Denver, CO (303) 844–5285 Englewood, CO (303) 843–4500 Bridgeport, CT (203) 579–5581 Hartford, CT (860) 240–3152 Wilmington, DE (302) 573–6518 Fort Lauderdale, FL (954) 424–0242 Jacksonville, FL (904) 232–2895 Tampa, FL (813) 626–1177 Savannah, GA (912) 652–4393 Smyrna, GA (770) 984–8700 Tucker, GA (770) 493–6644/6742/8419 Des Moines, IA (515) 284–4794 Boise, ID (208) 321–2960 Calumet City, IL (708) 891–3800 Des Plaines, IL (847) 803–4800 Fairview Heights, IL (618) 632–8612 North Aurora, IL (630) 896–8700 Peoria, IL (309) 671–7033 Indianapolis, IN (317) 226–7290 Wichita, KS (316) 269–6644 Frankfort, KY (502) 227–7024 Baton Rouge, LA (225) 389–0474 (0431) Braintree, MA (617) 565–6924 Methuen, MA (617) 565–8110 Springfield, MA (413) 785–0123 Linthicum, MD (410) 865–2055/2056 Augusta, ME (207) 622–8417 OSHA Regional and Area Offices Bangor, ME (207) 941–8177 Portland, ME (207) 780–3178 Lansing, MI (517) 327–0904 Minneapolis, MN (612) 664–5460 Kansas City, MO (816) 483–9531 St. Louis, MO (314) 425–4289 Jackson, MS (601) 965–4606 Billings, MT (406) 247–7494 Raleigh, NC (919) 856–4770 Bismark, ND (701) 250–4521 Omaha, NE (402) 221–3182 Concord, NH (603) 225–1629 Avenel, NJ (732) 750–3270 Hasbrouck Heights, NJ (201) 288–1700 Marlton, NJ (609) 757–5181 Parsippany, NJ (973) 263–1003 Albuquerque, NM (505) 248–5302 Carson City, NV (775) 885–6963 Albany, NY (518) 464–4338 Bayside, NY (718) 279–9060 Bowmansville, NY (716) 684–3891 New York, NY (212) 466–2482 North Syracuse, NY (315) 451–0808 Tarrytown, NY (914) 524–7510 Westbury, NY (516) 334–3344 Cincinnati, OH (513) 841–4132 Cleveland, OH (216) 522–3818 Columbus, OH (614) 469–5582 Toledo, OH (419) 259–7542 Oklahoma City, OK (405) 231–5351 (5389) Portland, OR (503) 326–2251 Allentown, PA (610) 776–0592 Erie, PA (814) 833–5758 Harrisburg, PA (717) 782–3902 Control of Hazardous Energy (Lockout/Tagout) Philadelphia, PA (215) 597–4955 Pittsburgh, PA (412) 395–4903 Wilkes–Barre, PA (570) 826–6538 Guaynabo, PR (787) 277–1560 Providence, RI (401) 528–4669 Columbia, SC (803) 765–5904 Nashville, TN (615) 781–5423 Austin, TX (512) 916–5783 (5788) Corpus Christi, TX (512) 888–3420 Dallas, TX (214) 320–2400 (2558) El Paso, TX (915) 534–6251 Fort Worth, TX (817) 428–2470 (485–7647) Houston, TX (281) 591–2438 (2787) Houston, TX (281) 286–0583/0584 (5922) Lubbock, TX (806) 472–7681 (7685) Salt Lake City, UT (801) 530–6901 Norfolk, VA (757) 441–3820 Bellevue, WA (206) 553–7520 Appleton, WI (920) 734–4521 Eau Claire, WI (715) 832–9019 Madison, WI (608) 264–5388 Milwaukee, WI (414) 297–3315 Charleston, WV (304) 347–5937 OSHA Regional and Area Offices
+[[page 39]] Anchorage, AK (907) 271–5152 Birmingham, AL (205) 731–1534 Mobile, AL (334) 441–6131 Little Rock, AR (501) 324–6291 (5818) Phoenix, AZ (602) 640–2348 Sacramento, CA (916) 566–7471 San Diego, CA (619) 557–5909 Denver, CO (303) 844–5285 Englewood, CO (303) 843–4500 Bridgeport, CT (203) 579–5581 Hartford, CT (860) 240–3152 Wilmington, DE (302) 573–6518 Fort Lauderdale, FL (954) 424–0242 Jacksonville, FL (904) 232–2895 Tampa, FL (813) 626–1177 Savannah, GA (912) 652–4393 Smyrna, GA (770) 984–8700 Tucker, GA (770) 493–6644/6742/8419 Des Moines, IA (515) 284–4794 Boise, ID (208) 321–2960 Calumet City, IL (708) 891–3800 Des Plaines, IL (847) 803–4800 Fairview Heights, IL (618) 632–8612 North Aurora, IL (630) 896–8700 Peoria, IL (309) 671–7033 Indianapolis, IN (317) 226–7290 Wichita, KS (316) 269–6644 Frankfort, KY (502) 227–7024 Baton Rouge, LA (225) 389–0474 (0431) Braintree, MA (617) 565–6924 Methuen, MA (617) 565–8110 Springfield, MA (413) 785–0123 Linthicum, MD (410) 865–2055/2056 Augusta, ME (207) 622–8417 OSHA Regional and Area Offices [[page 40]] Bangor, ME (207) 941–8177 Portland, ME (207) 780–3178 Lansing, MI (517) 327–0904 Minneapolis, MN (612) 664–5460 Kansas City, MO (816) 483–9531 St. Louis, MO (314) 425–4289 Jackson, MS (601) 965–4606 Billings, MT (406) 247–7494 Raleigh, NC (919) 856–4770 Bismark, ND (701) 250–4521 Omaha, NE (402) 221–3182 Concord, NH (603) 225–1629 Avenel, NJ (732) 750–3270 Hasbrouck Heights, NJ (201) 288–1700 Marlton, NJ (609) 757–5181 Parsippany, NJ (973) 263–1003 Albuquerque, NM (505) 248–5302 Carson City, NV (775) 885–6963 Albany, NY (518) 464–4338 Bayside, NY (718) 279–9060 Bowmansville, NY (716) 684–3891 New York, NY (212) 466–2482 North Syracuse, NY (315) 451–0808 Tarrytown, NY (914) 524–7510 Westbury, NY (516) 334–3344 Cincinnati, OH (513) 841–4132 Cleveland, OH (216) 522–3818 Columbus, OH (614) 469–5582 Toledo, OH (419) 259–7542 Oklahoma City, OK (405) 231–5351 (5389) Portland, OR (503) 326–2251 Allentown, PA (610) 776–0592 Erie, PA (814) 833–5758 Harrisburg, PA (717) 782–3902 Control of Hazardous Energy (Lockout/Tagout) [[page 41]] Philadelphia, PA (215) 597–4955 Pittsburgh, PA (412) 395–4903 Wilkes–Barre, PA (570) 826–6538 Guaynabo, PR (787) 277–1560 Providence, RI (401) 528–4669 Columbia, SC (803) 765–5904 Nashville, TN (615) 781–5423 Austin, TX (512) 916–5783 (5788) Corpus Christi, TX (512) 888–3420 Dallas, TX (214) 320–2400 (2558) El Paso, TX (915) 534–6251 Fort Worth, TX (817) 428–2470 (485–7647) Houston, TX (281) 591–2438 (2787) Houston, TX (281) 286–0583/0584 (5922) Lubbock, TX (806) 472–7681 (7685) Salt Lake City, UT (801) 530–6901 Norfolk, VA (757) 441–3820 Bellevue, WA (206) 553–7520 Appleton, WI (920) 734–4521 Eau Claire, WI (715) 832–9019 Madison, WI (608) 264–5388 Milwaukee, WI (414) 297–3315 Charleston, WV (304) 347–5937 OSHA Regional and Area Offices
 
 ## OSHA Consultation Projects
 
-Anchorage, AK (907) 269–4957 Tuscaloosa, AL (205) 348–3033 Little Rock, AR (501) 682–4522 Phoenix, AZ (602) 542–1695 Sacramento, CA (916) 574–2555 Fort Collins, CO (970) 491–6151 Wethersfield, CT (860) 566–4550 Washington, DC (202) 541–3727 Wilmington, DE (302) 761–8219 Tampa, FL (813) 974–9962 Atlanta, GA (404) 894–2643 Tiyam, GU 9–1–(671) 475–1101 Honolulu, HI (808) 586–9100 Des Moines, IA (515) 281–7629 Boise, ID (208) 426–3283 Chicago, IL (312) 814–2337 Indianapolis, IN (317) 232–2688 Topeka, KS (785) 296–7476 Frankfort, KY (502) 564–6895 Baton Rouge, LA (225) 342–9601 West Newton, MA (617) 727–3982 Laurel, MD (410) 880–4970 Augusta, ME (207) 624–6460 Lansing, MI (517) 322–1809 Saint Paul, MN (651) 297–2393 Jefferson City, MO (573) 751–3403 Jackson, MS (601) 987–3981 Helena, MT (406) 444–6418 Raleigh, NC (919) 807–2905 Bismarck, ND (701) 328–5188 Lincoln, NE (402) 471–4717 Concord, NH (603) 271–2024 Trenton, NJ (609) 292–3923 Santa Fe, NM (505) 827–4230 Control of Hazardous Energy (Lockout/Tagout) Albany, NY (518) 457–2238 Henderson, NV (702) 486–9140 Columbus, OH (614) 644–2631 Oklahoma City, OK (405) 528–1500 Salem, OR (503) 378–3272 Indiana, PA (724) 357–2396 Hato Rey, PR (787) 754–2171 Providence, RI (401) 222–2438 Columbia, SC (803) 734–9614 Brookings, SD (605) 688–4101 Nashville, TN (615) 741–7036 Austin, TX (512) 804–4640 Salt Lake City, UT (801) 530–6901 Richmond, VA (804) 786–6359 Christiansted St. Croix, VI (809) 772–1315 Montepilier, VT (802) 828–2765 Olympia, WA (360) 902–5638 Madison, WI (608) 266–9383 Waukesha, WI (262) 523–3044 Charleston, WV (304) 558–7890 Cheyenne, WY (307) 777–7786 OSHA Consultation Projects
+[[page 42]] Anchorage, AK (907) 269–4957 Tuscaloosa, AL (205) 348–3033 Little Rock, AR (501) 682–4522 Phoenix, AZ (602) 542–1695 Sacramento, CA (916) 574–2555 Fort Collins, CO (970) 491–6151 Wethersfield, CT (860) 566–4550 Washington, DC (202) 541–3727 Wilmington, DE (302) 761–8219 Tampa, FL (813) 974–9962 Atlanta, GA (404) 894–2643 Tiyam, GU 9–1–(671) 475–1101 Honolulu, HI (808) 586–9100 Des Moines, IA (515) 281–7629 Boise, ID (208) 426–3283 Chicago, IL (312) 814–2337 Indianapolis, IN (317) 232–2688 Topeka, KS (785) 296–7476 Frankfort, KY (502) 564–6895 Baton Rouge, LA (225) 342–9601 West Newton, MA (617) 727–3982 Laurel, MD (410) 880–4970 Augusta, ME (207) 624–6460 Lansing, MI (517) 322–1809 Saint Paul, MN (651) 297–2393 Jefferson City, MO (573) 751–3403 Jackson, MS (601) 987–3981 Helena, MT (406) 444–6418 Raleigh, NC (919) 807–2905 Bismarck, ND (701) 328–5188 Lincoln, NE (402) 471–4717 Concord, NH (603) 271–2024 Trenton, NJ (609) 292–3923 Santa Fe, NM (505) 827–4230 Control of Hazardous Energy (Lockout/Tagout) [[page 43]] Albany, NY (518) 457–2238 Henderson, NV (702) 486–9140 Columbus, OH (614) 644–2631 Oklahoma City, OK (405) 528–1500 Salem, OR (503) 378–3272 Indiana, PA (724) 357–2396 Hato Rey, PR (787) 754–2171 Providence, RI (401) 222–2438 Columbia, SC (803) 734–9614 Brookings, SD (605) 688–4101 Nashville, TN (615) 741–7036 Austin, TX (512) 804–4640 Salt Lake City, UT (801) 530–6901 Richmond, VA (804) 786–6359 Christiansted St. Croix, VI (809) 772–1315 Montepilier, VT (802) 828–2765 Olympia, WA (360) 902–5638 Madison, WI (608) 266–9383 Waukesha, WI (262) 523–3044 Charleston, WV (304) 558–7890 Cheyenne, WY (307) 777–7786 OSHA Consultation Projects
 
 ## OSHA-Approved Safety and Health Plans
 
-Juneau, AK (907) 465–2700 Phoenix, AZ (602) 542–5795 San Francisco, CA (415) 703–5050 Wethersfield, CT (860) 263–6505 Honolulu, HI (808) 586–8844 Des Moines, IA (515) 281–3447 Indianapolis, ID (317) 232–2378 Indianapolis, IN (317) 232–3325 Frankfort, KY (502) 564–3070 Baltimore, MD (410) 767–2215 Lansing, MI (517) 322–1814 St. Paul, MN (651) 284–5010 Raleigh, NC (919) 807–2900 Trenton, NJ (609) 292–2975 Santa Fe, NM (505) 827–2850 Carson City, NV (775) 684–7260 Salem, OR (503) 378–3272 Hato Rey, PR (787) 754–2119 Columbia, SC (803) 896–4300 Nashville, TN (615) 741–2582 Salt Lake City, UT (801) 530–6901 Richmond, VA (804) 786–2377 Christiansted, St. Croix, VI (340) 773–1990 Montpelier VT (802) 828–2288 Olympia, WA (360) 902–4200 (360) 902–5430 Cheyenne, WY (307) 777–7786 Control of Hazardous Energy (Lockout/Tagout)
+[[page 44]] Juneau, AK (907) 465–2700 Phoenix, AZ (602) 542–5795 San Francisco, CA (415) 703–5050 Wethersfield, CT (860) 263–6505 Honolulu, HI (808) 586–8844 Des Moines, IA (515) 281–3447 Indianapolis, ID (317) 232–2378 Indianapolis, IN (317) 232–3325 Frankfort, KY (502) 564–3070 Baltimore, MD (410) 767–2215 Lansing, MI (517) 322–1814 St. Paul, MN (651) 284–5010 Raleigh, NC (919) 807–2900 Trenton, NJ (609) 292–2975 Santa Fe, NM (505) 827–2850 Carson City, NV (775) 684–7260 Salem, OR (503) 378–3272 Hato Rey, PR (787) 754–2119 Columbia, SC (803) 896–4300 Nashville, TN (615) 741–2582 Salt Lake City, UT (801) 530–6901 Richmond, VA (804) 786–2377 Christiansted, St. Croix, VI (340) 773–1990 Montpelier VT (802) 828–2288 Olympia, WA (360) 902–4200 (360) 902–5430 Cheyenne, WY (307) 777–7786 Control of Hazardous Energy (Lockout/Tagout)

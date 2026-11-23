@@ -60,7 +60,12 @@ input, textarea { font: inherit; width: 100%; padding: 9px 11px; border: 1px sol
 .bubble ul { margin: 4px 0 8px; padding-left: 20px; }
 .bubble code { background: var(--code); padding: 1px 4px; border-radius: 4px; }
 .cite { background: var(--accent-soft); color: var(--accent); border-radius: 4px;
-  padding: 0 4px; font-size: 12px; font-weight: 600; }
+  padding: 0 4px; font-size: 12px; font-weight: 600; border: 0; margin: 0 1px; }
+button.cite { cursor: pointer; line-height: 1.4; vertical-align: baseline; }
+button.cite:hover, button.src:hover .cite { background: var(--accent); color: #fff; }
+.sources button.src { background: none; color: var(--muted); padding: 2px 0; text-align: left;
+  font-size: 13px; }
+.sources button.src:hover { color: var(--text); }
 .tools { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 8px; }
 .chip { font-size: 12px; border: 1px solid var(--line); border-radius: 999px; padding: 2px 9px;
   color: var(--muted); background: var(--panel); }
@@ -82,6 +87,44 @@ input, textarea { font: inherit; width: 100%; padding: 9px 11px; border: 1px sol
 .tickets { padding: 24px max(16px, calc(50% - 400px)); overflow-y: auto; flex: 1; }
 .tickets table { width: 100%; border-collapse: collapse; font-size: 14px; }
 .tickets th, .tickets td { text-align: left; border-bottom: 1px solid var(--line); padding: 6px; }
+
+.main { position: relative; }
+.source-panel { position: absolute; top: 0; right: 0; bottom: 0; width: min(440px, 100%);
+  background: var(--panel); border-left: 1px solid var(--line); box-shadow: -8px 0 24px #0002;
+  padding: 16px 18px; overflow-y: auto; z-index: 5; }
+.source-head { display: flex; justify-content: space-between; gap: 8px; align-items: start;
+  margin-bottom: 8px; }
+.source-head button { font-size: 22px; line-height: 1; }
+.passage { margin: 10px 0; padding: 10px 14px; border-left: 3px solid var(--accent);
+  background: var(--bg); border-radius: 0 8px 8px 0; font-size: 14px; }
+.links { display: flex; flex-wrap: wrap; gap: 10px; }
+.links a { color: var(--accent); }
+.badge { background: var(--accent-soft); color: var(--accent); border-radius: 999px;
+  padding: 0 8px; font-size: 12px; }
+table.kv { width: 100%; border-collapse: collapse; font-size: 13px; }
+table.kv th { text-align: left; vertical-align: top; color: var(--muted); padding: 4px 8px 4px 0;
+  white-space: nowrap; font-weight: 500; }
+table.kv td { padding: 4px 0; border-bottom: 1px solid var(--line); }
+table.kv pre { margin: 0; white-space: pre-wrap; font-size: 12px; }
+
+/* wide screens: the chat makes room for the panel instead of being covered */
+@media (min-width: 1000px) {
+  .main.panel-open .messages, .main.panel-open .composer, .main.panel-open .tickets {
+    padding-right: calc(min(440px, 100%) + 24px);
+  }
+}
+
+/* readable document pages (/docs/...) */
+body.doc-page { background: var(--bg); }
+.document { max-width: 820px; margin: 0 auto; padding: 24px 16px 60px; }
+.document h2, .document h3, .document h4 { margin-top: 1.6em; scroll-margin-top: 40px; }
+.document table { border-collapse: collapse; margin: 10px 0; }
+.document th, .document td { border: 1px solid var(--line); padding: 4px 8px; }
+.document a { color: var(--accent); }
+.doc-meta { color: var(--muted); font-size: 14px; }
+.page { color: var(--muted); font-size: 11px; border: 1px solid var(--line); border-radius: 4px;
+  padding: 0 4px; margin-right: 4px; scroll-margin-top: 80px; }
+.target { background: #fde68a; color: #1d2330; outline: 4px solid #fde68a; }
 
 @media (max-width: 760px) {
   .app { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }

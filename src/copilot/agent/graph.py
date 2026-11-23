@@ -92,6 +92,17 @@ def _source_label(name: str, args: dict) -> str:
     }.get(name, name)
 
 
+MAX_SOURCE_DATA_CHARS = 6000
+
+
+def _source_data(result: dict) -> dict:
+    """Tool output kept with the source so the UI can show what the agent saw."""
+    if len(json.dumps(result, default=str)) <= MAX_SOURCE_DATA_CHARS:
+        return result
+    return {"note": "Output too large to store in full.",
+            "keys": list(result)[:30]}
+
+
 async def run_tool(
     ctx: ToolContext, name: str, raw_args: dict, config: RunnableConfig | None = None
 ) -> tuple[dict | None, str | None]:
@@ -207,6 +218,8 @@ def build_graph(
                 ))
                 continue
             if call["name"] == "search_manuals":
+                # Provenance for the UI only; the LLM sees doc, section and text.
+                meta = result.pop("_meta", {})
                 for passage in result.get("passages", []):
                     n_sources += 1
                     passage["source_id"] = f"S{n_sources}"
@@ -214,14 +227,17 @@ def build_graph(
                         "id": passage["source_id"], "tool": "search_manuals",
                         "label": f"{passage['doc']} - {passage['section']}",
                         "chunk_id": passage["chunk_id"], "doc": passage["doc"],
+                        "section": passage["section"], "text": passage["text"],
+                        **meta.get(passage["chunk_id"], {}),
                     })
             else:
                 n_sources += 1
-                result = {"source_id": f"S{n_sources}", **result}
                 new_sources.append({
                     "id": f"S{n_sources}", "tool": call["name"],
                     "label": _source_label(call["name"], call["args"]), "args": call["args"],
+                    "data": _source_data(result),
                 })
+                result = {"source_id": f"S{n_sources}", **result}
             messages.append(ToolMessage(
                 content=json.dumps(result, default=str, separators=(",", ":")),
                 tool_call_id=call["id"], name=call["name"],

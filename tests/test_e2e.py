@@ -95,6 +95,12 @@ def test_login_chat_and_history(server: str) -> None:
         expect(answer).to_contain_text("mock LLM", timeout=20_000)
         expect(page.locator(".chip.ok").first).to_have_text("get_machine_status")
         expect(page.locator(".sources summary").last).to_contain_text("1 sources, 1 cited")
+        # Clicking the citation shows what the tool returned.
+        page.locator(".answer button.cite").first.click()
+        expect(page.locator("#source-panel")).to_be_visible()
+        expect(page.locator("#source-body")).to_contain_text("model3")
+        page.keyboard.press("Escape")
+        expect(page.locator("#source-panel")).to_be_hidden()
 
         page.reload()
         expect(page.locator(".conv .title").first).to_have_text("What is the status of machine 1?")

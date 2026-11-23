@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import Any
 
 from fastapi import Depends, FastAPI, HTTPException, Request, status
-from fastapi.responses import FileResponse, StreamingResponse
+from fastapi.responses import FileResponse, HTMLResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 from sqlalchemy import delete, func, select, text
@@ -20,6 +20,7 @@ from sqlalchemy import delete, func, select, text
 from copilot.agent.llm import cost_usd
 from copilot.agent.runner import stream_events
 from copilot.api.auth import create_token, current_user, hash_password, verify_password
+from copilot.api.documents import render_document
 from copilot.api.ratelimit import RateLimiter
 from copilot.config import Settings, get_settings
 from copilot.db.models import Conversation, Message, Ticket, User, utcnow
@@ -233,6 +234,25 @@ def create_app(settings: Settings | None = None, **runtime_overrides: Any) -> Fa
         if not await _pending_confirmation(request, conv_id):
             raise HTTPException(status.HTTP_409_CONFLICT, "Nothing to confirm")
         return await _run(request, conv, user, None, {"approved": body.approved})
+
+    # ---------------------------------------------------- sources / documents
+    @app.get("/api/passages/{chunk_id:path}")
+    async def passage(chunk_id: str, request: Request,
+                      user: User = Depends(current_user)) -> dict:
+        """One indexed passage with provenance (for sources of older answers)."""
+        chunks = getattr(rt(request).retriever, "chunks", None) or []
+        for c in chunks:
+            if c.chunk_id == chunk_id:
+                return c.to_dict()
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "Passage not found")
+
+    @app.get("/docs/{doc_id}", response_class=HTMLResponse, include_in_schema=False)
+    async def document(doc_id: str) -> HTMLResponse:
+        """Readable version of a knowledge document (public: synthetic or public domain)."""
+        page = render_document(settings.knowledge_dir, doc_id)
+        if page is None:
+            raise HTTPException(status.HTTP_404_NOT_FOUND, "Document not found")
+        return HTMLResponse(page)
 
     # ------------------------------------------------------------ tickets
     @app.get("/api/tickets")

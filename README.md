@@ -10,7 +10,9 @@ A technician asks *"Machine 17 keeps throwing errors - what's wrong, how risky i
 does the handbook say?"*. A LangGraph agent calls the fleet database, the failure-risk model
 and the document search (in parallel where it can), streams the answer with numbered
 citations [S1], [S2], ... and, if asked, proposes a maintenance ticket that is written only
-after the user clicks *Create ticket*.
+after the user clicks *Create ticket*. Every citation can be clicked: it opens the exact
+passage the answer used (with links to the full document and the original PDF page) or the
+exact data a tool returned, so each claim can be checked.
 
 ## Results
 
@@ -189,6 +191,10 @@ flowchart LR
 - **Backend** (`src/copilot/api/app.py`): async FastAPI, JWT login (argon2 hashes),
   conversations and messages stored per user, SSE streaming of tokens and tool events,
   per-user rate limit, one run per conversation at a time.
+- **Checkable sources**: each source keeps what the agent saw - the passage text with its
+  document, section and PDF page, or the tool's output. The chat page shows it in a side
+  panel; `/docs/<doc>` serves a readable copy of every document with page anchors, and the
+  OSHA links open the original PDF at that page.
 - **Observability**: OpenInference/OpenTelemetry spans for HTTP request, graph, every LLM call
   (prompt, tokens) and every tool call (input, output, latency) in Phoenix.
 

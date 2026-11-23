@@ -238,6 +238,12 @@ async def search_manuals(ctx: ToolContext, args: SearchArgs) -> dict:
              "text": h.chunk.text}
             for h in hits
         ],
+        # Removed by the tools node before the LLM sees the result (UI provenance only).
+        "_meta": {
+            h.chunk.chunk_id: {"doc_id": h.chunk.doc_id, "source_url": h.chunk.source_url,
+                               "page": h.chunk.page, "synthetic": h.chunk.synthetic}
+            for h in hits
+        },
     }
 
 

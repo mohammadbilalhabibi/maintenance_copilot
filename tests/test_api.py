@@ -39,7 +39,8 @@ def make_client(tmp_path: Path, risk_model, knowledge_dir):  # noqa: ANN001, ANN
 
     def build(script: list[AIMessage], **overrides) -> tuple[TestClient, ScriptedLLM]:  # noqa: ANN003
         settings = Settings(database_url=url, sim_now=NOW, fleet_size=3, jwt_secret=SECRET,
-                            phoenix_collector_endpoint=None, _env_file=None, **overrides)
+                            phoenix_collector_endpoint=None, knowledge_dir=knowledge_dir,
+                            _env_file=None, **overrides)
         llm = ScriptedLLM(script=script, seen=[])
         app = create_app(settings, llm=llm, risk_model=risk_model,
                          retriever=BM25Retriever(load_chunks(knowledge_dir)),
@@ -121,6 +122,19 @@ def test_rate_limit(make_client) -> None:  # noqa: ANN001
         url = f"/api/chat/{conv}"
         assert client.post(url, json={"message": "q1"}, headers=h).status_code == 200
         assert client.post(url, json={"message": "q2"}, headers=h).status_code == 429
+
+
+def test_passage_and_document_endpoints(make_client) -> None:  # noqa: ANN001
+    client, _ = make_client([])
+    with client:
+        assert client.get("/api/passages/handbook%230.0").status_code == 401
+        h = login(client)
+        r = client.get("/api/passages/handbook#0.0".replace("#", "%23"), headers=h)
+        assert r.status_code == 200 and r.json()["doc_id"] == "handbook"
+        assert client.get("/api/passages/nope%230.0", headers=h).status_code == 404
+        doc = client.get("/docs/handbook")
+        assert doc.status_code == 200 and "Test Handbook" in doc.text
+        assert client.get("/docs/..%2Fpyproject").status_code == 404
 
 
 def test_index_page(make_client) -> None:  # noqa: ANN001
