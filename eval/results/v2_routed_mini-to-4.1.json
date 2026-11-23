@@ -1,0 +1,4771 @@
+{
+  "name": "v2_routed_mini-to-4.1",
+  "created_at": "2026-11-23T01:33:58+00:00",
+  "variant": "routed",
+  "model": "gpt-4o-mini",
+  "judge_model": "gpt-4.1",
+  "prices_usd_per_m": {
+    "input": 0.15,
+    "cached_input": 0.075,
+    "output": 0.6
+  },
+  "reference_set": {
+    "path": "eval\\reference_set.json",
+    "n": 79,
+    "seed": 42,
+    "evaluated": 79
+  },
+  "wall_seconds": 215.3,
+  "machine": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel",
+  "summary": {
+    "overall": {
+      "n": 79,
+      "answer_correct": 0.962,
+      "tool_selection": 0.962,
+      "cited_any": 0.9545,
+      "doc_cited": 0.85,
+      "unrequested_writes": 0,
+      "invalid_citations": 0,
+      "errors": 0,
+      "latency_p50_s": 2.73,
+      "latency_p95_s": 3.73,
+      "tokens_mean": 3257.6,
+      "cached_input_share": 0.5203,
+      "llm_calls_mean": 3.72,
+      "cost_usd_mean": 0.002022,
+      "cost_usd_total": 0.1597
+    },
+    "by_category": {
+      "document": {
+        "n": 14,
+        "answer_correct": 0.7857,
+        "tool_selection": 0.7857,
+        "cited_any": 0.7857,
+        "doc_cited": 0.7857,
+        "unrequested_writes": 0,
+        "invalid_citations": 0,
+        "errors": 0,
+        "latency_p50_s": 2.92,
+        "latency_p95_s": 3.66,
+        "tokens_mean": 3456.1,
+        "cached_input_share": 0.3587,
+        "llm_calls_mean": 3.79,
+        "cost_usd_mean": 0.00146,
+        "cost_usd_total": 0.0204
+      },
+      "fact": {
+        "n": 29,
+        "answer_correct": 1.0,
+        "tool_selection": 1.0,
+        "cited_any": 1.0,
+        "doc_cited": null,
+        "unrequested_writes": 0,
+        "invalid_citations": 0,
+        "errors": 0,
+        "latency_p50_s": 2.92,
+        "latency_p95_s": 3.65,
+        "tokens_mean": 3392.4,
+        "cached_input_share": 0.6468,
+        "llm_calls_mean": 4.0,
+        "cost_usd_mean": 0.000379,
+        "cost_usd_total": 0.011
+      },
+      "fleet": {
+        "n": 7,
+        "answer_correct": 1.0,
+        "tool_selection": 1.0,
+        "cited_any": 1.0,
+        "doc_cited": null,
+        "unrequested_writes": 0,
+        "invalid_citations": 0,
+        "errors": 0,
+        "latency_p50_s": 1.95,
+        "latency_p95_s": 3.44,
+        "tokens_mean": 3350.9,
+        "cached_input_share": 0.3748,
+        "llm_calls_mean": 4.0,
+        "cost_usd_mean": 0.004857,
+        "cost_usd_total": 0.034
+      },
+      "multi": {
+        "n": 6,
+        "answer_correct": 1.0,
+        "tool_selection": 1.0,
+        "cited_any": 1.0,
+        "doc_cited": 1.0,
+        "unrequested_writes": 0,
+        "invalid_citations": 0,
+        "errors": 0,
+        "latency_p50_s": 3.75,
+        "latency_p95_s": 3.95,
+        "tokens_mean": 6305.7,
+        "cached_input_share": 0.4775,
+        "llm_calls_mean": 4.67,
+        "cost_usd_mean": 0.009402,
+        "cost_usd_total": 0.0564
+      },
+      "risk": {
+        "n": 10,
+        "answer_correct": 1.0,
+        "tool_selection": 1.0,
+        "cited_any": 1.0,
+        "doc_cited": null,
+        "unrequested_writes": 0,
+        "invalid_citations": 0,
+        "errors": 0,
+        "latency_p50_s": 2.33,
+        "latency_p95_s": 3.34,
+        "tokens_mean": 3500.3,
+        "cached_input_share": 0.4123,
+        "llm_calls_mean": 4.0,
+        "cost_usd_mean": 0.003531,
+        "cost_usd_total": 0.0353
+      },
+      "ticket": {
+        "n": 5,
+        "answer_correct": 1.0,
+        "tool_selection": 1.0,
+        "cited_any": null,
+        "doc_cited": null,
+        "unrequested_writes": 0,
+        "invalid_citations": 0,
+        "errors": 0,
+        "latency_p50_s": 1.8,
+        "latency_p95_s": 1.9,
+        "tokens_mean": 127.0,
+        "cached_input_share": 0.0,
+        "llm_calls_mean": 1.0,
+        "cost_usd_mean": 2.2e-05,
+        "cost_usd_total": 0.0001
+      },
+      "unanswerable": {
+        "n": 8,
+        "answer_correct": 1.0,
+        "tool_selection": 1.0,
+        "cited_any": null,
+        "doc_cited": null,
+        "unrequested_writes": 0,
+        "invalid_citations": 0,
+        "errors": 0,
+        "latency_p50_s": 1.66,
+        "latency_p95_s": 1.81,
+        "tokens_mean": 1707.4,
+        "cached_input_share": 0.8428,
+        "llm_calls_mean": 3.0,
+        "cost_usd_mean": 0.000312,
+        "cost_usd_total": 0.0025
+      }
+    }
+  },
+  "records": [
+    {
+      "id": "fact-model-0",
+      "category": "fact",
+      "question": "What model is machine 76 and how old is it?",
+      "answer": "Machine 76 is a model3 and it is 10 years old [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "get_machine_status",
+          "args": {
+            "machine_id": 76
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "get_machine_status",
+          "label": "Status of machine 76 (fleet DB)",
+          "args": {
+            "machine_id": 76
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3354,
+        "cached_input": 2944,
+        "output": 47,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3354,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 2944,
+        "m|gpt-4o-mini-2024-07-18|output": 47,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0003105,
+      "latency_s": 4.096,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fact-model-1",
+      "category": "fact",
+      "question": "What model is machine 44 and how old is it?",
+      "answer": "Machine 44 is a model2 and it is 7 years old [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "get_machine_status",
+          "args": {
+            "machine_id": 44
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "get_machine_status",
+          "label": "Status of machine 44 (fleet DB)",
+          "args": {
+            "machine_id": 44
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3357,
+        "cached_input": 2944,
+        "output": 47,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3357,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 2944,
+        "m|gpt-4o-mini-2024-07-18|output": 47,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0003109,
+      "latency_s": 2.279,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fact-model-2",
+      "category": "fact",
+      "question": "What model is machine 65 and how old is it?",
+      "answer": "Machine 65 is a model3 and it is 15 years old [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "get_machine_status",
+          "args": {
+            "machine_id": 65
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "get_machine_status",
+          "label": "Status of machine 65 (fleet DB)",
+          "args": {
+            "machine_id": 65
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3354,
+        "cached_input": 2944,
+        "output": 47,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3354,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 2944,
+        "m|gpt-4o-mini-2024-07-18|output": 47,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0003105,
+      "latency_s": 3.133,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fact-model-3",
+      "category": "fact",
+      "question": "What model is machine 9 and how old is it?",
+      "answer": "Machine 9 is of model \"model1\" and is 7 years old [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "get_machine_status",
+          "args": {
+            "machine_id": 9
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "get_machine_status",
+          "label": "Status of machine 9 (fleet DB)",
+          "args": {
+            "machine_id": 9
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3372,
+        "cached_input": 2816,
+        "output": 49,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3372,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 2816,
+        "m|gpt-4o-mini-2024-07-18|output": 49,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.000324,
+      "latency_s": 2.478,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fact-model-4",
+      "category": "fact",
+      "question": "What model is machine 100 and how old is it?",
+      "answer": "Machine 100 is a model4 and it is 5 years old [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "get_machine_status",
+          "args": {
+            "machine_id": 100
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "get_machine_status",
+          "label": "Status of machine 100 (fleet DB)",
+          "args": {
+            "machine_id": 100
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3372,
+        "cached_input": 1408,
+        "output": 47,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3372,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 1408,
+        "m|gpt-4o-mini-2024-07-18|output": 47,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0004284,
+      "latency_s": 2.498,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fact-errors7d-0",
+      "category": "fact",
+      "question": "How many errors did machine 79 log in the last 7 days?",
+      "answer": "Machine 79 logged a total of 1 error in the last 7 days, specifically error code \"error3\" on November 8, 2015 [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "get_error_history",
+          "args": {
+            "machine_id": 79,
+            "days_back": 7
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "get_error_history",
+          "label": "Error log of machine 79 (fleet DB)",
+          "args": {
+            "machine_id": 79,
+            "days_back": 7
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3254,
+        "cached_input": 1408,
+        "output": 70,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3254,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 1408,
+        "m|gpt-4o-mini-2024-07-18|output": 70,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0004245,
+      "latency_s": 3.114,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fact-errors7d-1",
+      "category": "fact",
+      "question": "How many errors did machine 5 log in the last 7 days?",
+      "answer": "Machine 5 logged a total of 1 error in the last 7 days, specifically error1 on November 11, 2015 [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "get_error_history",
+          "args": {
+            "machine_id": 5,
+            "days_back": 7
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "get_error_history",
+          "label": "Error log of machine 5 (fleet DB)",
+          "args": {
+            "machine_id": 5,
+            "days_back": 7
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3254,
+        "cached_input": 2816,
+        "output": 66,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3254,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 2816,
+        "m|gpt-4o-mini-2024-07-18|output": 66,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0003165,
+      "latency_s": 2.805,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fact-errors7d-2",
+      "category": "fact",
+      "question": "How many errors did machine 35 log in the last 7 days?",
+      "answer": "Machine 35 logged a total of 2 errors in the last 7 days. The errors include 1 occurrence of error2 and 1 occurrence of error3 [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "get_error_history",
+          "args": {
+            "machine_id": 35,
+            "days_back": 7
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "get_error_history",
+          "label": "Error log of machine 35 (fleet DB)",
+          "args": {
+            "machine_id": 35,
+            "days_back": 7
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3277,
+        "cached_input": 2816,
+        "output": 71,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3277,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 2816,
+        "m|gpt-4o-mini-2024-07-18|output": 71,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0003229,
+      "latency_s": 3.032,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fact-errors7d-3",
+      "category": "fact",
+      "question": "How many errors did machine 60 log in the last 7 days?",
+      "answer": "Machine 60 logged a total of 1 error in the last 7 days [S1]. The most recent error was \"error1,\" which occurred on 2015-11-09 at 13:00.",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "get_error_history",
+          "args": {
+            "machine_id": 60,
+            "days_back": 7
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "get_error_history",
+          "label": "Error log of machine 60 (fleet DB)",
+          "args": {
+            "machine_id": 60,
+            "days_back": 7
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3254,
+        "cached_input": 1408,
+        "output": 79,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3254,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 1408,
+        "m|gpt-4o-mini-2024-07-18|output": 79,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0004299,
+      "latency_s": 3.539,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fact-errors7d-4",
+      "category": "fact",
+      "question": "How many errors did machine 56 log in the last 7 days?",
+      "answer": "Machine 56 logged a total of 1 error in the last 7 days, specifically error1, which occurred on November 13, 2015 [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "get_error_history",
+          "args": {
+            "machine_id": 56,
+            "days_back": 7
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "get_error_history",
+          "label": "Error log of machine 56 (fleet DB)",
+          "args": {
+            "machine_id": 56,
+            "days_back": 7
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3254,
+        "cached_input": 2816,
+        "output": 69,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3254,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 2816,
+        "m|gpt-4o-mini-2024-07-18|output": 69,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0003183,
+      "latency_s": 3.422,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fact-errcode30d-0",
+      "category": "fact",
+      "question": "How many error1 events did machine 68 have in the last 30 days?",
+      "answer": "Machine 68 had 1 error1 event in the last 30 days [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "get_error_history",
+          "args": {
+            "machine_id": 68,
+            "days_back": 30,
+            "error_id": "error1"
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "get_error_history",
+          "label": "Error log of machine 68 (fleet DB)",
+          "args": {
+            "machine_id": 68,
+            "days_back": 30,
+            "error_id": "error1"
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3268,
+        "cached_input": 2816,
+        "output": 59,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3268,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 2816,
+        "m|gpt-4o-mini-2024-07-18|output": 59,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0003144,
+      "latency_s": 2.832,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fact-errcode30d-1",
+      "category": "fact",
+      "question": "How many error5 events did machine 7 have in the last 30 days?",
+      "answer": "Machine 7 had 1 error5 event in the last 30 days. The most recent occurrence was on 2015-10-28 at 06:00 [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "get_error_history",
+          "args": {
+            "machine_id": 7,
+            "days_back": 30,
+            "error_id": "error5"
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "get_error_history",
+          "label": "Error log of machine 7 (fleet DB)",
+          "args": {
+            "machine_id": 7,
+            "days_back": 30,
+            "error_id": "error5"
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3268,
+        "cached_input": 2816,
+        "output": 78,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3268,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 2816,
+        "m|gpt-4o-mini-2024-07-18|output": 78,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0003258,
+      "latency_s": 2.881,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fact-errcode30d-2",
+      "category": "fact",
+      "question": "How many error3 events did machine 5 have in the last 30 days?",
+      "answer": "Machine 5 had 1 error3 event in the last 30 days. The most recent occurrence was on 2015-10-17 at 06:00 [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "get_error_history",
+          "args": {
+            "machine_id": 5,
+            "days_back": 30,
+            "error_id": "error3"
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "get_error_history",
+          "label": "Error log of machine 5 (fleet DB)",
+          "args": {
+            "machine_id": 5,
+            "days_back": 30,
+            "error_id": "error3"
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3268,
+        "cached_input": 2816,
+        "output": 78,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3268,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 2816,
+        "m|gpt-4o-mini-2024-07-18|output": 78,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0003258,
+      "latency_s": 2.724,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fact-errcode30d-3",
+      "category": "fact",
+      "question": "How many error3 events did machine 74 have in the last 30 days?",
+      "answer": "Machine 74 had 2 error3 events in the last 30 days. The most recent occurrences were both on 2015-10-27, at 06:00 and 10:00 [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "get_error_history",
+          "args": {
+            "machine_id": 74,
+            "days_back": 30,
+            "error_id": "error3"
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "get_error_history",
+          "label": "Error log of machine 74 (fleet DB)",
+          "args": {
+            "machine_id": 74,
+            "days_back": 30,
+            "error_id": "error3"
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3286,
+        "cached_input": 2816,
+        "output": 85,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3286,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 2816,
+        "m|gpt-4o-mini-2024-07-18|output": 85,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0003327,
+      "latency_s": 3.116,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fact-lastrepl-0",
+      "category": "fact",
+      "question": "When was comp4 of machine 50 last replaced?",
+      "answer": "Component 4 of machine 50 was last replaced on 2015-09-08 at 06:00 for scheduled maintenance [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "get_maintenance_history",
+          "args": {
+            "machine_id": 50,
+            "days_back": 90,
+            "component": "comp4"
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "get_maintenance_history",
+          "label": "Maintenance log of machine 50 (fleet DB)",
+          "args": {
+            "machine_id": 50,
+            "days_back": 90,
+            "component": "comp4"
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3307,
+        "cached_input": 1408,
+        "output": 70,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3307,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 1408,
+        "m|gpt-4o-mini-2024-07-18|output": 70,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0004324,
+      "latency_s": 2.578,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fact-lastrepl-1",
+      "category": "fact",
+      "question": "When was comp3 of machine 81 last replaced?",
+      "answer": "Component 3 of machine 81 was last replaced on 2015-09-29 at 06:00 for scheduled maintenance [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "get_maintenance_history",
+          "args": {
+            "machine_id": 81,
+            "days_back": 90,
+            "component": "comp3"
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "get_maintenance_history",
+          "label": "Maintenance log of machine 81 (fleet DB)",
+          "args": {
+            "machine_id": 81,
+            "days_back": 90,
+            "component": "comp3"
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3307,
+        "cached_input": 1408,
+        "output": 70,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3307,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 1408,
+        "m|gpt-4o-mini-2024-07-18|output": 70,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0004324,
+      "latency_s": 3.72,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fact-lastrepl-2",
+      "category": "fact",
+      "question": "When was comp2 of machine 44 last replaced?",
+      "answer": "Component 2 of machine 44 was last replaced on 2015-10-07 at 06:00 due to a scheduled maintenance. It had a previous replacement on 2015-09-22 due to failure [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "get_maintenance_history",
+          "args": {
+            "machine_id": 44,
+            "days_back": 90,
+            "component": "comp2"
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "get_maintenance_history",
+          "label": "Maintenance log of machine 44 (fleet DB)",
+          "args": {
+            "machine_id": 44,
+            "days_back": 90,
+            "component": "comp2"
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3329,
+        "cached_input": 1408,
+        "output": 89,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3329,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 1408,
+        "m|gpt-4o-mini-2024-07-18|output": 89,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0004471,
+      "latency_s": 3.089,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fact-lastrepl-3",
+      "category": "fact",
+      "question": "When was comp2 of machine 37 last replaced?",
+      "answer": "Comp2 of machine 37 was last replaced on 2015-10-28 at 06:00 due to failure. [S1]",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "get_maintenance_history",
+          "args": {
+            "machine_id": 37,
+            "days_back": 90
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "get_maintenance_history",
+          "label": "Maintenance log of machine 37 (fleet DB)",
+          "args": {
+            "machine_id": 37,
+            "days_back": 90
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3434,
+        "cached_input": 1408,
+        "output": 65,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3434,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 1408,
+        "m|gpt-4o-mini-2024-07-18|output": 65,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0004485,
+      "latency_s": 2.935,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fact-lastrepl-4",
+      "category": "fact",
+      "question": "When was comp1 of machine 19 last replaced?",
+      "answer": "Component 1 (comp1) of machine 19 was last replaced on 2015-04-18 at 06:00. There have been no replacements for comp1 in the last 90 days [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "get_maintenance_history",
+          "args": {
+            "machine_id": 19,
+            "days_back": 90,
+            "component": "comp1"
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "get_maintenance_history",
+          "label": "Maintenance log of machine 19 (fleet DB)",
+          "args": {
+            "machine_id": 19,
+            "days_back": 90,
+            "component": "comp1"
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3284,
+        "cached_input": 1408,
+        "output": 86,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3284,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 1408,
+        "m|gpt-4o-mini-2024-07-18|output": 86,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0004386,
+      "latency_s": 2.92,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fact-fail90-0",
+      "category": "fact",
+      "question": "How many component failures did machine 55 have in the last 90 days?",
+      "answer": "Machine 55 had 2 component failures in the last 90 days. \n\n- The failures occurred on October 15, 2015 (comp1) and September 30, 2015 (comp4) [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "get_maintenance_history",
+          "args": {
+            "machine_id": 55,
+            "days_back": 90
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "get_maintenance_history",
+          "label": "Maintenance log of machine 55 (fleet DB)",
+          "args": {
+            "machine_id": 55,
+            "days_back": 90
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3498,
+        "cached_input": 1408,
+        "output": 83,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3498,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 1408,
+        "m|gpt-4o-mini-2024-07-18|output": 83,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0004689,
+      "latency_s": 2.814,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fact-fail90-1",
+      "category": "fact",
+      "question": "How many component failures did machine 9 have in the last 90 days?",
+      "answer": "Machine 9 had 2 component failures in the last 90 days. The failures were for components comp1 and comp2 on 2015-09-25 and 2015-08-26, respectively [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "get_maintenance_history",
+          "args": {
+            "machine_id": 9,
+            "days_back": 90
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "get_maintenance_history",
+          "label": "Maintenance log of machine 9 (fleet DB)",
+          "args": {
+            "machine_id": 9,
+            "days_back": 90
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3498,
+        "cached_input": 1408,
+        "output": 82,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3498,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 1408,
+        "m|gpt-4o-mini-2024-07-18|output": 82,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0004683,
+      "latency_s": 2.725,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fact-fail90-2",
+      "category": "fact",
+      "question": "How many component failures did machine 88 have in the last 90 days?",
+      "answer": "Machine 88 had 2 component failures in the last 90 days [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "get_maintenance_history",
+          "args": {
+            "machine_id": 88,
+            "days_back": 90
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "get_maintenance_history",
+          "label": "Maintenance log of machine 88 (fleet DB)",
+          "args": {
+            "machine_id": 88,
+            "days_back": 90
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3520,
+        "cached_input": 1408,
+        "output": 53,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3520,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 1408,
+        "m|gpt-4o-mini-2024-07-18|output": 53,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0004542,
+      "latency_s": 2.803,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fact-fail90-3",
+      "category": "fact",
+      "question": "How many component failures did machine 7 have in the last 90 days?",
+      "answer": "Machine 7 had 3 component failures in the last 90 days. \n\nThese failures were recorded for components 2 and 4 on October 29, 2015, and for component 2 again on August 30, 2015 [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "get_maintenance_history",
+          "args": {
+            "machine_id": 7,
+            "days_back": 90
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "get_maintenance_history",
+          "label": "Maintenance log of machine 7 (fleet DB)",
+          "args": {
+            "machine_id": 7,
+            "days_back": 90
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3454,
+        "cached_input": 1408,
+        "output": 89,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3454,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 1408,
+        "m|gpt-4o-mini-2024-07-18|output": 89,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0004659,
+      "latency_s": 2.956,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fact-telemetry-0",
+      "category": "fact",
+      "question": "What was the average voltage of machine 61 over the last 24 hours?",
+      "answer": "The average voltage of machine 61 over the last 24 hours was 173.47 volts. The minimum recorded voltage was 143.46 volts, and the maximum was 210.46 volts [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "query_telemetry",
+          "args": {
+            "machine_id": 61,
+            "signals": [
+              "volt"
+            ],
+            "hours_back": 24
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "query_telemetry",
+          "label": "Telemetry of machine 61 (fleet DB)",
+          "args": {
+            "machine_id": 61,
+            "signals": [
+              "volt"
+            ],
+            "hours_back": 24
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3258,
+        "cached_input": 1408,
+        "output": 84,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3258,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 1408,
+        "m|gpt-4o-mini-2024-07-18|output": 84,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0004335,
+      "latency_s": 3.051,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fact-telemetry-1",
+      "category": "fact",
+      "question": "What was the maximum rotation speed of machine 16 over the last 48 hours?",
+      "answer": "The maximum rotation speed of machine 16 over the last 48 hours was 578.57 RPM [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "query_telemetry",
+          "args": {
+            "machine_id": 16,
+            "signals": [
+              "rotate"
+            ],
+            "hours_back": 48
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "query_telemetry",
+          "label": "Telemetry of machine 16 (fleet DB)",
+          "args": {
+            "machine_id": 16,
+            "signals": [
+              "rotate"
+            ],
+            "hours_back": 48
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3262,
+        "cached_input": 1408,
+        "output": 64,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3262,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 1408,
+        "m|gpt-4o-mini-2024-07-18|output": 64,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0004221,
+      "latency_s": 2.321,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fact-telemetry-2",
+      "category": "fact",
+      "question": "What was the average pressure of machine 36 over the last 12 hours?",
+      "answer": "The average pressure of machine 36 over the last 12 hours was 95.25 [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "query_telemetry",
+          "args": {
+            "machine_id": 36,
+            "signals": [
+              "pressure"
+            ],
+            "hours_back": 12
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "query_telemetry",
+          "label": "Telemetry of machine 36 (fleet DB)",
+          "args": {
+            "machine_id": 36,
+            "signals": [
+              "pressure"
+            ],
+            "hours_back": 12
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3258,
+        "cached_input": 2816,
+        "output": 62,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3258,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 2816,
+        "m|gpt-4o-mini-2024-07-18|output": 62,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0003147,
+      "latency_s": 2.49,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fact-telemetry-3",
+      "category": "fact",
+      "question": "What was the maximum vibration of machine 69 over the last 24 hours?",
+      "answer": "The maximum vibration of machine 69 over the last 24 hours was 48.7 [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "query_telemetry",
+          "args": {
+            "machine_id": 69,
+            "signals": [
+              "vibration"
+            ],
+            "hours_back": 24
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "query_telemetry",
+          "label": "Telemetry of machine 69 (fleet DB)",
+          "args": {
+            "machine_id": 69,
+            "signals": [
+              "vibration"
+            ],
+            "hours_back": 24
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3260,
+        "cached_input": 2816,
+        "output": 63,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3260,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 2816,
+        "m|gpt-4o-mini-2024-07-18|output": 63,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0003156,
+      "latency_s": 3.004,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fact-telemetry-4",
+      "category": "fact",
+      "question": "What was the average voltage of machine 74 over the last 48 hours?",
+      "answer": "The average voltage of machine 74 over the last 48 hours was 185.26 volts. The minimum recorded voltage was 142.75 volts, and the maximum was 213.5 volts [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "query_telemetry",
+          "args": {
+            "machine_id": 74,
+            "signals": [
+              "volt"
+            ],
+            "hours_back": 48
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "query_telemetry",
+          "label": "Telemetry of machine 74 (fleet DB)",
+          "args": {
+            "machine_id": 74,
+            "signals": [
+              "volt"
+            ],
+            "hours_back": 48
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3258,
+        "cached_input": 2816,
+        "output": 84,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3258,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 2816,
+        "m|gpt-4o-mini-2024-07-18|output": 84,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0003279,
+      "latency_s": 3.014,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fact-telemetry-5",
+      "category": "fact",
+      "question": "What was the maximum rotation speed of machine 7 over the last 12 hours?",
+      "answer": "The maximum rotation speed of machine 7 over the last 12 hours was 521.76 RPM [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "query_telemetry",
+          "args": {
+            "machine_id": 7,
+            "signals": [
+              "rotate"
+            ],
+            "hours_back": 12
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "query_telemetry",
+          "label": "Telemetry of machine 7 (fleet DB)",
+          "args": {
+            "machine_id": 7,
+            "signals": [
+              "rotate"
+            ],
+            "hours_back": 12
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3262,
+        "cached_input": 2816,
+        "output": 64,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3262,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 2816,
+        "m|gpt-4o-mini-2024-07-18|output": 64,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0003165,
+      "latency_s": 2.53,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fleet-mostfail-0",
+      "category": "fleet",
+      "question": "Which machine had the most component failures in the last 30 days, and how many?",
+      "answer": "Machine 7 had the most component failures in the last 30 days, with 2 failures [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "fleet_overview",
+          "args": {
+            "metric": "failures",
+            "days_back": 30,
+            "top_n": 1
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "fleet_overview",
+          "label": "Fleet ranking by failures (fleet DB)",
+          "args": {
+            "metric": "failures",
+            "days_back": 30,
+            "top_n": 1
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3255,
+        "cached_input": 1408,
+        "output": 63,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 226,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 0,
+        "m|gpt-4o-mini-2024-07-18|output": 12,
+        "m|gpt-4.1-2025-04-14|input": 3029,
+        "m|gpt-4.1-2025-04-14|cached_input": 1408,
+        "m|gpt-4.1-2025-04-14|output": 51,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0043951,
+      "latency_s": 1.949,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fleet-mostfail-1",
+      "category": "fleet",
+      "question": "Which machine had the most component failures in the last 60 days, and how many?",
+      "answer": "Machine 32 had the most component failures in the last 60 days, with a total of 4 failures [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "fleet_overview",
+          "args": {
+            "metric": "failures",
+            "days_back": 60,
+            "top_n": 1
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "fleet_overview",
+          "label": "Fleet ranking by failures (fleet DB)",
+          "args": {
+            "metric": "failures",
+            "days_back": 60,
+            "top_n": 1
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3255,
+        "cached_input": 1408,
+        "output": 66,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 226,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 0,
+        "m|gpt-4o-mini-2024-07-18|output": 12,
+        "m|gpt-4.1-2025-04-14|input": 3029,
+        "m|gpt-4.1-2025-04-14|cached_input": 1408,
+        "m|gpt-4.1-2025-04-14|output": 54,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0044191,
+      "latency_s": 1.848,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fleet-mostfail-2",
+      "category": "fleet",
+      "question": "Which machine had the most component failures in the last 90 days, and how many?",
+      "answer": "Machine 32 had the most component failures in the last 90 days, with a total of 5 failures [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "fleet_overview",
+          "args": {
+            "metric": "failures",
+            "days_back": 90,
+            "top_n": 1
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "fleet_overview",
+          "label": "Fleet ranking by failures (fleet DB)",
+          "args": {
+            "metric": "failures",
+            "days_back": 90,
+            "top_n": 1
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3255,
+        "cached_input": 2816,
+        "output": 66,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 226,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 0,
+        "m|gpt-4o-mini-2024-07-18|output": 12,
+        "m|gpt-4.1-2025-04-14|input": 3029,
+        "m|gpt-4.1-2025-04-14|cached_input": 2816,
+        "m|gpt-4.1-2025-04-14|output": 54,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0023071,
+      "latency_s": 1.82,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fleet-mosterr-0",
+      "category": "fleet",
+      "question": "Which machine logged the most error1 events in the last 30 days?",
+      "answer": "Machines 1, 5, 6, 8, and 12 each logged the most error1 events in the last 30 days, with 1 event each [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "fleet_overview",
+          "args": {
+            "metric": "errors",
+            "days_back": 30,
+            "filter_value": "error1"
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "fleet_overview",
+          "label": "Fleet ranking by errors (fleet DB)",
+          "args": {
+            "metric": "errors",
+            "days_back": 30,
+            "filter_value": "error1"
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3279,
+        "cached_input": 0,
+        "output": 79,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 220,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 0,
+        "m|gpt-4o-mini-2024-07-18|output": 12,
+        "m|gpt-4.1-2025-04-14|input": 3059,
+        "m|gpt-4.1-2025-04-14|cached_input": 0,
+        "m|gpt-4.1-2025-04-14|output": 67,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0066942,
+      "latency_s": 1.82,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fleet-mosterr-1",
+      "category": "fleet",
+      "question": "Which machine logged the most error4 events in the last 30 days?",
+      "answer": "Machine 60 logged the most error4 events in the last 30 days, with a total of 2 events [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "fleet_overview",
+          "args": {
+            "metric": "errors",
+            "days_back": 30,
+            "top_n": 1,
+            "filter_value": "error4"
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "fleet_overview",
+          "label": "Fleet ranking by errors (fleet DB)",
+          "args": {
+            "metric": "errors",
+            "days_back": 30,
+            "top_n": 1,
+            "filter_value": "error4"
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3248,
+        "cached_input": 0,
+        "output": 72,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 220,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 0,
+        "m|gpt-4o-mini-2024-07-18|output": 12,
+        "m|gpt-4.1-2025-04-14|input": 3028,
+        "m|gpt-4.1-2025-04-14|cached_input": 0,
+        "m|gpt-4.1-2025-04-14|output": 60,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0065762,
+      "latency_s": 2.275,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "risk-prob-0",
+      "category": "risk",
+      "question": "How likely is machine 93 to have a component failure in the next 7 days?",
+      "answer": "Machine 93 has a 49.9% probability of a component failure in the next 7 days, which is above the alert threshold and is flagged for attention. The most likely component to fail is comp4 (32.4% probability), followed by comp2 (17.5%) [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "predict_failure_risk",
+          "args": {
+            "machine_id": 93
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "predict_failure_risk",
+          "label": "Failure-risk model for machine 93",
+          "args": {
+            "machine_id": 93
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3421,
+        "cached_input": 1408,
+        "output": 93,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 226,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 0,
+        "m|gpt-4o-mini-2024-07-18|output": 12,
+        "m|gpt-4.1-2025-04-14|input": 3195,
+        "m|gpt-4.1-2025-04-14|cached_input": 1408,
+        "m|gpt-4.1-2025-04-14|output": 81,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0049671,
+      "latency_s": 1.999,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "risk-prob-1",
+      "category": "risk",
+      "question": "How likely is machine 91 to have a component failure in the next 24 hours?",
+      "answer": "Machine 91 has a 0.0% probability of any component failure in the next 24 hours, and it is not on alert for this period [S1].\n\n- 24-hour failure probability: 0.0%\n- No components are at risk in the next 24 hours\n- Not on alert status for 24-hour risk\n\nLet me know if you want to check the 7-day risk or need more details.",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "predict_failure_risk",
+          "args": {
+            "machine_id": 91
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "predict_failure_risk",
+          "label": "Failure-risk model for machine 91",
+          "args": {
+            "machine_id": 91
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3429,
+        "cached_input": 0,
+        "output": 119,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 226,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 0,
+        "m|gpt-4o-mini-2024-07-18|output": 12,
+        "m|gpt-4.1-2025-04-14|input": 3203,
+        "m|gpt-4.1-2025-04-14|cached_input": 0,
+        "m|gpt-4.1-2025-04-14|output": 107,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0073031,
+      "latency_s": 2.651,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "risk-prob-2",
+      "category": "risk",
+      "question": "How likely is machine 35 to have a component failure in the next 7 days?",
+      "answer": "Machine 35 has a 99.4% probability of experiencing a component failure in the next 7 days, with comp2 being the most likely to fail. The machine is on alert for high risk in this period [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "predict_failure_risk",
+          "args": {
+            "machine_id": 35
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "predict_failure_risk",
+          "label": "Failure-risk model for machine 35",
+          "args": {
+            "machine_id": 35
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3431,
+        "cached_input": 2816,
+        "output": 78,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 226,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 0,
+        "m|gpt-4o-mini-2024-07-18|output": 12,
+        "m|gpt-4.1-2025-04-14|input": 3205,
+        "m|gpt-4.1-2025-04-14|cached_input": 2816,
+        "m|gpt-4.1-2025-04-14|output": 66,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0027551,
+      "latency_s": 1.87,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "risk-prob-3",
+      "category": "risk",
+      "question": "How likely is machine 43 to have a component failure in the next 24 hours?",
+      "answer": "Machine 43 has a 0.0% probability of any component failure in the next 24 hours, and it is not on alert status for failure risk [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "predict_failure_risk",
+          "args": {
+            "machine_id": 43
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "predict_failure_risk",
+          "label": "Failure-risk model for machine 43",
+          "args": {
+            "machine_id": 43
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3417,
+        "cached_input": 0,
+        "output": 66,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 226,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 0,
+        "m|gpt-4o-mini-2024-07-18|output": 12,
+        "m|gpt-4.1-2025-04-14|input": 3191,
+        "m|gpt-4.1-2025-04-14|cached_input": 0,
+        "m|gpt-4.1-2025-04-14|output": 54,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0068551,
+      "latency_s": 1.775,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "risk-prob-4",
+      "category": "risk",
+      "question": "How likely is machine 72 to have a component failure in the next 7 days?",
+      "answer": "Machine 72 has a 0.01% probability of any component failing in the next 7 days, which is well below the alert threshold and not considered risky at this time [S1].\n\n- No component shows a significant risk of failure.\n- The system does not flag this machine for attention.",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "predict_failure_risk",
+          "args": {
+            "machine_id": 72
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "predict_failure_risk",
+          "label": "Failure-risk model for machine 72",
+          "args": {
+            "machine_id": 72
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3416,
+        "cached_input": 1408,
+        "output": 91,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 226,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 0,
+        "m|gpt-4o-mini-2024-07-18|output": 12,
+        "m|gpt-4.1-2025-04-14|input": 3190,
+        "m|gpt-4.1-2025-04-14|cached_input": 1408,
+        "m|gpt-4.1-2025-04-14|output": 79,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0049411,
+      "latency_s": 1.983,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "risk-prob-5",
+      "category": "risk",
+      "question": "How likely is machine 27 to have a component failure in the next 24 hours?",
+      "answer": "Machine 27 has a 0.0% probability of any component failure in the next 24 hours, and it is not on alert for failure risk at this time [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "predict_failure_risk",
+          "args": {
+            "machine_id": 27
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "predict_failure_risk",
+          "label": "Failure-risk model for machine 27",
+          "args": {
+            "machine_id": 27
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3417,
+        "cached_input": 0,
+        "output": 68,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 226,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 0,
+        "m|gpt-4o-mini-2024-07-18|output": 12,
+        "m|gpt-4.1-2025-04-14|input": 3191,
+        "m|gpt-4.1-2025-04-14|cached_input": 0,
+        "m|gpt-4.1-2025-04-14|output": 56,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0068711,
+      "latency_s": 1.881,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "risk-alert-0",
+      "category": "risk",
+      "question": "Is machine 97 on a 7-day failure-risk alert right now?",
+      "answer": "Yes, machine 97 is currently on a 7-day failure-risk alert. \n\n- The failure probability for the next 7 days is 37.84%, which exceeds the alert threshold of 37.06% [S1].\n- The most likely component to fail is comp3, which has a probability of 25.63% [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "predict_failure_risk",
+          "args": {
+            "machine_id": 97
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "predict_failure_risk",
+          "label": "Failure-risk model for machine 97",
+          "args": {
+            "machine_id": 97
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3409,
+        "cached_input": 2816,
+        "output": 103,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3409,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 2816,
+        "m|gpt-4o-mini-2024-07-18|output": 103,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0003619,
+      "latency_s": 3.492,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "judge": [
+          {
+            "pass": true,
+            "reason": "The answer clearly says YES as expected."
+          }
+        ],
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "risk-alert-1",
+      "category": "risk",
+      "question": "Is machine 79 on a 7-day failure-risk alert right now?",
+      "answer": "Yes, machine 79 is currently on a 7-day failure-risk alert. \n\n- The predicted failure probability for the next 7 days is 37.74%, which exceeds the alert threshold of 37.06% [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "predict_failure_risk",
+          "args": {
+            "machine_id": 79
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "predict_failure_risk",
+          "label": "Failure-risk model for machine 79",
+          "args": {
+            "machine_id": 79
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3409,
+        "cached_input": 1408,
+        "output": 79,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3409,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 1408,
+        "m|gpt-4o-mini-2024-07-18|output": 79,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0004531,
+      "latency_s": 2.838,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "judge": [
+          {
+            "pass": true,
+            "reason": "The answer clearly says YES as expected."
+          }
+        ],
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "risk-alert-2",
+      "category": "risk",
+      "question": "Is machine 19 on a 7-day failure-risk alert right now?",
+      "answer": "Machine 19 is not on a 7-day failure-risk alert right now. \n\n- The failure probability for the next 7 days is 0.0001, which is below the alert threshold of 0.3706 [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "predict_failure_risk",
+          "args": {
+            "machine_id": 19
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "predict_failure_risk",
+          "label": "Failure-risk model for machine 19",
+          "args": {
+            "machine_id": 19
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3405,
+        "cached_input": 2816,
+        "output": 80,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3405,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 2816,
+        "m|gpt-4o-mini-2024-07-18|output": 80,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0003475,
+      "latency_s": 2.984,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "judge": [
+          {
+            "pass": true,
+            "reason": "The answer clearly says NO and provides supporting data."
+          }
+        ],
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "risk-alert-3",
+      "category": "risk",
+      "question": "Is machine 67 on a 7-day failure-risk alert right now?",
+      "answer": "Machine 67 is not on a 7-day failure-risk alert right now. The failure probability for the next 7 days is 0.0%, which is below the alert threshold of 0.3706% [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "predict_failure_risk",
+          "args": {
+            "machine_id": 67
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "predict_failure_risk",
+          "label": "Failure-risk model for machine 67",
+          "args": {
+            "machine_id": 67
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3394,
+        "cached_input": 1408,
+        "output": 78,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3394,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 1408,
+        "m|gpt-4o-mini-2024-07-18|output": 78,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0004503,
+      "latency_s": 3.15,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "judge": [
+          {
+            "pass": true,
+            "reason": "The answer clearly says NO."
+          }
+        ],
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fleet-risk-0",
+      "category": "fleet",
+      "question": "Which 3 machines have the highest risk of failing within the next 24 hours?",
+      "answer": "The 3 machines with the highest risk of failing within the next 24 hours are:\n\n1. Machine 24 (failure probability: 1.0, alert: yes, most likely component: comp2) [S1].\n2. Machine 35 (failure probability: 1.0, alert: yes, most likely component: comp2) [S1].\n3. Machine 1 (failure probability: 0.9999, alert: yes, most likely component: comp1) [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "fleet_overview",
+          "args": {
+            "metric": "risk",
+            "top_n": 3,
+            "horizon": "24h"
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "fleet_overview",
+          "label": "Fleet ranking by risk (fleet DB)",
+          "args": {
+            "metric": "risk",
+            "top_n": 3,
+            "horizon": "24h"
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3328,
+        "cached_input": 2944,
+        "output": 146,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 224,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 0,
+        "m|gpt-4o-mini-2024-07-18|output": 12,
+        "m|gpt-4.1-2025-04-14|input": 3104,
+        "m|gpt-4.1-2025-04-14|cached_input": 2944,
+        "m|gpt-4.1-2025-04-14|output": 134,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0029048,
+      "latency_s": 3.712,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "fleet-risk-1",
+      "category": "fleet",
+      "question": "Which machine is most likely to fail within the next 7 days?",
+      "answer": "Machine 24 is most likely to fail within the next 7 days, with a predicted failure probability of 99.71% and an alert status. The most likely component to fail is comp2 [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "fleet_overview",
+          "args": {
+            "metric": "risk",
+            "horizon": "7d",
+            "top_n": 1
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "fleet_overview",
+          "label": "Fleet ranking by risk (fleet DB)",
+          "args": {
+            "metric": "risk",
+            "horizon": "7d",
+            "top_n": 1
+          }
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3260,
+        "cached_input": 0,
+        "output": 84,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 218,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 0,
+        "m|gpt-4o-mini-2024-07-18|output": 12,
+        "m|gpt-4.1-2025-04-14|input": 3042,
+        "m|gpt-4.1-2025-04-14|cached_input": 0,
+        "m|gpt-4.1-2025-04-14|output": 72,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0066999,
+      "latency_s": 2.819,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true
+      }
+    },
+    {
+      "id": "doc-0",
+      "category": "document",
+      "question": "What does error4 mean and which component does it relate to?",
+      "answer": "Error4 indicates that the hydraulic pressure has exceeded its limit. It is related to component comp3, which is the hydraulic pump and pressure system. \n\nFirst checks include comparing the pressure signal with the normal band and inspecting the pressure relief valve, filter, and lines for blockages [S1][S2].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "search_manuals",
+          "args": {
+            "query": "error4"
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - error4 - Hydraulic pressure high",
+          "chunk_id": "fleet_handbook#11.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S2",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - comp3 - Hydraulic pump and pressure system",
+          "chunk_id": "fleet_handbook#4.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S3",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Several different error codes at once",
+          "chunk_id": "fleet_handbook#14.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S4",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - error5 - Vibration limit exceeded",
+          "chunk_id": "fleet_handbook#12.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        }
+      ],
+      "cited": [
+        "S1",
+        "S2"
+      ],
+      "usage": {
+        "input": 3513,
+        "cached_input": 1408,
+        "output": 91,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3513,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 1408,
+        "m|gpt-4o-mini-2024-07-18|output": 91,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.000476,
+      "latency_s": 3.315,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true,
+        "doc_cited": true
+      }
+    },
+    {
+      "id": "doc-1",
+      "category": "document",
+      "question": "Which component is error5 related to?",
+      "answer": "Error5 is related to component comp4, which includes bearings and mechanical mounts. It indicates that the vibration sensor has exceeded its limit, suggesting potential issues with the bearings or mounts [S1][S2].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "search_manuals",
+          "args": {
+            "query": "error5"
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - error5 - Vibration limit exceeded",
+          "chunk_id": "fleet_handbook#12.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S2",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - comp4 - Bearings and mechanical mounts",
+          "chunk_id": "fleet_handbook#5.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S3",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Several different error codes at once",
+          "chunk_id": "fleet_handbook#14.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S4",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Error codes",
+          "chunk_id": "fleet_handbook#7.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        }
+      ],
+      "cited": [
+        "S1",
+        "S2"
+      ],
+      "usage": {
+        "input": 3478,
+        "cached_input": 1408,
+        "output": 71,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3478,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 1408,
+        "m|gpt-4o-mini-2024-07-18|output": 71,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0004587,
+      "latency_s": 2.766,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true,
+        "doc_cited": true
+      }
+    },
+    {
+      "id": "doc-2",
+      "category": "document",
+      "question": "What does error1 indicate?",
+      "answer": "Error1 indicates that there is a supply voltage out of tolerance for the drive motor and power supply (comp1). \n\n- The controller has measured a supply voltage that is outside its acceptable range.\n- Initial checks should include comparing the voltage signal from the last 24 hours with the normal range and inspecting the power supply connectors and motor terminal box for any heat damage [S1][S2].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "search_manuals",
+          "args": {
+            "query": "error1"
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - error1 - Supply voltage out of tolerance",
+          "chunk_id": "fleet_handbook#8.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S2",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - comp1 - Drive motor and power supply",
+          "chunk_id": "fleet_handbook#2.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S3",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Several different error codes at once",
+          "chunk_id": "fleet_handbook#14.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S4",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Repeated errors on one machine",
+          "chunk_id": "fleet_handbook#13.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        }
+      ],
+      "cited": [
+        "S1",
+        "S2"
+      ],
+      "usage": {
+        "input": 3510,
+        "cached_input": 1408,
+        "output": 108,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3510,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 1408,
+        "m|gpt-4o-mini-2024-07-18|output": 108,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0004857,
+      "latency_s": 3.488,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true,
+        "doc_cited": true
+      }
+    },
+    {
+      "id": "doc-3",
+      "category": "document",
+      "question": "Which error codes point to the spindle and rotor assembly?",
+      "answer": "The error codes that point to the spindle and rotor assembly (comp2) are error2 (Rotor speed deviation) and error3 (Rotor torque limit) [S1][S2][S3].\n\n- error2: Rotor speed differs from the set point for more than one minute.\n- error3: Rotor needed more torque than allowed; often appears with error2.\n- Both are early warnings for spindle and rotor assembly issues.",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "search_manuals",
+          "args": {
+            "query": "error codes related to spindle and rotor assembly"
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - error3 - Rotor torque limit",
+          "chunk_id": "fleet_handbook#10.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S2",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - error2 - Rotor speed deviation",
+          "chunk_id": "fleet_handbook#9.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S3",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - comp2 - Spindle and rotor assembly",
+          "chunk_id": "fleet_handbook#3.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S4",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Error codes",
+          "chunk_id": "fleet_handbook#7.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        }
+      ],
+      "cited": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "usage": {
+        "input": 3543,
+        "cached_input": 1408,
+        "output": 122,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 212,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 0,
+        "m|gpt-4o-mini-2024-07-18|output": 12,
+        "m|gpt-4.1-2025-04-14|input": 3331,
+        "m|gpt-4.1-2025-04-14|cached_input": 1408,
+        "m|gpt-4.1-2025-04-14|output": 110,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.005469,
+      "latency_s": 1.957,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true,
+        "doc_cited": true
+      }
+    },
+    {
+      "id": "doc-4",
+      "category": "document",
+      "question": "What is the normal vibration range for these machines?",
+      "answer": "The normal vibration range for the machines is 32 - 49 mm/s, with a typical value of 40 mm/s. Readings above 54 mm/s are considered alarm limits and should be investigated [S2].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "search_manuals",
+          "args": {
+            "query": "normal vibration range"
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - error5 - Vibration limit exceeded",
+          "chunk_id": "fleet_handbook#12.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S2",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Sensor signals and normal operating ranges",
+          "chunk_id": "fleet_handbook#6.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S3",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - comp4 - Bearings and mechanical mounts",
+          "chunk_id": "fleet_handbook#5.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S4",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - error1 - Supply voltage out of tolerance",
+          "chunk_id": "fleet_handbook#8.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        }
+      ],
+      "cited": [
+        "S2"
+      ],
+      "usage": {
+        "input": 3708,
+        "cached_input": 1408,
+        "output": 75,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3708,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 1408,
+        "m|gpt-4o-mini-2024-07-18|output": 75,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0004956,
+      "latency_s": 2.718,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true,
+        "doc_cited": true
+      }
+    },
+    {
+      "id": "doc-5",
+      "category": "document",
+      "question": "Above what pressure should I raise an alarm?",
+      "answer": "An alarm should be raised for pressure readings above 131 psi or below 77 psi. \n\n- The normal operating pressure range is between 84 and 119 psi, with typical values around 100 psi. \n- Readings outside the alarm limits are unusual and should be investigated further [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "search_manuals",
+          "args": {
+            "query": "alarm limits pressure"
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Sensor signals and normal operating ranges",
+          "chunk_id": "fleet_handbook#6.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S2",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - error4 - Hydraulic pressure high",
+          "chunk_id": "fleet_handbook#11.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S3",
+          "tool": "search_manuals",
+          "label": "OSHA 3170 - Safeguarding Equipment and Protecting Employees from Amputations - Safe Opening Safeguarding",
+          "chunk_id": "osha3170_safeguarding_equipment#51.0",
+          "doc": "OSHA 3170 - Safeguarding Equipment and Protecting Employees from Amputations"
+        },
+        {
+          "id": "S4",
+          "tool": "search_manuals",
+          "label": "OSHA 3170 - Safeguarding Equipment and Protecting Employees from Amputations - Health Administration Emergency Stop Devices",
+          "chunk_id": "osha3170_safeguarding_equipment#54.0",
+          "doc": "OSHA 3170 - Safeguarding Equipment and Protecting Employees from Amputations"
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3798,
+        "cached_input": 1408,
+        "output": 91,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3798,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 1408,
+        "m|gpt-4o-mini-2024-07-18|output": 91,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0005187,
+      "latency_s": 3.07,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true,
+        "doc_cited": true
+      }
+    },
+    {
+      "id": "doc-6",
+      "category": "document",
+      "question": "What ticket priority should I use when a machine is on a 24-hour failure alert?",
+      "answer": "When a machine is on a 24-hour failure alert, you should open a ticket with **high priority**. \n\nSupporting points:\n- The high priority is designated for machines on a 24-hour failure-risk alert, requiring action within the current shift [S1][S2].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "search_manuals",
+          "args": {
+            "query": "ticket priority for 24-hour failure alert"
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Failure-risk alerts",
+          "chunk_id": "fleet_handbook#18.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S2",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Ticket priorities",
+          "chunk_id": "fleet_handbook#19.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S3",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Repeated errors on one machine",
+          "chunk_id": "fleet_handbook#13.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S4",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Sensor signals and normal operating ranges",
+          "chunk_id": "fleet_handbook#6.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        }
+      ],
+      "cited": [
+        "S1",
+        "S2"
+      ],
+      "usage": {
+        "input": 3996,
+        "cached_input": 1408,
+        "output": 92,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3996,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 1408,
+        "m|gpt-4o-mini-2024-07-18|output": 92,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.000549,
+      "latency_s": 3.186,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true,
+        "doc_cited": true
+      }
+    },
+    {
+      "id": "doc-7",
+      "category": "document",
+      "question": "What counts as a critical ticket?",
+      "answer": "A critical ticket is defined as one that involves a safety hazard (such as smoke, fire, hydraulic fluid leaks, or exposed live parts) or a machine that has stopped. In such cases, the machine should be stopped immediately, and the shift supervisor must be informed right away [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "search_manuals",
+          "args": {
+            "query": "ticket priorities"
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Ticket priorities",
+          "chunk_id": "fleet_handbook#19.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S2",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - About this handbook",
+          "chunk_id": "fleet_handbook#0.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S3",
+          "tool": "search_manuals",
+          "label": "OSHA 3120 - Control of Hazardous Energy (Lockout/Tagout) - How often do I need to review my lockout/tagout procedures?",
+          "chunk_id": "osha3120_lockout_tagout#25.0",
+          "doc": "OSHA 3120 - Control of Hazardous Energy (Lockout/Tagout)"
+        },
+        {
+          "id": "S4",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Machine just repaired",
+          "chunk_id": "fleet_handbook#16.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 3691,
+        "cached_input": 1408,
+        "output": 88,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 3691,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 1408,
+        "m|gpt-4o-mini-2024-07-18|output": 88,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0005008,
+      "latency_s": 3.17,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true,
+        "doc_cited": true
+      }
+    },
+    {
+      "id": "doc-8",
+      "category": "document",
+      "question": "How often is each machine visited for scheduled maintenance?",
+      "answer": "I could not find information about the scheduled maintenance frequency for each machine in the available data or documents.",
+      "result_type": "done",
+      "tool_calls": [],
+      "tickets": null,
+      "sources": [],
+      "cited": [],
+      "usage": {
+        "input": 1671,
+        "cached_input": 0,
+        "output": 33,
+        "llm_calls": 3,
+        "m|gpt-4o-mini-2024-07-18|input": 1671,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 0,
+        "m|gpt-4o-mini-2024-07-18|output": 33
+      },
+      "cost_usd": 0.0002704,
+      "latency_s": 1.527,
+      "error": null,
+      "grade": {
+        "tools_ok": false,
+        "unrequested_write": false,
+        "answer_ok": false,
+        "invalid_citations": 0,
+        "cited": false,
+        "doc_cited": false
+      }
+    },
+    {
+      "id": "doc-9",
+      "category": "document",
+      "question": "What should I do if a machine is on a 7-day alert but not on a 24-hour alert?",
+      "answer": "If a machine is on a 7-day alert but not on a 24-hour alert, you should:\n\n1. **Plan an inspection** of the most likely component during the next scheduled visit.\n2. **Open a ticket** with medium priority to document the situation.\n\nThis approach allows for proactive maintenance without immediate action, as the machine is not in critical condition [S1][S2].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "search_manuals",
+          "args": {
+            "query": "machine on 7-day alert but not on 24-hour alert"
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Failure-risk alerts",
+          "chunk_id": "fleet_handbook#18.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S2",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Ticket priorities",
+          "chunk_id": "fleet_handbook#19.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S3",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Sensor signals and normal operating ranges",
+          "chunk_id": "fleet_handbook#6.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S4",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Error codes",
+          "chunk_id": "fleet_handbook#7.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        }
+      ],
+      "cited": [
+        "S1",
+        "S2"
+      ],
+      "usage": {
+        "input": 4018,
+        "cached_input": 2816,
+        "output": 120,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 4018,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 2816,
+        "m|gpt-4o-mini-2024-07-18|output": 120,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0004635,
+      "latency_s": 3.645,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true,
+        "doc_cited": true
+      }
+    },
+    {
+      "id": "doc-10",
+      "category": "document",
+      "question": "What must workers do before they remove their lockout device and re-energize a machine?",
+      "answer": "Before removing a lockout device and re-energizing a machine, workers must:\n\n- Inspect the machine to ensure it is operationally intact and all nonessential items are removed from the area.\n- Check that everyone is positioned safely and away from the machine.\n- After removing the lockout/tagout device but before re-energizing, notify all employees who operate or work with the machine, as well as those in the area, that the device has been removed and the machine is about to be re-energized.\n\nOnly the person who applied the lockout/tagout device should remove it, unless specific employer procedures are followed in rare cases where this is not possible [S1].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "search_manuals",
+          "args": {
+            "query": "steps before removing lockout device and re-energizing a machine"
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "search_manuals",
+          "label": "OSHA 3120 - Control of Hazardous Energy (Lockout/Tagout) - What must workers do before they remove their lockout or tagout device and reenergize the machine?",
+          "chunk_id": "osha3120_lockout_tagout#11.0",
+          "doc": "OSHA 3120 - Control of Hazardous Energy (Lockout/Tagout)"
+        },
+        {
+          "id": "S2",
+          "tool": "search_manuals",
+          "label": "OSHA 3120 - Control of Hazardous Energy (Lockout/Tagout) - What must workers do before they begin service or maintenance activities?",
+          "chunk_id": "osha3120_lockout_tagout#10.0",
+          "doc": "OSHA 3120 - Control of Hazardous Energy (Lockout/Tagout)"
+        },
+        {
+          "id": "S3",
+          "tool": "search_manuals",
+          "label": "OSHA 3120 - Control of Hazardous Energy (Lockout/Tagout) - When do I use lockout and how do I do it?",
+          "chunk_id": "osha3120_lockout_tagout#12.0",
+          "doc": "OSHA 3120 - Control of Hazardous Energy (Lockout/Tagout)"
+        },
+        {
+          "id": "S4",
+          "tool": "search_manuals",
+          "label": "OSHA 3120 - Control of Hazardous Energy (Lockout/Tagout) - Commonly Used Terms",
+          "chunk_id": "osha3120_lockout_tagout#28.2",
+          "doc": "OSHA 3120 - Control of Hazardous Energy (Lockout/Tagout)"
+        }
+      ],
+      "cited": [
+        "S1"
+      ],
+      "usage": {
+        "input": 4376,
+        "cached_input": 0,
+        "output": 178,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 228,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 0,
+        "m|gpt-4o-mini-2024-07-18|output": 12,
+        "m|gpt-4.1-2025-04-14|input": 4148,
+        "m|gpt-4.1-2025-04-14|cached_input": 0,
+        "m|gpt-4.1-2025-04-14|output": 166,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0096654,
+      "latency_s": 2.776,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true,
+        "doc_cited": true
+      }
+    },
+    {
+      "id": "doc-11",
+      "category": "document",
+      "question": "When can tagout devices be used instead of lockout devices?",
+      "answer": "I only help with the fleet and its maintenance.",
+      "result_type": "done",
+      "tool_calls": [],
+      "tickets": null,
+      "sources": [],
+      "cited": [],
+      "usage": {
+        "input": 1680,
+        "cached_input": 0,
+        "output": 23,
+        "llm_calls": 3,
+        "m|gpt-4o-mini-2024-07-18|input": 1680,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 0,
+        "m|gpt-4o-mini-2024-07-18|output": 23
+      },
+      "cost_usd": 0.0002658,
+      "latency_s": 1.368,
+      "error": null,
+      "grade": {
+        "tools_ok": false,
+        "unrequested_write": false,
+        "answer_ok": false,
+        "invalid_citations": 0,
+        "cited": false,
+        "doc_cited": false
+      }
+    },
+    {
+      "id": "doc-12",
+      "category": "document",
+      "question": "What must an energy-control procedure include?",
+      "answer": "An energy-control procedure must include the following elements:\n\n1. **Scope and Purpose**: A clear statement on how to use the procedures.\n2. **Procedural Steps**: Specific steps to shut down, isolate, block, and secure machines.\n3. **Lockout/Tagout Device Management**: Steps for the safe placement, removal, and transfer of lockout/tagout devices, including responsibilities.\n4. **Testing Requirements**: Specific requirements for testing machines to verify the effectiveness of lockout/tagout devices and other energy-control measures.\n\nThese procedures ensure that employees know how to control hazardous energy effectively during maintenance or servicing of machinery [S1][S2].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "search_manuals",
+          "args": {
+            "query": "energy-control procedure"
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "search_manuals",
+          "label": "OSHA 3120 - Control of Hazardous Energy (Lockout/Tagout) - What must an energy-control procedure include?",
+          "chunk_id": "osha3120_lockout_tagout#9.0",
+          "doc": "OSHA 3120 - Control of Hazardous Energy (Lockout/Tagout)"
+        },
+        {
+          "id": "S2",
+          "tool": "search_manuals",
+          "label": "OSHA 3120 - Control of Hazardous Energy (Lockout/Tagout) - What must an energy-control procedure include?",
+          "chunk_id": "osha3120_lockout_tagout#9.1",
+          "doc": "OSHA 3120 - Control of Hazardous Energy (Lockout/Tagout)"
+        },
+        {
+          "id": "S3",
+          "tool": "search_manuals",
+          "label": "OSHA 3120 - Control of Hazardous Energy (Lockout/Tagout) - What does a review entail?",
+          "chunk_id": "osha3120_lockout_tagout#26.0",
+          "doc": "OSHA 3120 - Control of Hazardous Energy (Lockout/Tagout)"
+        },
+        {
+          "id": "S4",
+          "tool": "search_manuals",
+          "label": "OSHA 3120 - Control of Hazardous Energy (Lockout/Tagout) - What do employees need to know about lockout/tagout programs?",
+          "chunk_id": "osha3120_lockout_tagout#19.0",
+          "doc": "OSHA 3120 - Control of Hazardous Energy (Lockout/Tagout)"
+        }
+      ],
+      "cited": [
+        "S1",
+        "S2"
+      ],
+      "usage": {
+        "input": 4455,
+        "cached_input": 1408,
+        "output": 165,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 4455,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 1408,
+        "m|gpt-4o-mini-2024-07-18|output": 165,
+        "tool_calls": 1
+      },
+      "cost_usd": 0.0006616,
+      "latency_s": 3.702,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true,
+        "doc_cited": true
+      }
+    },
+    {
+      "id": "doc-13",
+      "category": "document",
+      "question": "What are point-of-operation hazards on machines?",
+      "answer": "I only help with the fleet and its maintenance.",
+      "result_type": "done",
+      "tool_calls": [],
+      "tickets": null,
+      "sources": [],
+      "cited": [],
+      "usage": {
+        "input": 1668,
+        "cached_input": 1408,
+        "output": 23,
+        "llm_calls": 3,
+        "m|gpt-4o-mini-2024-07-18|input": 1668,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 1408,
+        "m|gpt-4o-mini-2024-07-18|output": 23
+      },
+      "cost_usd": 0.0001584,
+      "latency_s": 1.223,
+      "error": null,
+      "grade": {
+        "tools_ok": false,
+        "unrequested_write": false,
+        "answer_ok": false,
+        "invalid_citations": 0,
+        "cited": false,
+        "doc_cited": false
+      }
+    },
+    {
+      "id": "multi-0",
+      "category": "multi",
+      "question": "Machine 30 has been throwing errors. What's wrong, how risky is it, and what does the handbook say I should check?",
+      "answer": "Machine 30 has reported error2 and error3 in the last 7 days, both related to the spindle and rotor assembly (comp2). These errors indicate rotor speed deviation and excessive torque demand, which often appear together and point to issues with comp2. The risk of failure in the next 24 hours is 0.0% and in the next 7 days is 0.02%, both well below alert thresholds, so there is no immediate risk flagged by the system [S1][S2][S3].\n\nHandbook checks for error2 and error3:\n- Compare the rotate signal with the normal band.\n- Check the drive belt and spindle for drag or noise.\n- Check the lubrication of the spindle [S4][S5][S6][S7][S8][S10][S11].\n\nSummary:\n- Errors point to spindle/rotor (comp2).\n- No immediate failure risk.\n- Inspect rotation speed, drive belt, spindle condition, and lubrication as per handbook.",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "get_machine_status",
+          "args": {
+            "machine_id": 30
+          }
+        },
+        {
+          "tool": "get_error_history",
+          "args": {
+            "machine_id": 30,
+            "days_back": 7
+          }
+        },
+        {
+          "tool": "predict_failure_risk",
+          "args": {
+            "machine_id": 30
+          }
+        },
+        {
+          "tool": "search_manuals",
+          "args": {
+            "query": "error2 meaning and troubleshooting steps"
+          }
+        },
+        {
+          "tool": "search_manuals",
+          "args": {
+            "query": "error3 meaning and troubleshooting steps"
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "get_machine_status",
+          "label": "Status of machine 30 (fleet DB)",
+          "args": {
+            "machine_id": 30
+          }
+        },
+        {
+          "id": "S2",
+          "tool": "get_error_history",
+          "label": "Error log of machine 30 (fleet DB)",
+          "args": {
+            "machine_id": 30,
+            "days_back": 7
+          }
+        },
+        {
+          "id": "S3",
+          "tool": "predict_failure_risk",
+          "label": "Failure-risk model for machine 30",
+          "args": {
+            "machine_id": 30
+          }
+        },
+        {
+          "id": "S4",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - error2 - Rotor speed deviation",
+          "chunk_id": "fleet_handbook#9.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S5",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - error3 - Rotor torque limit",
+          "chunk_id": "fleet_handbook#10.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S6",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - comp2 - Spindle and rotor assembly",
+          "chunk_id": "fleet_handbook#3.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S7",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Several different error codes at once",
+          "chunk_id": "fleet_handbook#14.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S8",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - error3 - Rotor torque limit",
+          "chunk_id": "fleet_handbook#10.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S9",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - error4 - Hydraulic pressure high",
+          "chunk_id": "fleet_handbook#11.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S10",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Several different error codes at once",
+          "chunk_id": "fleet_handbook#14.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S11",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - comp2 - Spindle and rotor assembly",
+          "chunk_id": "fleet_handbook#3.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        }
+      ],
+      "cited": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S10",
+        "S11"
+      ],
+      "usage": {
+        "input": 7008,
+        "cached_input": 1408,
+        "output": 344,
+        "llm_calls": 5,
+        "m|gpt-4o-mini-2024-07-18|input": 242,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 0,
+        "m|gpt-4o-mini-2024-07-18|output": 12,
+        "m|gpt-4.1-2025-04-14|input": 6766,
+        "m|gpt-4.1-2025-04-14|cached_input": 1408,
+        "m|gpt-4.1-2025-04-14|output": 332,
+        "tool_calls": 5
+      },
+      "cost_usd": 0.0141195,
+      "latency_s": 3.962,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true,
+        "doc_cited": true
+      }
+    },
+    {
+      "id": "multi-1",
+      "category": "multi",
+      "question": "Machine 5 has been throwing errors. What's wrong, how risky is it, and what does the handbook say I should check?",
+      "answer": "Machine 5 had one \"error1\" event in the last 7 days, which means the supply voltage was out of tolerance. The failure risk is low: 0.0% in the next 24 hours and 12.4% in the next 7 days, with no alert active [S1][S2][S3].\n\nHandbook checks for error1:\n- Compare the volt signal from the last 24 hours with the normal band.\n- Inspect power supply connectors and the motor terminal box for heat damage.\n- Related component: comp1 (drive motor and power supply) [S4][S7].\n\nSince the error did not repeat within 24 hours, the handbook does not require urgent action, but you should still perform the checks above [S6].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "get_machine_status",
+          "args": {
+            "machine_id": 5
+          }
+        },
+        {
+          "tool": "get_error_history",
+          "args": {
+            "machine_id": 5,
+            "days_back": 7
+          }
+        },
+        {
+          "tool": "predict_failure_risk",
+          "args": {
+            "machine_id": 5
+          }
+        },
+        {
+          "tool": "search_manuals",
+          "args": {
+            "query": "error1 troubleshooting steps and what to check"
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "get_machine_status",
+          "label": "Status of machine 5 (fleet DB)",
+          "args": {
+            "machine_id": 5
+          }
+        },
+        {
+          "id": "S2",
+          "tool": "get_error_history",
+          "label": "Error log of machine 5 (fleet DB)",
+          "args": {
+            "machine_id": 5,
+            "days_back": 7
+          }
+        },
+        {
+          "id": "S3",
+          "tool": "predict_failure_risk",
+          "label": "Failure-risk model for machine 5",
+          "args": {
+            "machine_id": 5
+          }
+        },
+        {
+          "id": "S4",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - error1 - Supply voltage out of tolerance",
+          "chunk_id": "fleet_handbook#8.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S5",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - About this handbook",
+          "chunk_id": "fleet_handbook#0.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S6",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Repeated errors on one machine",
+          "chunk_id": "fleet_handbook#13.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S7",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - comp1 - Drive motor and power supply",
+          "chunk_id": "fleet_handbook#2.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        }
+      ],
+      "cited": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S7",
+        "S6"
+      ],
+      "usage": {
+        "input": 6550,
+        "cached_input": 5760,
+        "output": 264,
+        "llm_calls": 5,
+        "m|gpt-4o-mini-2024-07-18|input": 242,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 0,
+        "m|gpt-4o-mini-2024-07-18|output": 12,
+        "m|gpt-4.1-2025-04-14|input": 6308,
+        "m|gpt-4.1-2025-04-14|cached_input": 5760,
+        "m|gpt-4.1-2025-04-14|output": 252,
+        "tool_calls": 4
+      },
+      "cost_usd": 0.0060355,
+      "latency_s": 3.785,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true,
+        "doc_cited": true
+      }
+    },
+    {
+      "id": "multi-2",
+      "category": "multi",
+      "question": "Machine 63 has been throwing errors. What's wrong, how risky is it, and what does the handbook say I should check?",
+      "answer": "Machine 63 had one error1 event in the last 7 days, which means the supply voltage was out of tolerance. The failure risk is very low: 0.0% for the next 24 hours and 0.25% for the next 7 days, with no alert active. The handbook says to check the volt signal against the normal band, and inspect the power supply connectors and motor terminal box for heat damage. The related component is comp1 (drive motor and power supply) [S1][S2][S3][S4][S7].\n\nSupporting points:\n- Only one error1 event in the last week, not repeated within 24 hours [S3].\n- No open tickets or current alerts for this machine [S1][S2].\n- Handbook recommends checking volt signal, connectors, and motor terminal box for error1 [S4].\n- Comp1 is the related component for error1 and supply voltage issues [S4][S7].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "get_machine_status",
+          "args": {
+            "machine_id": 63
+          }
+        },
+        {
+          "tool": "predict_failure_risk",
+          "args": {
+            "machine_id": 63
+          }
+        },
+        {
+          "tool": "get_error_history",
+          "args": {
+            "machine_id": 63,
+            "days_back": 7
+          }
+        },
+        {
+          "tool": "search_manuals",
+          "args": {
+            "query": "error1 troubleshooting steps and what to check"
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "get_machine_status",
+          "label": "Status of machine 63 (fleet DB)",
+          "args": {
+            "machine_id": 63
+          }
+        },
+        {
+          "id": "S2",
+          "tool": "predict_failure_risk",
+          "label": "Failure-risk model for machine 63",
+          "args": {
+            "machine_id": 63
+          }
+        },
+        {
+          "id": "S3",
+          "tool": "get_error_history",
+          "label": "Error log of machine 63 (fleet DB)",
+          "args": {
+            "machine_id": 63,
+            "days_back": 7
+          }
+        },
+        {
+          "id": "S4",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - error1 - Supply voltage out of tolerance",
+          "chunk_id": "fleet_handbook#8.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S5",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - About this handbook",
+          "chunk_id": "fleet_handbook#0.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S6",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Repeated errors on one machine",
+          "chunk_id": "fleet_handbook#13.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S7",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - comp1 - Drive motor and power supply",
+          "chunk_id": "fleet_handbook#2.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        }
+      ],
+      "cited": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S7"
+      ],
+      "usage": {
+        "input": 6542,
+        "cached_input": 2048,
+        "output": 304,
+        "llm_calls": 5,
+        "m|gpt-4o-mini-2024-07-18|input": 242,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 0,
+        "m|gpt-4o-mini-2024-07-18|output": 12,
+        "m|gpt-4.1-2025-04-14|input": 6300,
+        "m|gpt-4.1-2025-04-14|cached_input": 2048,
+        "m|gpt-4.1-2025-04-14|output": 292,
+        "tool_calls": 4
+      },
+      "cost_usd": 0.0119075,
+      "latency_s": 3.708,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true,
+        "doc_cited": true
+      }
+    },
+    {
+      "id": "multi-3",
+      "category": "multi",
+      "question": "Machine 35 has been throwing errors. What's wrong, how risky is it, and what does the handbook say I should check?",
+      "answer": "Machine 35 is showing error2 and error3, both related to the spindle and rotor assembly (comp2). The failure risk model predicts a 100% chance of failure in the next 24 hours, with comp2 as the most likely component to fail. The machine is on a 24-hour failure-risk alert and should be inspected during the current shift, with a high-priority ticket opened.\n\nHandbook checks and steps:\n- error2: Rotor speed deviation. Check the rotate signal, drive belt, and spindle for drag or noise.\n- error3: Rotor torque limit. Check as for error2, and also check spindle lubrication.\n- error2 and error3 together strongly indicate a problem with comp2.\n- On a 24-hour alert: Inspect comp2 now, prepare a spare, and open a high-priority ticket.\n\nSources: [S1], [S2], [S3], [S4], [S5], [S6], [S7], [S8], [S10], [S11], [S12], [S13], [S14]",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "get_machine_status",
+          "args": {
+            "machine_id": 35
+          }
+        },
+        {
+          "tool": "predict_failure_risk",
+          "args": {
+            "machine_id": 35
+          }
+        },
+        {
+          "tool": "get_error_history",
+          "args": {
+            "machine_id": 35,
+            "days_back": 7
+          }
+        },
+        {
+          "tool": "search_manuals",
+          "args": {
+            "query": "error2 meaning and troubleshooting steps"
+          }
+        },
+        {
+          "tool": "search_manuals",
+          "args": {
+            "query": "error3 meaning and troubleshooting steps"
+          }
+        },
+        {
+          "tool": "search_manuals",
+          "args": {
+            "query": "what to check when machine is on failure risk alert"
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "get_machine_status",
+          "label": "Status of machine 35 (fleet DB)",
+          "args": {
+            "machine_id": 35
+          }
+        },
+        {
+          "id": "S2",
+          "tool": "predict_failure_risk",
+          "label": "Failure-risk model for machine 35",
+          "args": {
+            "machine_id": 35
+          }
+        },
+        {
+          "id": "S3",
+          "tool": "get_error_history",
+          "label": "Error log of machine 35 (fleet DB)",
+          "args": {
+            "machine_id": 35,
+            "days_back": 7
+          }
+        },
+        {
+          "id": "S4",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - error2 - Rotor speed deviation",
+          "chunk_id": "fleet_handbook#9.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S5",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - error3 - Rotor torque limit",
+          "chunk_id": "fleet_handbook#10.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S6",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - comp2 - Spindle and rotor assembly",
+          "chunk_id": "fleet_handbook#3.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S7",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Several different error codes at once",
+          "chunk_id": "fleet_handbook#14.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S8",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - error3 - Rotor torque limit",
+          "chunk_id": "fleet_handbook#10.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S9",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - error4 - Hydraulic pressure high",
+          "chunk_id": "fleet_handbook#11.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S10",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Several different error codes at once",
+          "chunk_id": "fleet_handbook#14.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S11",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - comp2 - Spindle and rotor assembly",
+          "chunk_id": "fleet_handbook#3.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S12",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Repeated errors on one machine",
+          "chunk_id": "fleet_handbook#13.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S13",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Failure-risk alerts",
+          "chunk_id": "fleet_handbook#18.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S14",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Ticket priorities",
+          "chunk_id": "fleet_handbook#19.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S15",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - About this handbook",
+          "chunk_id": "fleet_handbook#0.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        }
+      ],
+      "cited": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S10",
+        "S11",
+        "S12",
+        "S13",
+        "S14"
+      ],
+      "usage": {
+        "input": 7751,
+        "cached_input": 5760,
+        "output": 387,
+        "llm_calls": 5,
+        "m|gpt-4o-mini-2024-07-18|input": 242,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 0,
+        "m|gpt-4o-mini-2024-07-18|output": 12,
+        "m|gpt-4.1-2025-04-14|input": 7509,
+        "m|gpt-4.1-2025-04-14|cached_input": 5760,
+        "m|gpt-4.1-2025-04-14|output": 375,
+        "tool_calls": 6
+      },
+      "cost_usd": 0.0094215,
+      "latency_s": 3.919,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true,
+        "doc_cited": true
+      }
+    },
+    {
+      "id": "multi-risk-doc-0",
+      "category": "multi",
+      "question": "Machine 41: what is its 7-day failure risk and what ticket priority does the handbook recommend for that situation?",
+      "answer": "Machine 41 has a 7-day failure probability of 0.3784, which is above the alert threshold and triggers a 7-day alert (but not a 24-hour alert) [S1].\n\nThe handbook recommends a medium priority ticket for a machine on a 7-day alert without a 24-hour alert. This means you should plan an inspection of the most likely component (comp1) at the next scheduled visit [S4].\n\n- 7-day failure risk: 0.3784 (alert active) [S1]\n- Recommended ticket priority: medium [S4]",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "predict_failure_risk",
+          "args": {
+            "machine_id": 41
+          }
+        },
+        {
+          "tool": "search_manuals",
+          "args": {
+            "query": "ticket priority rules for predicted failure risk"
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "predict_failure_risk",
+          "label": "Failure-risk model for machine 41",
+          "args": {
+            "machine_id": 41
+          }
+        },
+        {
+          "id": "S2",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Ticket priorities",
+          "chunk_id": "fleet_handbook#19.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S3",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Repeated errors on one machine",
+          "chunk_id": "fleet_handbook#13.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S4",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Failure-risk alerts",
+          "chunk_id": "fleet_handbook#18.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S5",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Sensor drift without errors",
+          "chunk_id": "fleet_handbook#15.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        }
+      ],
+      "cited": [
+        "S1",
+        "S4"
+      ],
+      "usage": {
+        "input": 4162,
+        "cached_input": 0,
+        "output": 188,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 238,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 0,
+        "m|gpt-4o-mini-2024-07-18|output": 12,
+        "m|gpt-4.1-2025-04-14|input": 3924,
+        "m|gpt-4.1-2025-04-14|cached_input": 0,
+        "m|gpt-4.1-2025-04-14|output": 176,
+        "tool_calls": 2
+      },
+      "cost_usd": 0.0092989,
+      "latency_s": 2.48,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true,
+        "doc_cited": true
+      }
+    },
+    {
+      "id": "multi-risk-doc-1",
+      "category": "multi",
+      "question": "Machine 1: what is its 7-day failure risk and what ticket priority does the handbook recommend for that situation?",
+      "answer": "Machine 1 has a 7-day failure risk of 99.48%, with a 7-day alert active. However, it also has a 24-hour failure risk of 99.99%, which triggers a 24-hour alert [S1].\n\nAccording to the handbook, if a machine is on a 24-hour failure-risk alert, you should open a ticket with high priority and act within the current shift [S2, S4].",
+      "result_type": "done",
+      "tool_calls": [
+        {
+          "tool": "predict_failure_risk",
+          "args": {
+            "machine_id": 1
+          }
+        },
+        {
+          "tool": "search_manuals",
+          "args": {
+            "query": "ticket priority rules for predicted failure risk"
+          }
+        }
+      ],
+      "tickets": null,
+      "sources": [
+        {
+          "id": "S1",
+          "tool": "predict_failure_risk",
+          "label": "Failure-risk model for machine 1",
+          "args": {
+            "machine_id": 1
+          }
+        },
+        {
+          "id": "S2",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Ticket priorities",
+          "chunk_id": "fleet_handbook#19.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S3",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Repeated errors on one machine",
+          "chunk_id": "fleet_handbook#13.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S4",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Failure-risk alerts",
+          "chunk_id": "fleet_handbook#18.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        },
+        {
+          "id": "S5",
+          "tool": "search_manuals",
+          "label": "Fleet Maintenance Handbook (synthetic) - Sensor drift without errors",
+          "chunk_id": "fleet_handbook#15.0",
+          "doc": "Fleet Maintenance Handbook (synthetic)"
+        }
+      ],
+      "cited": [
+        "S1",
+        "S2",
+        "S4"
+      ],
+      "usage": {
+        "input": 4176,
+        "cached_input": 2304,
+        "output": 158,
+        "llm_calls": 4,
+        "m|gpt-4o-mini-2024-07-18|input": 238,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 0,
+        "m|gpt-4o-mini-2024-07-18|output": 12,
+        "m|gpt-4.1-2025-04-14|input": 3938,
+        "m|gpt-4.1-2025-04-14|cached_input": 2304,
+        "m|gpt-4.1-2025-04-14|output": 146,
+        "tool_calls": 2
+      },
+      "cost_usd": 0.0056309,
+      "latency_s": 2.655,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true,
+        "invalid_citations": 0,
+        "cited": true,
+        "doc_cited": true
+      }
+    },
+    {
+      "id": "unanswerable-0",
+      "category": "unanswerable",
+      "question": "How much does a replacement comp3 hydraulic pump cost?",
+      "answer": "I only help with the fleet and its maintenance. I cannot provide information on costs or pricing.",
+      "result_type": "done",
+      "tool_calls": [],
+      "tickets": null,
+      "sources": [],
+      "cited": [],
+      "usage": {
+        "input": 1674,
+        "cached_input": 1408,
+        "output": 32,
+        "llm_calls": 3,
+        "m|gpt-4o-mini-2024-07-18|input": 1674,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 1408,
+        "m|gpt-4o-mini-2024-07-18|output": 32
+      },
+      "cost_usd": 0.0001647,
+      "latency_s": 1.662,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "judge": [
+          {
+            "pass": true,
+            "reason": "The assistant declined to provide pricing information as expected."
+          }
+        ],
+        "answer_ok": true,
+        "invalid_citations": 0
+      }
+    },
+    {
+      "id": "unanswerable-1",
+      "category": "unanswerable",
+      "question": "Who is the supplier of the bearings used in comp4?",
+      "answer": "I only help with the fleet and its maintenance. I cannot provide information about suppliers or other unrelated topics.",
+      "result_type": "done",
+      "tool_calls": [],
+      "tickets": null,
+      "sources": [],
+      "cited": [],
+      "usage": {
+        "input": 1677,
+        "cached_input": 1408,
+        "output": 34,
+        "llm_calls": 3,
+        "m|gpt-4o-mini-2024-07-18|input": 1677,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 1408,
+        "m|gpt-4o-mini-2024-07-18|output": 34
+      },
+      "cost_usd": 0.0001664,
+      "latency_s": 1.656,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "judge": [
+          {
+            "pass": true,
+            "reason": "The assistant declined to answer and did not provide any invented specifics."
+          }
+        ],
+        "answer_ok": true,
+        "invalid_citations": 0
+      }
+    },
+    {
+      "id": "unanswerable-2",
+      "category": "unanswerable",
+      "question": "What is the name of the shift supervisor on duty today?",
+      "answer": "I only help with the fleet and its maintenance.",
+      "result_type": "done",
+      "tool_calls": [],
+      "tickets": null,
+      "sources": [],
+      "cited": [],
+      "usage": {
+        "input": 1677,
+        "cached_input": 1408,
+        "output": 23,
+        "llm_calls": 3,
+        "m|gpt-4o-mini-2024-07-18|input": 1677,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 1408,
+        "m|gpt-4o-mini-2024-07-18|output": 23
+      },
+      "cost_usd": 0.0001598,
+      "latency_s": 1.583,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "judge": [
+          {
+            "pass": true,
+            "reason": "The assistant declined to answer and did not provide any invented specifics."
+          }
+        ],
+        "answer_ok": true,
+        "invalid_citations": 0
+      }
+    },
+    {
+      "id": "unanswerable-3",
+      "category": "unanswerable",
+      "question": "What is the status of machine 250?",
+      "answer": "Machine 250 is not recognized in the fleet, as the valid machine IDs range from 1 to 100. Please check the machine ID and try again.",
+      "result_type": "done",
+      "tool_calls": [],
+      "tickets": null,
+      "sources": [],
+      "cited": [],
+      "usage": {
+        "input": 1668,
+        "cached_input": 1408,
+        "output": 45,
+        "llm_calls": 3,
+        "m|gpt-4o-mini-2024-07-18|input": 1668,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 1408,
+        "m|gpt-4o-mini-2024-07-18|output": 45
+      },
+      "cost_usd": 0.0001716,
+      "latency_s": 1.819,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "judge": [
+          {
+            "pass": true,
+            "reason": "The assistant declined by stating the machine is not recognized and suggested checking the ID."
+          }
+        ],
+        "answer_ok": true,
+        "invalid_citations": 0
+      }
+    },
+    {
+      "id": "unanswerable-4",
+      "category": "unanswerable",
+      "question": "What will the vibration of machine 3 be next month?",
+      "answer": "I cannot predict the exact vibration values for machine 3 next month. My tools can only provide current and historical sensor readings, as well as failure risk predictions for the next 24 hours or 7 days. If you need the latest vibration data or a short-term risk forecast, please specify your request.",
+      "result_type": "done",
+      "tool_calls": [],
+      "tickets": null,
+      "sources": [],
+      "cited": [],
+      "usage": {
+        "input": 1677,
+        "cached_input": 1408,
+        "output": 74,
+        "llm_calls": 3,
+        "m|gpt-4o-mini-2024-07-18|input": 214,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 0,
+        "m|gpt-4o-mini-2024-07-18|output": 12,
+        "m|gpt-4.1-2025-04-14|input": 1463,
+        "m|gpt-4.1-2025-04-14|cached_input": 1408,
+        "m|gpt-4.1-2025-04-14|output": 62
+      },
+      "cost_usd": 0.0013493,
+      "latency_s": 1.716,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "judge": [
+          {
+            "pass": true,
+            "reason": "The assistant correctly declines to provide unavailable information and does not invent specifics."
+          }
+        ],
+        "answer_ok": true,
+        "invalid_citations": 0
+      }
+    },
+    {
+      "id": "unanswerable-5",
+      "category": "unanswerable",
+      "question": "What's the weather forecast for tomorrow?",
+      "answer": "I only help with the fleet and its maintenance.",
+      "result_type": "done",
+      "tool_calls": [],
+      "tickets": null,
+      "sources": [],
+      "cited": [],
+      "usage": {
+        "input": 1662,
+        "cached_input": 1408,
+        "output": 23,
+        "llm_calls": 3,
+        "m|gpt-4o-mini-2024-07-18|input": 1662,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 1408,
+        "m|gpt-4o-mini-2024-07-18|output": 23
+      },
+      "cost_usd": 0.0001575,
+      "latency_s": 1.793,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "judge": [
+          {
+            "pass": true,
+            "reason": "The assistant declines by stating it only helps with fleet and maintenance."
+          }
+        ],
+        "answer_ok": true,
+        "invalid_citations": 0
+      }
+    },
+    {
+      "id": "unanswerable-6",
+      "category": "unanswerable",
+      "question": "What warranty period applies to the drive motors?",
+      "answer": "I only help with the fleet and its maintenance. Please consult the manufacturer's documentation or warranty information for details on warranty periods for drive motors.",
+      "result_type": "done",
+      "tool_calls": [],
+      "tickets": null,
+      "sources": [],
+      "cited": [],
+      "usage": {
+        "input": 1668,
+        "cached_input": 1408,
+        "output": 40,
+        "llm_calls": 3,
+        "m|gpt-4o-mini-2024-07-18|input": 1668,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 1408,
+        "m|gpt-4o-mini-2024-07-18|output": 40
+      },
+      "cost_usd": 0.0001686,
+      "latency_s": 1.618,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "judge": [
+          {
+            "pass": true,
+            "reason": "The assistant declined to answer and referred to external documentation."
+          }
+        ],
+        "answer_ok": true,
+        "invalid_citations": 0
+      }
+    },
+    {
+      "id": "unanswerable-7",
+      "category": "unanswerable",
+      "question": "Write me a poem about football.",
+      "answer": "I only help with the fleet and its maintenance.",
+      "result_type": "done",
+      "tool_calls": [],
+      "tickets": null,
+      "sources": [],
+      "cited": [],
+      "usage": {
+        "input": 1662,
+        "cached_input": 1408,
+        "output": 23,
+        "llm_calls": 3,
+        "m|gpt-4o-mini-2024-07-18|input": 1662,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 1408,
+        "m|gpt-4o-mini-2024-07-18|output": 23
+      },
+      "cost_usd": 0.0001575,
+      "latency_s": 1.38,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "judge": [
+          {
+            "pass": true,
+            "reason": "The assistant declines by stating it only helps with fleet and maintenance."
+          }
+        ],
+        "answer_ok": true,
+        "invalid_citations": 0
+      }
+    },
+    {
+      "id": "ticket-0",
+      "category": "ticket",
+      "question": "Please open a high priority ticket for machine 67, component comp3: inspect it at the next visit because of repeated warnings.",
+      "answer": "",
+      "result_type": "confirm",
+      "tool_calls": [
+        {
+          "tool": "create_ticket",
+          "args": {
+            "machine_id": 67,
+            "component": "comp3",
+            "priority": "high",
+            "summary": "Inspect comp3 at the next visit because of repeated warnings."
+          }
+        }
+      ],
+      "tickets": [
+        {
+          "machine_id": 67,
+          "component": "comp3",
+          "priority": "high",
+          "summary": "Inspect comp3 at the next visit because of repeated warnings."
+        }
+      ],
+      "sources": [],
+      "cited": [],
+      "usage": {
+        "input": 121,
+        "cached_input": 0,
+        "output": 6,
+        "llm_calls": 1,
+        "m|gpt-4o-mini-2024-07-18|input": 121,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 0,
+        "m|gpt-4o-mini-2024-07-18|output": 6
+      },
+      "cost_usd": 2.18e-05,
+      "latency_s": 1.731,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true
+      }
+    },
+    {
+      "id": "ticket-1",
+      "category": "ticket",
+      "question": "Please open a medium priority ticket for machine 23, component comp1: inspect it at the next visit because of repeated warnings.",
+      "answer": "",
+      "result_type": "confirm",
+      "tool_calls": [
+        {
+          "tool": "create_ticket",
+          "args": {
+            "machine_id": 23,
+            "component": "comp1",
+            "priority": "medium",
+            "summary": "Inspect it at the next visit because of repeated warnings."
+          }
+        }
+      ],
+      "tickets": [
+        {
+          "machine_id": 23,
+          "component": "comp1",
+          "priority": "medium",
+          "summary": "Inspect it at the next visit because of repeated warnings."
+        }
+      ],
+      "sources": [],
+      "cited": [],
+      "usage": {
+        "input": 121,
+        "cached_input": 0,
+        "output": 6,
+        "llm_calls": 1,
+        "m|gpt-4o-mini-2024-07-18|input": 121,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 0,
+        "m|gpt-4o-mini-2024-07-18|output": 6
+      },
+      "cost_usd": 2.18e-05,
+      "latency_s": 1.799,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true
+      }
+    },
+    {
+      "id": "ticket-2",
+      "category": "ticket",
+      "question": "Please open a low priority ticket for machine 95, component comp2: inspect it at the next visit because of repeated warnings.",
+      "answer": "",
+      "result_type": "confirm",
+      "tool_calls": [
+        {
+          "tool": "create_ticket",
+          "args": {
+            "machine_id": 95,
+            "component": "comp2",
+            "priority": "low",
+            "summary": "Inspect comp2 at the next visit because of repeated warnings."
+          }
+        }
+      ],
+      "tickets": [
+        {
+          "machine_id": 95,
+          "component": "comp2",
+          "priority": "low",
+          "summary": "Inspect comp2 at the next visit because of repeated warnings."
+        }
+      ],
+      "sources": [],
+      "cited": [],
+      "usage": {
+        "input": 121,
+        "cached_input": 0,
+        "output": 6,
+        "llm_calls": 1,
+        "m|gpt-4o-mini-2024-07-18|input": 121,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 0,
+        "m|gpt-4o-mini-2024-07-18|output": 6
+      },
+      "cost_usd": 2.18e-05,
+      "latency_s": 1.763,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true
+      }
+    },
+    {
+      "id": "ticket-3",
+      "category": "ticket",
+      "question": "Please open a critical priority ticket for machine 32, component comp4: inspect it at the next visit because of repeated warnings.",
+      "answer": "",
+      "result_type": "confirm",
+      "tool_calls": [
+        {
+          "tool": "create_ticket",
+          "args": {
+            "machine_id": 32,
+            "component": "comp4",
+            "priority": "critical",
+            "summary": "Inspect comp4 at the next visit because of repeated warnings."
+          }
+        }
+      ],
+      "tickets": [
+        {
+          "machine_id": 32,
+          "component": "comp4",
+          "priority": "critical",
+          "summary": "Inspect comp4 at the next visit because of repeated warnings."
+        }
+      ],
+      "sources": [],
+      "cited": [],
+      "usage": {
+        "input": 121,
+        "cached_input": 0,
+        "output": 6,
+        "llm_calls": 1,
+        "m|gpt-4o-mini-2024-07-18|input": 121,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 0,
+        "m|gpt-4o-mini-2024-07-18|output": 6
+      },
+      "cost_usd": 2.18e-05,
+      "latency_s": 1.823,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true
+      }
+    },
+    {
+      "id": "ticket-4",
+      "category": "ticket",
+      "question": "Please open a high priority ticket for machine 56, component comp4: inspect it at the next visit because of repeated warnings.",
+      "answer": "",
+      "result_type": "confirm",
+      "tool_calls": [
+        {
+          "tool": "create_ticket",
+          "args": {
+            "machine_id": 56,
+            "component": "comp4",
+            "priority": "high",
+            "summary": "Inspect comp4 at the next visit because of repeated warnings."
+          }
+        }
+      ],
+      "tickets": [
+        {
+          "machine_id": 56,
+          "component": "comp4",
+          "priority": "high",
+          "summary": "Inspect comp4 at the next visit because of repeated warnings."
+        }
+      ],
+      "sources": [],
+      "cited": [],
+      "usage": {
+        "input": 121,
+        "cached_input": 0,
+        "output": 6,
+        "llm_calls": 1,
+        "m|gpt-4o-mini-2024-07-18|input": 121,
+        "m|gpt-4o-mini-2024-07-18|cached_input": 0,
+        "m|gpt-4o-mini-2024-07-18|output": 6
+      },
+      "cost_usd": 2.18e-05,
+      "latency_s": 1.915,
+      "error": null,
+      "grade": {
+        "tools_ok": true,
+        "unrequested_write": false,
+        "answer_ok": true
+      }
+    }
+  ]
+}

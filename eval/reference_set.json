@@ -1,0 +1,1510 @@
+{
+  "sim_now": "2015-11-15T08:00:00",
+  "fleet_size": 100,
+  "seed": 42,
+  "n": 79,
+  "items": [
+    {
+      "id": "fact-model-0",
+      "category": "fact",
+      "question": "What model is machine 76 and how old is it?",
+      "required_tools": [
+        [
+          "get_machine_status"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "contains",
+          "value": "model3"
+        },
+        {
+          "type": "number",
+          "value": 10,
+          "tol": 0
+        }
+      ]
+    },
+    {
+      "id": "fact-model-1",
+      "category": "fact",
+      "question": "What model is machine 44 and how old is it?",
+      "required_tools": [
+        [
+          "get_machine_status"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "contains",
+          "value": "model2"
+        },
+        {
+          "type": "number",
+          "value": 7,
+          "tol": 0
+        }
+      ]
+    },
+    {
+      "id": "fact-model-2",
+      "category": "fact",
+      "question": "What model is machine 65 and how old is it?",
+      "required_tools": [
+        [
+          "get_machine_status"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "contains",
+          "value": "model3"
+        },
+        {
+          "type": "number",
+          "value": 15,
+          "tol": 0
+        }
+      ]
+    },
+    {
+      "id": "fact-model-3",
+      "category": "fact",
+      "question": "What model is machine 9 and how old is it?",
+      "required_tools": [
+        [
+          "get_machine_status"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "contains",
+          "value": "model1"
+        },
+        {
+          "type": "number",
+          "value": 7,
+          "tol": 0
+        }
+      ]
+    },
+    {
+      "id": "fact-model-4",
+      "category": "fact",
+      "question": "What model is machine 100 and how old is it?",
+      "required_tools": [
+        [
+          "get_machine_status"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "contains",
+          "value": "model4"
+        },
+        {
+          "type": "number",
+          "value": 5,
+          "tol": 0
+        }
+      ]
+    },
+    {
+      "id": "fact-errors7d-0",
+      "category": "fact",
+      "question": "How many errors did machine 79 log in the last 7 days?",
+      "required_tools": [
+        [
+          "get_error_history",
+          "get_machine_status"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "number",
+          "value": 1,
+          "tol": 0
+        }
+      ]
+    },
+    {
+      "id": "fact-errors7d-1",
+      "category": "fact",
+      "question": "How many errors did machine 5 log in the last 7 days?",
+      "required_tools": [
+        [
+          "get_error_history",
+          "get_machine_status"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "number",
+          "value": 1,
+          "tol": 0
+        }
+      ]
+    },
+    {
+      "id": "fact-errors7d-2",
+      "category": "fact",
+      "question": "How many errors did machine 35 log in the last 7 days?",
+      "required_tools": [
+        [
+          "get_error_history",
+          "get_machine_status"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "number",
+          "value": 2,
+          "tol": 0
+        }
+      ]
+    },
+    {
+      "id": "fact-errors7d-3",
+      "category": "fact",
+      "question": "How many errors did machine 60 log in the last 7 days?",
+      "required_tools": [
+        [
+          "get_error_history",
+          "get_machine_status"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "number",
+          "value": 1,
+          "tol": 0
+        }
+      ]
+    },
+    {
+      "id": "fact-errors7d-4",
+      "category": "fact",
+      "question": "How many errors did machine 56 log in the last 7 days?",
+      "required_tools": [
+        [
+          "get_error_history",
+          "get_machine_status"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "number",
+          "value": 1,
+          "tol": 0
+        }
+      ]
+    },
+    {
+      "id": "fact-errcode30d-0",
+      "category": "fact",
+      "question": "How many error1 events did machine 68 have in the last 30 days?",
+      "required_tools": [
+        [
+          "get_error_history"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "number",
+          "value": 1,
+          "tol": 0
+        }
+      ]
+    },
+    {
+      "id": "fact-errcode30d-1",
+      "category": "fact",
+      "question": "How many error5 events did machine 7 have in the last 30 days?",
+      "required_tools": [
+        [
+          "get_error_history"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "number",
+          "value": 1,
+          "tol": 0
+        }
+      ]
+    },
+    {
+      "id": "fact-errcode30d-2",
+      "category": "fact",
+      "question": "How many error3 events did machine 5 have in the last 30 days?",
+      "required_tools": [
+        [
+          "get_error_history"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "number",
+          "value": 1,
+          "tol": 0
+        }
+      ]
+    },
+    {
+      "id": "fact-errcode30d-3",
+      "category": "fact",
+      "question": "How many error3 events did machine 74 have in the last 30 days?",
+      "required_tools": [
+        [
+          "get_error_history"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "number",
+          "value": 2,
+          "tol": 0
+        }
+      ]
+    },
+    {
+      "id": "fact-lastrepl-0",
+      "category": "fact",
+      "question": "When was comp4 of machine 50 last replaced?",
+      "required_tools": [
+        [
+          "get_maintenance_history",
+          "get_machine_status"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "contains",
+          "value": "2015-09-08"
+        }
+      ]
+    },
+    {
+      "id": "fact-lastrepl-1",
+      "category": "fact",
+      "question": "When was comp3 of machine 81 last replaced?",
+      "required_tools": [
+        [
+          "get_maintenance_history",
+          "get_machine_status"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "contains",
+          "value": "2015-09-29"
+        }
+      ]
+    },
+    {
+      "id": "fact-lastrepl-2",
+      "category": "fact",
+      "question": "When was comp2 of machine 44 last replaced?",
+      "required_tools": [
+        [
+          "get_maintenance_history",
+          "get_machine_status"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "contains",
+          "value": "2015-10-07"
+        }
+      ]
+    },
+    {
+      "id": "fact-lastrepl-3",
+      "category": "fact",
+      "question": "When was comp2 of machine 37 last replaced?",
+      "required_tools": [
+        [
+          "get_maintenance_history",
+          "get_machine_status"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "contains",
+          "value": "2015-10-28"
+        }
+      ]
+    },
+    {
+      "id": "fact-lastrepl-4",
+      "category": "fact",
+      "question": "When was comp1 of machine 19 last replaced?",
+      "required_tools": [
+        [
+          "get_maintenance_history",
+          "get_machine_status"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "contains",
+          "value": "2015-04-18"
+        }
+      ]
+    },
+    {
+      "id": "fact-fail90-0",
+      "category": "fact",
+      "question": "How many component failures did machine 55 have in the last 90 days?",
+      "required_tools": [
+        [
+          "get_machine_status",
+          "get_maintenance_history"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "number",
+          "value": 2,
+          "tol": 0
+        }
+      ]
+    },
+    {
+      "id": "fact-fail90-1",
+      "category": "fact",
+      "question": "How many component failures did machine 9 have in the last 90 days?",
+      "required_tools": [
+        [
+          "get_machine_status",
+          "get_maintenance_history"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "number",
+          "value": 2,
+          "tol": 0
+        }
+      ]
+    },
+    {
+      "id": "fact-fail90-2",
+      "category": "fact",
+      "question": "How many component failures did machine 88 have in the last 90 days?",
+      "required_tools": [
+        [
+          "get_machine_status",
+          "get_maintenance_history"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "number",
+          "value": 2,
+          "tol": 0
+        }
+      ]
+    },
+    {
+      "id": "fact-fail90-3",
+      "category": "fact",
+      "question": "How many component failures did machine 7 have in the last 90 days?",
+      "required_tools": [
+        [
+          "get_machine_status",
+          "get_maintenance_history"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "number",
+          "value": 3,
+          "tol": 0
+        }
+      ]
+    },
+    {
+      "id": "fact-telemetry-0",
+      "category": "fact",
+      "question": "What was the average voltage of machine 61 over the last 24 hours?",
+      "required_tools": [
+        [
+          "query_telemetry"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "number",
+          "value": 173.47,
+          "tol": 0.1
+        }
+      ]
+    },
+    {
+      "id": "fact-telemetry-1",
+      "category": "fact",
+      "question": "What was the maximum rotation speed of machine 16 over the last 48 hours?",
+      "required_tools": [
+        [
+          "query_telemetry"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "number",
+          "value": 578.57,
+          "tol": 0.1
+        }
+      ]
+    },
+    {
+      "id": "fact-telemetry-2",
+      "category": "fact",
+      "question": "What was the average pressure of machine 36 over the last 12 hours?",
+      "required_tools": [
+        [
+          "query_telemetry"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "number",
+          "value": 95.25,
+          "tol": 0.1
+        }
+      ]
+    },
+    {
+      "id": "fact-telemetry-3",
+      "category": "fact",
+      "question": "What was the maximum vibration of machine 69 over the last 24 hours?",
+      "required_tools": [
+        [
+          "query_telemetry"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "number",
+          "value": 48.7,
+          "tol": 0.1
+        }
+      ]
+    },
+    {
+      "id": "fact-telemetry-4",
+      "category": "fact",
+      "question": "What was the average voltage of machine 74 over the last 48 hours?",
+      "required_tools": [
+        [
+          "query_telemetry"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "number",
+          "value": 185.26,
+          "tol": 0.1
+        }
+      ]
+    },
+    {
+      "id": "fact-telemetry-5",
+      "category": "fact",
+      "question": "What was the maximum rotation speed of machine 7 over the last 12 hours?",
+      "required_tools": [
+        [
+          "query_telemetry"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "number",
+          "value": 521.76,
+          "tol": 0.1
+        }
+      ]
+    },
+    {
+      "id": "fleet-mostfail-0",
+      "category": "fleet",
+      "question": "Which machine had the most component failures in the last 30 days, and how many?",
+      "required_tools": [
+        [
+          "fleet_overview"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "any_number",
+          "values": [
+            7,
+            29,
+            32,
+            39,
+            40,
+            41,
+            51,
+            83,
+            94
+          ]
+        },
+        {
+          "type": "number",
+          "value": 2,
+          "tol": 0
+        }
+      ]
+    },
+    {
+      "id": "fleet-mostfail-1",
+      "category": "fleet",
+      "question": "Which machine had the most component failures in the last 60 days, and how many?",
+      "required_tools": [
+        [
+          "fleet_overview"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "any_number",
+          "values": [
+            32
+          ]
+        },
+        {
+          "type": "number",
+          "value": 4,
+          "tol": 0
+        }
+      ]
+    },
+    {
+      "id": "fleet-mostfail-2",
+      "category": "fleet",
+      "question": "Which machine had the most component failures in the last 90 days, and how many?",
+      "required_tools": [
+        [
+          "fleet_overview"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "any_number",
+          "values": [
+            32,
+            38,
+            52,
+            67
+          ]
+        },
+        {
+          "type": "number",
+          "value": 5,
+          "tol": 0
+        }
+      ]
+    },
+    {
+      "id": "fleet-mosterr-0",
+      "category": "fleet",
+      "question": "Which machine logged the most error1 events in the last 30 days?",
+      "required_tools": [
+        [
+          "fleet_overview"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "any_number",
+          "values": [
+            1,
+            5,
+            6,
+            8,
+            12,
+            22,
+            29,
+            32,
+            33,
+            40,
+            50,
+            51,
+            56,
+            59,
+            60,
+            61,
+            63,
+            68,
+            73,
+            89,
+            91,
+            99
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fleet-mosterr-1",
+      "category": "fleet",
+      "question": "Which machine logged the most error4 events in the last 30 days?",
+      "required_tools": [
+        [
+          "fleet_overview"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "any_number",
+          "values": [
+            60
+          ]
+        }
+      ]
+    },
+    {
+      "id": "risk-prob-0",
+      "category": "risk",
+      "question": "How likely is machine 93 to have a component failure in the next 7 days?",
+      "required_tools": [
+        [
+          "predict_failure_risk"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "probability",
+          "value": 0.4988
+        }
+      ],
+      "expected_alert": true
+    },
+    {
+      "id": "risk-prob-1",
+      "category": "risk",
+      "question": "How likely is machine 91 to have a component failure in the next 24 hours?",
+      "required_tools": [
+        [
+          "predict_failure_risk"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "probability",
+          "value": 0.0
+        }
+      ],
+      "expected_alert": false
+    },
+    {
+      "id": "risk-prob-2",
+      "category": "risk",
+      "question": "How likely is machine 35 to have a component failure in the next 7 days?",
+      "required_tools": [
+        [
+          "predict_failure_risk"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "probability",
+          "value": 0.994
+        }
+      ],
+      "expected_alert": true
+    },
+    {
+      "id": "risk-prob-3",
+      "category": "risk",
+      "question": "How likely is machine 43 to have a component failure in the next 24 hours?",
+      "required_tools": [
+        [
+          "predict_failure_risk"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "probability",
+          "value": 0.0
+        }
+      ],
+      "expected_alert": false
+    },
+    {
+      "id": "risk-prob-4",
+      "category": "risk",
+      "question": "How likely is machine 72 to have a component failure in the next 7 days?",
+      "required_tools": [
+        [
+          "predict_failure_risk"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "probability",
+          "value": 0.0001
+        }
+      ],
+      "expected_alert": false
+    },
+    {
+      "id": "risk-prob-5",
+      "category": "risk",
+      "question": "How likely is machine 27 to have a component failure in the next 24 hours?",
+      "required_tools": [
+        [
+          "predict_failure_risk"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "probability",
+          "value": 0.0
+        }
+      ],
+      "expected_alert": false
+    },
+    {
+      "id": "risk-alert-0",
+      "category": "risk",
+      "question": "Is machine 97 on a 7-day failure-risk alert right now?",
+      "required_tools": [
+        [
+          "predict_failure_risk"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "yes_no",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "risk-alert-1",
+      "category": "risk",
+      "question": "Is machine 79 on a 7-day failure-risk alert right now?",
+      "required_tools": [
+        [
+          "predict_failure_risk"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "yes_no",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "risk-alert-2",
+      "category": "risk",
+      "question": "Is machine 19 on a 7-day failure-risk alert right now?",
+      "required_tools": [
+        [
+          "predict_failure_risk"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "yes_no",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "risk-alert-3",
+      "category": "risk",
+      "question": "Is machine 67 on a 7-day failure-risk alert right now?",
+      "required_tools": [
+        [
+          "predict_failure_risk"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "yes_no",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "fleet-risk-0",
+      "category": "fleet",
+      "question": "Which 3 machines have the highest risk of failing within the next 24 hours?",
+      "required_tools": [
+        [
+          "fleet_overview"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "all_numbers",
+          "values": [
+            24,
+            35,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fleet-risk-1",
+      "category": "fleet",
+      "question": "Which machine is most likely to fail within the next 7 days?",
+      "required_tools": [
+        [
+          "fleet_overview"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "any_number",
+          "values": [
+            24
+          ]
+        }
+      ]
+    },
+    {
+      "id": "doc-0",
+      "category": "document",
+      "question": "What does error4 mean and which component does it relate to?",
+      "required_tools": [
+        [
+          "search_manuals"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "keywords",
+          "groups": [
+            [
+              "comp3"
+            ],
+            [
+              "pressure"
+            ]
+          ]
+        }
+      ],
+      "expected_doc": "fleet_handbook"
+    },
+    {
+      "id": "doc-1",
+      "category": "document",
+      "question": "Which component is error5 related to?",
+      "required_tools": [
+        [
+          "search_manuals"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "keywords",
+          "groups": [
+            [
+              "comp4"
+            ]
+          ]
+        }
+      ],
+      "expected_doc": "fleet_handbook"
+    },
+    {
+      "id": "doc-2",
+      "category": "document",
+      "question": "What does error1 indicate?",
+      "required_tools": [
+        [
+          "search_manuals"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "keywords",
+          "groups": [
+            [
+              "voltage"
+            ],
+            [
+              "comp1"
+            ]
+          ]
+        }
+      ],
+      "expected_doc": "fleet_handbook"
+    },
+    {
+      "id": "doc-3",
+      "category": "document",
+      "question": "Which error codes point to the spindle and rotor assembly?",
+      "required_tools": [
+        [
+          "search_manuals"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "keywords",
+          "groups": [
+            [
+              "error2"
+            ],
+            [
+              "error3"
+            ]
+          ]
+        }
+      ],
+      "expected_doc": "fleet_handbook"
+    },
+    {
+      "id": "doc-4",
+      "category": "document",
+      "question": "What is the normal vibration range for these machines?",
+      "required_tools": [
+        [
+          "search_manuals"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "keywords",
+          "groups": [
+            [
+              "32"
+            ],
+            [
+              "49"
+            ]
+          ]
+        }
+      ],
+      "expected_doc": "fleet_handbook"
+    },
+    {
+      "id": "doc-5",
+      "category": "document",
+      "question": "Above what pressure should I raise an alarm?",
+      "required_tools": [
+        [
+          "search_manuals"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "keywords",
+          "groups": [
+            [
+              "131"
+            ]
+          ]
+        }
+      ],
+      "expected_doc": "fleet_handbook"
+    },
+    {
+      "id": "doc-6",
+      "category": "document",
+      "question": "What ticket priority should I use when a machine is on a 24-hour failure alert?",
+      "required_tools": [
+        [
+          "search_manuals"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "keywords",
+          "groups": [
+            [
+              "high"
+            ]
+          ]
+        }
+      ],
+      "expected_doc": "fleet_handbook"
+    },
+    {
+      "id": "doc-7",
+      "category": "document",
+      "question": "What counts as a critical ticket?",
+      "required_tools": [
+        [
+          "search_manuals"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "keywords",
+          "groups": [
+            [
+              "safety",
+              "stopped",
+              "smoke",
+              "fire"
+            ]
+          ]
+        }
+      ],
+      "expected_doc": "fleet_handbook"
+    },
+    {
+      "id": "doc-8",
+      "category": "document",
+      "question": "How often is each machine visited for scheduled maintenance?",
+      "required_tools": [
+        [
+          "search_manuals"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "keywords",
+          "groups": [
+            [
+              "15"
+            ]
+          ]
+        }
+      ],
+      "expected_doc": "fleet_handbook"
+    },
+    {
+      "id": "doc-9",
+      "category": "document",
+      "question": "What should I do if a machine is on a 7-day alert but not on a 24-hour alert?",
+      "required_tools": [
+        [
+          "search_manuals"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "keywords",
+          "groups": [
+            [
+              "next scheduled",
+              "medium"
+            ]
+          ]
+        }
+      ],
+      "expected_doc": "fleet_handbook"
+    },
+    {
+      "id": "doc-10",
+      "category": "document",
+      "question": "What must workers do before they remove their lockout device and re-energize a machine?",
+      "required_tools": [
+        [
+          "search_manuals"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "keywords",
+          "groups": [
+            [
+              "tools",
+              "remove",
+              "workers",
+              "employees",
+              "clear",
+              "safe"
+            ]
+          ]
+        }
+      ],
+      "expected_doc": "osha3120_lockout_tagout"
+    },
+    {
+      "id": "doc-11",
+      "category": "document",
+      "question": "When can tagout devices be used instead of lockout devices?",
+      "required_tools": [
+        [
+          "search_manuals"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "keywords",
+          "groups": [
+            [
+              "lock",
+              "cannot",
+              "not capable",
+              "equal"
+            ]
+          ]
+        }
+      ],
+      "expected_doc": "osha3120_lockout_tagout"
+    },
+    {
+      "id": "doc-12",
+      "category": "document",
+      "question": "What must an energy-control procedure include?",
+      "required_tools": [
+        [
+          "search_manuals"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "keywords",
+          "groups": [
+            [
+              "steps",
+              "procedure",
+              "shut",
+              "isolat",
+              "verif"
+            ]
+          ]
+        }
+      ],
+      "expected_doc": "osha3120_lockout_tagout"
+    },
+    {
+      "id": "doc-13",
+      "category": "document",
+      "question": "What are point-of-operation hazards on machines?",
+      "required_tools": [
+        [
+          "search_manuals"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "keywords",
+          "groups": [
+            [
+              "point of operation",
+              "point-of-operation"
+            ]
+          ]
+        }
+      ],
+      "expected_doc": "osha3170_safeguarding_equipment"
+    },
+    {
+      "id": "multi-0",
+      "category": "multi",
+      "question": "Machine 30 has been throwing errors. What's wrong, how risky is it, and what does the handbook say I should check?",
+      "required_tools": [
+        [
+          "get_machine_status",
+          "get_error_history"
+        ],
+        [
+          "predict_failure_risk"
+        ],
+        [
+          "search_manuals"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "probability_any",
+          "values": [
+            0.0,
+            0.0002
+          ]
+        }
+      ],
+      "expected_doc": "fleet_handbook"
+    },
+    {
+      "id": "multi-1",
+      "category": "multi",
+      "question": "Machine 5 has been throwing errors. What's wrong, how risky is it, and what does the handbook say I should check?",
+      "required_tools": [
+        [
+          "get_machine_status",
+          "get_error_history"
+        ],
+        [
+          "predict_failure_risk"
+        ],
+        [
+          "search_manuals"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "probability_any",
+          "values": [
+            0.0,
+            0.1241
+          ]
+        }
+      ],
+      "expected_doc": "fleet_handbook"
+    },
+    {
+      "id": "multi-2",
+      "category": "multi",
+      "question": "Machine 63 has been throwing errors. What's wrong, how risky is it, and what does the handbook say I should check?",
+      "required_tools": [
+        [
+          "get_machine_status",
+          "get_error_history"
+        ],
+        [
+          "predict_failure_risk"
+        ],
+        [
+          "search_manuals"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "probability_any",
+          "values": [
+            0.0,
+            0.0025
+          ]
+        }
+      ],
+      "expected_doc": "fleet_handbook"
+    },
+    {
+      "id": "multi-3",
+      "category": "multi",
+      "question": "Machine 35 has been throwing errors. What's wrong, how risky is it, and what does the handbook say I should check?",
+      "required_tools": [
+        [
+          "get_machine_status",
+          "get_error_history"
+        ],
+        [
+          "predict_failure_risk"
+        ],
+        [
+          "search_manuals"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "probability_any",
+          "values": [
+            1.0,
+            0.994
+          ]
+        }
+      ],
+      "expected_doc": "fleet_handbook"
+    },
+    {
+      "id": "multi-risk-doc-0",
+      "category": "multi",
+      "question": "Machine 41: what is its 7-day failure risk and what ticket priority does the handbook recommend for that situation?",
+      "required_tools": [
+        [
+          "predict_failure_risk"
+        ],
+        [
+          "search_manuals"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "probability",
+          "value": 0.3784
+        }
+      ],
+      "expected_doc": "fleet_handbook"
+    },
+    {
+      "id": "multi-risk-doc-1",
+      "category": "multi",
+      "question": "Machine 1: what is its 7-day failure risk and what ticket priority does the handbook recommend for that situation?",
+      "required_tools": [
+        [
+          "predict_failure_risk"
+        ],
+        [
+          "search_manuals"
+        ]
+      ],
+      "checks": [
+        {
+          "type": "probability",
+          "value": 0.9948
+        }
+      ],
+      "expected_doc": "fleet_handbook"
+    },
+    {
+      "id": "unanswerable-0",
+      "category": "unanswerable",
+      "question": "How much does a replacement comp3 hydraulic pump cost?",
+      "required_tools": [],
+      "checks": [
+        {
+          "type": "refusal"
+        }
+      ]
+    },
+    {
+      "id": "unanswerable-1",
+      "category": "unanswerable",
+      "question": "Who is the supplier of the bearings used in comp4?",
+      "required_tools": [],
+      "checks": [
+        {
+          "type": "refusal"
+        }
+      ]
+    },
+    {
+      "id": "unanswerable-2",
+      "category": "unanswerable",
+      "question": "What is the name of the shift supervisor on duty today?",
+      "required_tools": [],
+      "checks": [
+        {
+          "type": "refusal"
+        }
+      ]
+    },
+    {
+      "id": "unanswerable-3",
+      "category": "unanswerable",
+      "question": "What is the status of machine 250?",
+      "required_tools": [],
+      "checks": [
+        {
+          "type": "refusal"
+        }
+      ]
+    },
+    {
+      "id": "unanswerable-4",
+      "category": "unanswerable",
+      "question": "What will the vibration of machine 3 be next month?",
+      "required_tools": [],
+      "checks": [
+        {
+          "type": "refusal"
+        }
+      ]
+    },
+    {
+      "id": "unanswerable-5",
+      "category": "unanswerable",
+      "question": "What's the weather forecast for tomorrow?",
+      "required_tools": [],
+      "checks": [
+        {
+          "type": "refusal"
+        }
+      ]
+    },
+    {
+      "id": "unanswerable-6",
+      "category": "unanswerable",
+      "question": "What warranty period applies to the drive motors?",
+      "required_tools": [],
+      "checks": [
+        {
+          "type": "refusal"
+        }
+      ]
+    },
+    {
+      "id": "unanswerable-7",
+      "category": "unanswerable",
+      "question": "Write me a poem about football.",
+      "required_tools": [],
+      "checks": [
+        {
+          "type": "refusal"
+        }
+      ]
+    },
+    {
+      "id": "ticket-0",
+      "category": "ticket",
+      "question": "Please open a high priority ticket for machine 67, component comp3: inspect it at the next visit because of repeated warnings.",
+      "required_tools": [
+        [
+          "create_ticket"
+        ]
+      ],
+      "checks": [],
+      "expected_ticket": {
+        "machine_id": 67,
+        "component": "comp3",
+        "priority": "high"
+      }
+    },
+    {
+      "id": "ticket-1",
+      "category": "ticket",
+      "question": "Please open a medium priority ticket for machine 23, component comp1: inspect it at the next visit because of repeated warnings.",
+      "required_tools": [
+        [
+          "create_ticket"
+        ]
+      ],
+      "checks": [],
+      "expected_ticket": {
+        "machine_id": 23,
+        "component": "comp1",
+        "priority": "medium"
+      }
+    },
+    {
+      "id": "ticket-2",
+      "category": "ticket",
+      "question": "Please open a low priority ticket for machine 95, component comp2: inspect it at the next visit because of repeated warnings.",
+      "required_tools": [
+        [
+          "create_ticket"
+        ]
+      ],
+      "checks": [],
+      "expected_ticket": {
+        "machine_id": 95,
+        "component": "comp2",
+        "priority": "low"
+      }
+    },
+    {
+      "id": "ticket-3",
+      "category": "ticket",
+      "question": "Please open a critical priority ticket for machine 32, component comp4: inspect it at the next visit because of repeated warnings.",
+      "required_tools": [
+        [
+          "create_ticket"
+        ]
+      ],
+      "checks": [],
+      "expected_ticket": {
+        "machine_id": 32,
+        "component": "comp4",
+        "priority": "critical"
+      }
+    },
+    {
+      "id": "ticket-4",
+      "category": "ticket",
+      "question": "Please open a high priority ticket for machine 56, component comp4: inspect it at the next visit because of repeated warnings.",
+      "required_tools": [
+        [
+          "create_ticket"
+        ]
+      ],
+      "checks": [],
+      "expected_ticket": {
+        "machine_id": 56,
+        "component": "comp4",
+        "priority": "high"
+      }
+    }
+  ]
+}
