@@ -1,0 +1,79 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "maintenance-copilot"
+version = "0.1.0"
+description = "Agentic LLM assistant for factory maintenance: fleet database, failure-risk model, manual search, tickets."
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "pydantic>=2.7",
+    "pydantic-settings>=2.3",
+    "sqlalchemy[asyncio]>=2.0.30",
+    "asyncpg>=0.29",
+    "aiosqlite>=0.20",
+    "pyjwt>=2.8",
+    "pwdlib[argon2]>=0.2",
+    "langgraph>=0.2",
+    "langchain-core>=0.3",
+    "langchain-openai>=0.2",
+    "langgraph-checkpoint-sqlite>=2",
+    "langgraph-checkpoint-postgres>=2",
+    "psycopg[binary,pool]>=3.2",
+    "numpy>=1.26",
+    "pandas>=2.2",
+    "scikit-learn>=1.5",
+    "lightgbm>=4.3",
+    "joblib>=1.4",
+    "rank-bm25>=0.2.2",
+    "fastembed>=0.4",
+    "httpx>=0.27",
+    "openinference-instrumentation-langchain>=0.1",
+    "opentelemetry-sdk>=1.25",
+    "opentelemetry-exporter-otlp-proto-http>=1.25",
+]
+
+[project.optional-dependencies]
+train = ["mlflow>=2.14", "pyarrow>=16"]
+dev = [
+    "pytest>=8",
+    "pytest-asyncio>=0.23",
+    "ruff>=0.5",
+    "locust>=2.29",
+    "playwright>=1.45",
+    "pymupdf>=1.24",
+]
+phoenix = ["arize-phoenix>=5"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+copilot = ["static/*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = ["mlruns", "data", ".venv"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM", "ASYNC"]
+ignore = ["B008"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+markers = [
+    "postgres: needs a running Postgres (TEST_POSTGRES_URL)",
+    "e2e: browser end-to-end test (needs playwright browsers)",
+]
+addopts = "-m 'not postgres and not e2e'"
+
+[tool.ruff.lint.per-file-ignores]
+"eval/*" = ["ASYNC240"]
+"scripts/*" = ["ASYNC240"]
+"tests/*" = ["ASYNC240"]

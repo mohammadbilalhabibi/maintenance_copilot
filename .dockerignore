@@ -1,0 +1,17 @@
+.venv
+.venv-phoenix
+.git
+.github
+.pytest_cache
+.ruff_cache
+**/__pycache__
+data
+models
+index
+mlruns
+mlflow.db
+eval
+loadtest/results
+docs
+tests
+.env
