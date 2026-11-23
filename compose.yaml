@@ -1,0 +1,69 @@
+# docker compose up  ->  http://localhost:8000 (app), http://localhost:6006 (Phoenix traces)
+name: maintenance-copilot
+
+x-app-env: &app-env
+  DATABASE_URL: postgresql+asyncpg://copilot:copilot@postgres:5432/copilot
+  TOOLS_DATABASE_URL: postgresql+asyncpg://copilot_ro:copilot_ro@postgres:5432/copilot
+
+services:
+  postgres:
+    image: postgres:16.16-alpine
+    environment:
+      POSTGRES_USER: copilot
+      POSTGRES_PASSWORD: copilot
+      POSTGRES_DB: copilot
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./docker/postgres-init.sql:/docker-entrypoint-initdb.d/10-readonly-role.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U copilot -d copilot"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  phoenix:
+    image: arizephoenix/phoenix:version-21.2.0
+    ports:
+      - "6006:6006"
+    volumes:
+      - phoenixdata:/mnt/data
+    environment:
+      PHOENIX_WORKING_DIR: /mnt/data
+
+  init:
+    build: .
+    image: maintenance-copilot:local
+    command: ["sh", "docker/init.sh"]
+    env_file:
+      - path: .env
+        required: false
+    environment: *app-env
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  api:
+    build: .
+    image: maintenance-copilot:local
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      <<: *app-env
+      PHOENIX_COLLECTOR_ENDPOINT: http://phoenix:6006/v1/traces
+    volumes:
+      - ./models:/app/models:ro
+    ports:
+      - "${APP_PORT:-8000}:8000"
+    depends_on:
+      init:
+        condition: service_completed_successfully
+      phoenix:
+        condition: service_started
+
+volumes:
+  pgdata:
+  phoenixdata:

@@ -1,0 +1,316 @@
+{
+  "name": "mock_llm_sqlite_v1",
+  "created_at": "2026-11-23T01:40:49+00:00",
+  "host": "http://127.0.0.1:8020",
+  "duration_s_per_step": 60,
+  "api_health": {
+    "status": "ok",
+    "risk_model": true,
+    "document_index": true,
+    "model": "mock",
+    "sim_now": "2015-11-15T08:00:00"
+  },
+  "client_machine": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel",
+  "note": "API (1 uvicorn worker, SQLite) + mock LLM (600 ms per call) + Locust on the same 4-core laptop, think time 3-8 s",
+  "think_time_s": [
+    3,
+    8
+  ],
+  "steps": [
+    {
+      "users": 10,
+      "endpoints": {
+        "chat (full answer)": {
+          "requests": 72,
+          "failures": 0,
+          "rps": 1.2308848312168064,
+          "median_ms": 1300.0,
+          "p95_ms": 1400.0,
+          "p99_ms": 1400.0,
+          "max_ms": 1438.3789999992587
+        },
+        "chat (headers)": {
+          "requests": 72,
+          "failures": 0,
+          "rps": 1.2308848312168064,
+          "median_ms": 21.0,
+          "p95_ms": 64.0,
+          "p99_ms": 110.0,
+          "max_ms": 106.85040000316803
+        },
+        "chat first event": {
+          "requests": 72,
+          "failures": 0,
+          "rps": 1.2308848312168064,
+          "median_ms": 650.0,
+          "p95_ms": 700.0,
+          "p99_ms": 740.0,
+          "max_ms": 740.7643999977154
+        },
+        "list conversations": {
+          "requests": 16,
+          "failures": 0,
+          "rps": 0.2735299624926236,
+          "median_ms": 10.0,
+          "p95_ms": 14.0,
+          "p99_ms": 14.0,
+          "max_ms": 14.499200002319412
+        },
+        "new conversation": {
+          "requests": 10,
+          "failures": 0,
+          "rps": 0.17095622655788975,
+          "median_ms": 5.0,
+          "p95_ms": 54.0,
+          "p99_ms": 54.0,
+          "max_ms": 54.45059999692603
+        },
+        "register": {
+          "requests": 10,
+          "failures": 0,
+          "rps": 0.17095622655788975,
+          "median_ms": 84.0,
+          "p95_ms": 150.0,
+          "p99_ms": 150.0,
+          "max_ms": 146.63130000189994
+        }
+      }
+    },
+    {
+      "users": 25,
+      "endpoints": {
+        "chat (full answer)": {
+          "requests": 171,
+          "failures": 0,
+          "rps": 2.8719653361697435,
+          "median_ms": 1400.0,
+          "p95_ms": 1700.0,
+          "p99_ms": 2000.0,
+          "max_ms": 2018.9815000012459
+        },
+        "chat (headers)": {
+          "requests": 171,
+          "failures": 0,
+          "rps": 2.8719653361697435,
+          "median_ms": 26.0,
+          "p95_ms": 89.0,
+          "p99_ms": 160.0,
+          "max_ms": 532.5723999994807
+        },
+        "chat first event": {
+          "requests": 171,
+          "failures": 0,
+          "rps": 2.8719653361697435,
+          "median_ms": 670.0,
+          "p95_ms": 760.0,
+          "p99_ms": 990.0,
+          "max_ms": 1196.3115999969887
+        },
+        "list conversations": {
+          "requests": 36,
+          "failures": 0,
+          "rps": 0.6046242812988933,
+          "median_ms": 13.0,
+          "p95_ms": 41.0,
+          "p99_ms": 260.0,
+          "max_ms": 255.91160000112723
+        },
+        "new conversation": {
+          "requests": 25,
+          "failures": 0,
+          "rps": 0.41987797312423153,
+          "median_ms": 17.0,
+          "p95_ms": 51.0,
+          "p99_ms": 77.0,
+          "max_ms": 76.56990000032238
+        },
+        "register": {
+          "requests": 25,
+          "failures": 0,
+          "rps": 0.41987797312423153,
+          "median_ms": 260.0,
+          "p95_ms": 290.0,
+          "p99_ms": 300.0,
+          "max_ms": 298.38419999941834
+        }
+      }
+    },
+    {
+      "users": 50,
+      "endpoints": {
+        "chat (full answer)": {
+          "requests": 340,
+          "failures": 0,
+          "rps": 5.712915247840471,
+          "median_ms": 1500.0,
+          "p95_ms": 3700.0,
+          "p99_ms": 4400.0,
+          "max_ms": 4823.623699998279
+        },
+        "chat (headers)": {
+          "requests": 340,
+          "failures": 0,
+          "rps": 5.712915247840471,
+          "median_ms": 66.0,
+          "p95_ms": 560.0,
+          "p99_ms": 1900.0,
+          "max_ms": 2064.3168999995396
+        },
+        "chat first event": {
+          "requests": 340,
+          "failures": 0,
+          "rps": 5.712915247840471,
+          "median_ms": 720.0,
+          "p95_ms": 2000.0,
+          "p99_ms": 2800.0,
+          "max_ms": 3025.191199998517
+        },
+        "list conversations": {
+          "requests": 67,
+          "failures": 0,
+          "rps": 1.125780357662681,
+          "median_ms": 22.0,
+          "p95_ms": 67.0,
+          "p99_ms": 690.0,
+          "max_ms": 689.4656000004034
+        },
+        "new conversation": {
+          "requests": 50,
+          "failures": 0,
+          "rps": 0.8401345952706575,
+          "median_ms": 50.0,
+          "p95_ms": 250.0,
+          "p99_ms": 1300.0,
+          "max_ms": 1289.5094999985304
+        },
+        "register": {
+          "requests": 50,
+          "failures": 0,
+          "rps": 0.8401345952706575,
+          "median_ms": 780.0,
+          "p95_ms": 2500.0,
+          "p99_ms": 2900.0,
+          "max_ms": 2908.0071999997017
+        }
+      }
+    },
+    {
+      "users": 100,
+      "endpoints": {
+        "chat (full answer)": {
+          "requests": 480,
+          "failures": 1,
+          "rps": 8.12386337679696,
+          "median_ms": 1600.0,
+          "p95_ms": 8000.0,
+          "p99_ms": 11000.0,
+          "max_ms": 12846.770399999514
+        },
+        "chat (headers)": {
+          "requests": 480,
+          "failures": 1,
+          "rps": 8.12386337679696,
+          "median_ms": 120.0,
+          "p95_ms": 3000.0,
+          "p99_ms": 8200.0,
+          "max_ms": 9074.668600002042
+        },
+        "chat first event": {
+          "requests": 479,
+          "failures": 0,
+          "rps": 8.106938661428632,
+          "median_ms": 780.0,
+          "p95_ms": 5100.0,
+          "p99_ms": 9100.0,
+          "max_ms": 10070.771499998955
+        },
+        "list conversations": {
+          "requests": 114,
+          "failures": 0,
+          "rps": 1.929417551989278,
+          "median_ms": 24.0,
+          "p95_ms": 900.0,
+          "p99_ms": 5700.0,
+          "max_ms": 5692.158100002416
+        },
+        "new conversation": {
+          "requests": 100,
+          "failures": 0,
+          "rps": 1.6924715368327,
+          "median_ms": 4600.0,
+          "p95_ms": 8600.0,
+          "p99_ms": 11000.0,
+          "max_ms": 11469.154500002332
+        },
+        "register": {
+          "requests": 100,
+          "failures": 0,
+          "rps": 1.6924715368327,
+          "median_ms": 3800.0,
+          "p95_ms": 8400.0,
+          "p99_ms": 14000.0,
+          "max_ms": 13996.512799996708
+        }
+      }
+    },
+    {
+      "users": 200,
+      "endpoints": {
+        "chat (full answer)": {
+          "requests": 233,
+          "failures": 0,
+          "rps": 3.9757930974741167,
+          "median_ms": 19000.0,
+          "p95_ms": 20000.0,
+          "p99_ms": 23000.0,
+          "max_ms": 29087.258700001257
+        },
+        "chat (headers)": {
+          "requests": 233,
+          "failures": 0,
+          "rps": 3.9757930974741167,
+          "median_ms": 3900.0,
+          "p95_ms": 7100.0,
+          "p99_ms": 13000.0,
+          "max_ms": 17325.571400000626
+        },
+        "chat first event": {
+          "requests": 233,
+          "failures": 0,
+          "rps": 3.9757930974741167,
+          "median_ms": 7300.0,
+          "p95_ms": 11000.0,
+          "p99_ms": 14000.0,
+          "max_ms": 18011.436299999332
+        },
+        "list conversations": {
+          "requests": 78,
+          "failures": 0,
+          "rps": 1.330952195720949,
+          "median_ms": 320.0,
+          "p95_ms": 2800.0,
+          "p99_ms": 15000.0,
+          "max_ms": 15277.985900000203
+        },
+        "new conversation": {
+          "requests": 200,
+          "failures": 0,
+          "rps": 3.4126979377460227,
+          "median_ms": 11000.0,
+          "p95_ms": 23000.0,
+          "p99_ms": 25000.0,
+          "max_ms": 25406.71019999718
+        },
+        "register": {
+          "requests": 200,
+          "failures": 0,
+          "rps": 3.4126979377460227,
+          "median_ms": 11000.0,
+          "p95_ms": 22000.0,
+          "p99_ms": 24000.0,
+          "max_ms": 27361.802700001135
+        }
+      }
+    }
+  ]
+}

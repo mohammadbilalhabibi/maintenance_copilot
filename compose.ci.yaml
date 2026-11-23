@@ -1,0 +1,26 @@
+# CI / offline override: mock LLM instead of a real provider, small training run.
+#   docker compose -f compose.yaml -f compose.ci.yaml up -d --build
+services:
+  mock-llm:
+    build: .
+    image: maintenance-copilot:local
+    command: ["uvicorn", "loadtest.mock_llm:app", "--host", "0.0.0.0", "--port", "9000"]
+    working_dir: /app
+    volumes:
+      - ./loadtest:/app/loadtest:ro
+    environment:
+      MOCK_LATENCY_MS: "100"
+
+  init:
+    environment:
+      TRAIN_ARGS: "--max-machine 100 --no-mlflow"
+
+  api:
+    environment:
+      LLM_BASE_URL: http://mock-llm:9000/v1
+      LLM_API_KEY: mock
+      LLM_MODEL: mock
+      JWT_SECRET: ci-secret-ci-secret-ci-secret-ci-secret
+    depends_on:
+      mock-llm:
+        condition: service_started
