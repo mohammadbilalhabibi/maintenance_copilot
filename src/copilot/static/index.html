@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maintenance Copilot</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div id="login" class="login hidden">
+  <form id="login-form" class="card">
+    <h1>Maintenance Copilot</h1>
+    <p class="muted">Agentic assistant for a simulated fleet of 100 machines.</p>
+    <label>Username <input id="username" autocomplete="username" required minlength="3"></label>
+    <label>Password <input id="password" type="password" autocomplete="current-password" required minlength="8"></label>
+    <div class="row">
+      <button type="submit" id="login-btn">Log in</button>
+      <button type="button" id="register-btn" class="secondary">Create account</button>
+    </div>
+    <p id="login-error" class="error"></p>
+  </form>
+</div>
+
+<div id="app" class="app hidden">
+  <aside class="sidebar">
+    <div class="brand">Maintenance Copilot</div>
+    <button id="new-chat">+ New chat</button>
+    <nav id="conversations"></nav>
+    <div class="sidebar-foot">
+      <button id="show-tickets" class="link">Tickets</button>
+      <span id="who" class="muted"></span>
+      <button id="logout" class="link">Log out</button>
+    </div>
+  </aside>
+  <main class="main">
+    <section id="tickets" class="tickets hidden"></section>
+    <section id="messages" class="messages">
+      <div class="empty">
+        <h2>Ask about a machine</h2>
+        <div class="examples">
+          <button class="example">Machine 17 keeps throwing errors. What's wrong, how risky is it, and what does the handbook say?</button>
+          <button class="example">Which 5 machines are most at risk of failing in the next 24 hours?</button>
+          <button class="example">What does error4 mean and what should I check first?</button>
+          <button class="example">When was comp2 of machine 42 last replaced?</button>
+        </div>
+      </div>
+    </section>
+    <form id="chat-form" class="composer">
+      <textarea id="input" rows="2" placeholder="Ask about a machine, an error code, a procedure..." required></textarea>
+      <button type="submit" id="send">Send</button>
+    </form>
+  </main>
+</div>
+<script src="/static/app.js"></script>
+</body>
+</html>
