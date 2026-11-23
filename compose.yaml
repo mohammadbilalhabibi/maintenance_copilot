@@ -24,11 +24,14 @@ services:
   phoenix:
     image: arizephoenix/phoenix:version-21.2.0
     ports:
-      - "6006:6006"
+      # Local dev stack: Phoenix runs without login, so only expose it on this machine.
+      - "127.0.0.1:6006:6006"
     volumes:
       - phoenixdata:/mnt/data
     environment:
       PHOENIX_WORKING_DIR: /mnt/data
+      # Since Phoenix v21 the Docker image requires login by default (401 for traces).
+      PHOENIX_ENABLE_AUTH: "false"
 
   init:
     build: .

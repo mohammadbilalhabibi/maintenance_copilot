@@ -51,7 +51,9 @@ def main() -> None:
     if args.phoenix:
         time.sleep(6)  # batch span exporter flushes every few seconds
         query = {"query": "{ projects { edges { node { name traceCount } } } }"}
-        data = httpx.post(f"{args.phoenix}/graphql", json=query, timeout=20).json()
+        resp = httpx.post(f"{args.phoenix}/graphql", json=query, timeout=20)
+        assert resp.status_code == 200, f"Phoenix GraphQL returned {resp.status_code}"
+        data = resp.json()
         projects = {e["node"]["name"]: e["node"]["traceCount"]
                     for e in data["data"]["projects"]["edges"]}
         print("phoenix projects:", projects)
@@ -62,5 +64,7 @@ def main() -> None:
 if __name__ == "__main__":
     try:
         main()
-    except AssertionError as exc:
-        sys.exit(f"SMOKE TEST FAILED: {exc}")
+    except Exception as exc:  # noqa: BLE001 - any failure fails the smoke test
+        # "::error::" makes GitHub Actions show the reason as a public annotation.
+        print(f"::error::SMOKE TEST FAILED: {type(exc).__name__}: {exc}")
+        sys.exit(1)
