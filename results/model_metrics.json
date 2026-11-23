@@ -1,0 +1,371 @@
+{
+  "created_at": "2026-11-23T01:02:28+00:00",
+  "data": "Microsoft Predictive Maintenance Modelling Guide sample (simulated), CC BY 4.0",
+  "machines": 1000,
+  "split": {
+    "train_end": "2015-08-01",
+    "val_end": "2015-10-01",
+    "gap": "one horizon"
+  },
+  "step_hours": 3,
+  "seed": 0,
+  "lgbm_params": {
+    "n_estimators": 2000,
+    "learning_rate": 0.05,
+    "num_leaves": 31,
+    "min_child_samples": 50,
+    "subsample": 0.8,
+    "subsample_freq": 1,
+    "colsample_bytree": 0.8
+  },
+  "horizons": {
+    "24h": {
+      "horizon_hours": 24.0,
+      "alert_rate": 0.02,
+      "rows": {
+        "train": 1681000,
+        "val": 481000,
+        "test": 739000
+      },
+      "positive_rate": {
+        "train": 0.017328970850684116,
+        "val": 0.017197505197505198,
+        "test": 0.016294993234100136
+      },
+      "models": {
+        "random": {
+          "threshold": 0.9802718653793036,
+          "val": {
+            "pr_auc_any": 0.01739924686238798,
+            "roc_auc_any": 0.4983267062363275,
+            "alert_rate": 0.02,
+            "precision_at_rate": 0.01891891891891892,
+            "recall_at_rate": 0.022001934235976787,
+            "failures_caught": 0.1586998087954111,
+            "recall_early": NaN,
+            "pr_auc_per_component": {}
+          },
+          "test": {
+            "pr_auc_any": 0.01656049566134569,
+            "roc_auc_any": 0.5039088322629898,
+            "alert_rate": 0.019746955345060893,
+            "precision_at_rate": 0.016583293359830057,
+            "recall_at_rate": 0.02009632951336987,
+            "failures_caught": 0.14756258234519104,
+            "recall_early": NaN,
+            "pr_auc_per_component": {}
+          }
+        },
+        "rule": {
+          "threshold": 2.0,
+          "val": {
+            "pr_auc_any": 0.8325005124916116,
+            "roc_auc_any": 0.9979079198000088,
+            "alert_rate": 0.007592515592515592,
+            "precision_at_rate": 0.9997261774370209,
+            "recall_at_rate": 0.4413684719535783,
+            "failures_caught": 0.44263862332695986,
+            "recall_early": NaN,
+            "pr_auc_per_component": {}
+          },
+          "test": {
+            "pr_auc_any": 0.8092459232803995,
+            "roc_auc_any": 0.9976626977377275,
+            "alert_rate": 0.0070081190798376184,
+            "precision_at_rate": 0.9918903263178219,
+            "recall_at_rate": 0.42659026739744227,
+            "failures_caught": 0.43017127799736493,
+            "recall_early": NaN,
+            "pr_auc_per_component": {}
+          }
+        },
+        "logreg": {
+          "threshold": 0.0076333372474366445,
+          "val": {
+            "pr_auc_any": 0.998606006624275,
+            "roc_auc_any": 0.9999865604748496,
+            "alert_rate": 0.02,
+            "precision_at_rate": 0.8598752598752599,
+            "recall_at_rate": 1.0,
+            "failures_caught": 1.0,
+            "recall_early": NaN,
+            "pr_auc_per_component": {
+              "comp1": 0.984319567579715,
+              "comp2": 0.9992392403582865,
+              "comp3": 0.9998606629476111,
+              "comp4": 0.9999856197167628
+            }
+          },
+          "test": {
+            "pr_auc_any": 0.9976617233854639,
+            "roc_auc_any": 0.9999735200762723,
+            "alert_rate": 0.01921109607577808,
+            "precision_at_rate": 0.8482073677537508,
+            "recall_at_rate": 1.0,
+            "failures_caught": 1.0,
+            "recall_early": NaN,
+            "pr_auc_per_component": {
+              "comp1": 0.9871694994569662,
+              "comp2": 0.9999928241079866,
+              "comp3": 0.9950753915495958,
+              "comp4": 0.9999460320738602
+            }
+          },
+          "train_seconds": 76.30360010000004
+        },
+        "lightgbm": {
+          "threshold": 0.00020907512248702353,
+          "val": {
+            "pr_auc_any": 0.999960728733484,
+            "roc_auc_any": 0.9999993069773346,
+            "alert_rate": 0.02,
+            "precision_at_rate": 0.8598752598752599,
+            "recall_at_rate": 1.0,
+            "failures_caught": 1.0,
+            "recall_early": NaN,
+            "pr_auc_per_component": {
+              "comp1": 0.9997914225053688,
+              "comp2": 0.9999993882849703,
+              "comp3": 0.999998636790801,
+              "comp4": 0.9999241042391771
+            }
+          },
+          "test": {
+            "pr_auc_any": 0.9999975872753976,
+            "roc_auc_any": 0.9999999601326395,
+            "alert_rate": 0.019097428958051423,
+            "precision_at_rate": 0.8532558633883653,
+            "recall_at_rate": 1.0,
+            "failures_caught": 1.0,
+            "recall_early": NaN,
+            "pr_auc_per_component": {
+              "comp1": 0.9999804340882467,
+              "comp2": 1.0,
+              "comp3": 0.9999866985056836,
+              "comp4": 1.0
+            }
+          },
+          "train_seconds": 223.64978960000008,
+          "best_iteration": 127
+        }
+      },
+      "top_features": [
+        [
+          "error3_count_24h",
+          868475.5500863902
+        ],
+        [
+          "error5_count_24h",
+          831960.1786807738
+        ],
+        [
+          "error2_count_24h",
+          584657.4544989765
+        ],
+        [
+          "error1_count_24h",
+          390834.00819213316
+        ],
+        [
+          "hours_since_comp2",
+          300135.3930346383
+        ],
+        [
+          "hours_since_comp3",
+          297880.498696649
+        ],
+        [
+          "hours_since_comp4",
+          296486.2244805002
+        ],
+        [
+          "hours_since_comp1",
+          272716.2445623847
+        ],
+        [
+          "volt_mean_24h",
+          231445.18262985628
+        ],
+        [
+          "pressure_mean_24h",
+          177074.37129342929
+        ]
+      ]
+    },
+    "7d": {
+      "horizon_hours": 168.0,
+      "alert_rate": 0.1,
+      "rows": {
+        "train": 1633000,
+        "val": 433000,
+        "test": 739000
+      },
+      "positive_rate": {
+        "train": 0.12090753214941825,
+        "val": 0.12013856812933026,
+        "test": 0.11088768606224628
+      },
+      "models": {
+        "random": {
+          "threshold": 0.8998133732390561,
+          "val": {
+            "pr_auc_any": 0.12027772060342642,
+            "roc_auc_any": 0.5003281347165768,
+            "alert_rate": 0.1,
+            "precision_at_rate": 0.1202771362586605,
+            "recall_at_rate": 0.10011534025374856,
+            "failures_caught": 0.9617590822179732,
+            "recall_early": 0.10117662848962061,
+            "pr_auc_per_component": {}
+          },
+          "test": {
+            "pr_auc_any": 0.11086617106232644,
+            "roc_auc_any": 0.4984881685084398,
+            "alert_rate": 0.1008362652232747,
+            "precision_at_rate": 0.11065782763895972,
+            "recall_at_rate": 0.10062724233031509,
+            "failures_caught": 0.9802371541501976,
+            "recall_early": 0.10072384985122454,
+            "pr_auc_per_component": {}
+          }
+        },
+        "rule": {
+          "threshold": 1.0,
+          "val": {
+            "pr_auc_any": 0.22657740487851494,
+            "roc_auc_any": 0.5701090918493472,
+            "alert_rate": 0.02407621247113164,
+            "precision_at_rate": 0.7338129496402878,
+            "recall_at_rate": 0.14705882352941177,
+            "failures_caught": 0.8852772466539197,
+            "recall_early": 0.007471367215461704,
+            "pr_auc_per_component": {}
+          },
+          "test": {
+            "pr_auc_any": 0.21948928288444824,
+            "roc_auc_any": 0.5727146580013901,
+            "alert_rate": 0.024219215155615696,
+            "precision_at_rate": 0.7008604313331098,
+            "recall_at_rate": 0.15307641617650647,
+            "failures_caught": 1.0,
+            "recall_early": 0.007181277180132753,
+            "pr_auc_per_component": {}
+          }
+        },
+        "logreg": {
+          "threshold": 0.1535974514520254,
+          "val": {
+            "pr_auc_any": 0.38237104830660507,
+            "roc_auc_any": 0.7056616829391749,
+            "alert_rate": 0.1,
+            "precision_at_rate": 0.373810623556582,
+            "recall_at_rate": 0.31114955786236065,
+            "failures_caught": 0.9302103250478011,
+            "recall_early": 0.19841624910522548,
+            "pr_auc_per_component": {
+              "comp1": 0.243020803785211,
+              "comp2": 0.2633987161286112,
+              "comp3": 0.3656508891997992,
+              "comp4": 0.2971012490403038
+            }
+          },
+          "test": {
+            "pr_auc_any": 0.37329710444095127,
+            "roc_auc_any": 0.7084622227028021,
+            "alert_rate": 0.0974235453315291,
+            "precision_at_rate": 0.35492249569420525,
+            "recall_at_rate": 0.31182730090547434,
+            "failures_caught": 1.0,
+            "recall_early": 0.19327935454337378,
+            "pr_auc_per_component": {
+              "comp1": 0.25252813255571077,
+              "comp2": 0.2629279734490711,
+              "comp3": 0.35111956724668536,
+              "comp4": 0.3069993237306924
+            }
+          },
+          "train_seconds": 30.308149699998467
+        },
+        "lightgbm": {
+          "threshold": 0.3706128526290384,
+          "val": {
+            "pr_auc_any": 0.676776881531946,
+            "roc_auc_any": 0.9320991185967737,
+            "alert_rate": 0.1,
+            "precision_at_rate": 0.6273210161662818,
+            "recall_at_rate": 0.522164552095348,
+            "failures_caught": 0.9445506692160612,
+            "recall_early": 0.4439647458840372,
+            "pr_auc_per_component": {
+              "comp1": 0.4381572963481063,
+              "comp2": 0.44953793277663595,
+              "comp3": 0.6070688897153005,
+              "comp4": 0.5851734116060731
+            }
+          },
+          "test": {
+            "pr_auc_any": 0.661132662931969,
+            "roc_auc_any": 0.9307756835600927,
+            "alert_rate": 0.09920027063599458,
+            "precision_at_rate": 0.5995989578360092,
+            "recall_at_rate": 0.5364020208429942,
+            "failures_caught": 1.0,
+            "recall_early": 0.4565403982604715,
+            "pr_auc_per_component": {
+              "comp1": 0.44195212116709015,
+              "comp2": 0.4411045806285038,
+              "comp3": 0.5765178267689546,
+              "comp4": 0.587660696045154
+            }
+          },
+          "train_seconds": 126.6199381999977,
+          "best_iteration": 167
+        }
+      },
+      "top_features": [
+        [
+          "hours_since_comp3",
+          4347709.979151249
+        ],
+        [
+          "hours_since_comp1",
+          1627828.9545359612
+        ],
+        [
+          "hours_since_comp2",
+          1553247.4325022697
+        ],
+        [
+          "hours_since_comp4",
+          1375580.7161188126
+        ],
+        [
+          "age",
+          1199132.2530202866
+        ],
+        [
+          "volt_mean_3h",
+          820333.6593661308
+        ],
+        [
+          "is_model2",
+          576906.4558105469
+        ],
+        [
+          "volt_sd_24h",
+          315916.7151169777
+        ],
+        [
+          "pressure_mean_3h",
+          267852.7136878967
+        ],
+        [
+          "error3_count_24h",
+          267211.7608437538
+        ]
+      ]
+    }
+  },
+  "total_seconds": 643.2706346000014,
+  "cpu": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel"
+}
