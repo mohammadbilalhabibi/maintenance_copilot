@@ -48,7 +48,9 @@ def load_retriever(settings: Settings) -> Retriever | None:
     if not (settings.index_dir / "chunks.jsonl").exists():
         log.warning("document index missing at %s - run scripts/build_index.py", settings.index_dir)
         return None
-    embedder = FastEmbedder(settings.embedding_model, settings.embedding_cache_dir)
+    embedder = FastEmbedder(
+        settings.embedding_model, settings.embedding_cache_dir, settings.embedding_batch_size
+    )
     return open_hybrid(settings.index_dir, embedder, settings.embedding_model, settings.rrf_k)
 
 

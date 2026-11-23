@@ -64,6 +64,7 @@ class Settings(BaseSettings):
     index_dir: Path = PROJECT_ROOT / "index"
     embedding_model: str = "BAAI/bge-small-en-v1.5"
     embedding_cache_dir: Path | None = None
+    embedding_batch_size: int = Field(16, description="Texts per embedding batch (memory).")
     search_top_k: int = 4
     rrf_k: int = 60
 

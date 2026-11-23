@@ -60,13 +60,18 @@ class Embedder(Protocol):
 class FastEmbedder:
     """fastembed (ONNX, no torch) wrapper; loaded once."""
 
-    def __init__(self, model_name: str, cache_dir: Path | None = None) -> None:
+    def __init__(
+        self, model_name: str, cache_dir: Path | None = None, batch_size: int = 16
+    ) -> None:
         from fastembed import TextEmbedding
 
         self.model = TextEmbedding(model_name, cache_dir=str(cache_dir) if cache_dir else None)
+        # fastembed's default batch of 256 needed 3.9 GB RAM for our chunks (16: 0.85 GB).
+        self.batch_size = batch_size
 
     def embed(self, texts: list[str]) -> np.ndarray:
-        vecs = np.array(list(self.model.embed(texts)), dtype=np.float32)
+        vecs = np.array(list(self.model.embed(texts, batch_size=self.batch_size)),
+                        dtype=np.float32)
         return vecs / np.linalg.norm(vecs, axis=1, keepdims=True)
 
 

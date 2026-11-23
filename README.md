@@ -245,6 +245,9 @@ cp .env.example .env          # put your OpenAI-compatible LLM_API_KEY and a JWT
 docker compose up --build     # app: http://localhost:8000 (APP_PORT), traces: :6006
 ```
 
+If port 8000 is taken, set another one in `.env`, e.g. `APP_PORT=8600`. On Windows, Hyper-V
+reserves some port ranges; `netsh int ipv4 show excludedportrange protocol=tcp` lists them.
+
 Without Docker (Python 3.12, SQLite):
 
 ```bash

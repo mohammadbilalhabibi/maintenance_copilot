@@ -13,7 +13,7 @@ def main() -> None:
     """CLI entry point."""
     s = get_settings()
     t0 = time.perf_counter()
-    embedder = FastEmbedder(s.embedding_model, s.embedding_cache_dir)
+    embedder = FastEmbedder(s.embedding_model, s.embedding_cache_dir, s.embedding_batch_size)
     n = build_index(s.knowledge_dir, s.index_dir, embedder, s.embedding_model)
     print(f"indexed {n} chunks from {s.knowledge_dir} in {time.perf_counter() - t0:.1f} s")
 
