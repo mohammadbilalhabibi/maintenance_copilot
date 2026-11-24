@@ -34,7 +34,9 @@ services:
       PHOENIX_ENABLE_AUTH: "false"
 
   init:
-    build: .
+    build:
+      context: .
+      target: app
     image: maintenance-copilot:local
     command: ["sh", "docker/init.sh"]
     env_file:
@@ -49,7 +51,9 @@ services:
         condition: service_healthy
 
   api:
-    build: .
+    build:
+      context: .
+      target: app
     image: maintenance-copilot:local
     env_file:
       - path: .env

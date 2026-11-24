@@ -161,3 +161,24 @@ def test_index_page(make_client) -> None:  # noqa: ANN001
         r = client.get("/")
         assert r.status_code == 200 and "Maintenance Copilot" in r.text
         assert client.get("/static/app.js").status_code == 200
+
+
+def test_daily_question_limit(make_client) -> None:  # noqa: ANN001
+    client, _ = make_client([AIMessage("a"), AIMessage("b"), AIMessage("c")],
+                            daily_question_limit=2)
+    with client:
+        h1, h2 = login(client, "tech1"), login(client, "tech2")
+        c1 = client.post("/api/conversations", headers=h1).json()["id"]
+        c2 = client.post("/api/conversations", headers=h2).json()["id"]
+        assert client.post(f"/api/chat/{c1}", json={"message": "q1"}, headers=h1).status_code == 200
+        assert client.post(f"/api/chat/{c2}", json={"message": "q2"}, headers=h2).status_code == 200
+        # The limit is for all users together.
+        r = client.post(f"/api/chat/{c1}", json={"message": "q3"}, headers=h1)
+        assert r.status_code == 429 and "per day" in r.json()["detail"]
+
+
+def test_registration_can_be_disabled(make_client) -> None:  # noqa: ANN001
+    client, _ = make_client([], allow_registration=False)
+    with client:
+        r = client.post("/api/auth/register", json={"username": "x_user", "password": "x" * 9})
+        assert r.status_code == 403

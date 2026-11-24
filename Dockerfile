@@ -1,5 +1,5 @@
 # Maintenance Copilot API image (also used for the one-shot init job in docker compose).
-FROM python:3.12-slim
+FROM python:3.12-slim AS app
 
 # COPILOT_HOME: project folder (data/, models/, index/, knowledge/) for the installed package.
 ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 PIP_NO_CACHE_DIR=1 \
@@ -26,3 +26,8 @@ EXPOSE 8000
 HEALTHCHECK --interval=15s --timeout=5s --start-period=40s --retries=5 \
     CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health', timeout=4)"
 CMD ["uvicorn", "copilot.api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+
+# Release image (cloud deployment): the trained model is baked in, so no storage volume is
+# needed. Built by .github/workflows/release.yml after training into release-models/.
+FROM app AS release
+COPY --chown=app:app release-models/failure_risk.joblib /app/models/failure_risk.joblib

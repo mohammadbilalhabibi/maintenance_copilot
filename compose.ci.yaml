@@ -2,7 +2,9 @@
 #   docker compose -f compose.yaml -f compose.ci.yaml up -d --build
 services:
   mock-llm:
-    build: .
+    build:
+      context: .
+      target: app
     image: maintenance-copilot:local
     command: ["uvicorn", "loadtest.mock_llm:app", "--host", "0.0.0.0", "--port", "9000"]
     working_dir: /app

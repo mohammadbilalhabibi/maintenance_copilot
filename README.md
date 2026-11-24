@@ -272,6 +272,9 @@ python scripts/build_index.py
 uvicorn copilot.api.main:app --port 8000
 ```
 
+Cloud deployment (Azure Container Apps + PostgreSQL, scale to zero, about $19/month):
+see [docs/deploy_azure.md](docs/deploy_azure.md).
+
 Evaluation and load test:
 
 ```bash

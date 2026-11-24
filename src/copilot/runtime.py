@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+import re
 from contextlib import AsyncExitStack
 from dataclasses import dataclass
 from typing import Any
@@ -54,13 +55,22 @@ def load_retriever(settings: Settings) -> Retriever | None:
     return open_hybrid(settings.index_dir, embedder, settings.embedding_model, settings.rrf_k)
 
 
+def psycopg_url(url: str) -> str:
+    """SQLAlchemy asyncpg URL -> libpq/psycopg URL (the checkpointer uses psycopg).
+
+    asyncpg spells TLS as ?ssl=require, libpq as ?sslmode=require.
+    """
+    out = url.replace("postgresql+asyncpg://", "postgresql://")
+    return re.sub(r"([?&])ssl=", r"\g<1>sslmode=", out)
+
+
 async def open_checkpointer(settings: Settings, stack: AsyncExitStack) -> Any:
     """LangGraph checkpointer in the same database (Postgres or SQLite)."""
     url = settings.database_url
     if url.startswith("postgresql"):
         from langgraph.checkpoint.postgres.aio import AsyncPostgresSaver
 
-        conn = url.replace("postgresql+asyncpg://", "postgresql://")
+        conn = psycopg_url(url)
         saver = await stack.enter_async_context(AsyncPostgresSaver.from_conn_string(conn))
     else:
         from langgraph.checkpoint.sqlite.aio import AsyncSqliteSaver

@@ -19,3 +19,5 @@ models/*.joblib
 !models/.gitkeep
 index/
 .venv-phoenix/
+release-models/
+.azure-deploy.env

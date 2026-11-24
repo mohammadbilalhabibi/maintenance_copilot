@@ -76,3 +76,25 @@ async def test_checkpointer_resumes_ticket_on_postgres(pg: Database, risk_model)
     assert state["messages"][-1].content == "Done [S1]."
     async with pg.session() as s:
         assert (await s.execute(text("SELECT count(*) FROM tickets"))).scalar_one() == 1
+
+
+async def test_create_read_only_role_from_url() -> None:
+    """Azure has no init SQL: load_db creates the tools role from TOOLS_DATABASE_URL."""
+    if not URL:
+        pytest.skip("TEST_POSTGRES_URL not set")
+    from scripts.load_db import create_read_only_role
+
+    db = Database(URL)
+    await db.create_all()
+    tools_url = URL.replace("://copilot:copilot@", "://copilot_tools:tools-pass-123@")
+    assert await create_read_only_role(db, tools_url) == "copilot_tools"
+    assert await create_read_only_role(db, tools_url) == "copilot_tools"  # idempotent
+    await grant_read_only(db, "copilot_tools")
+    await db.dispose()
+    ro = Database(tools_url, tools_url)
+    async with ro.read() as s:
+        assert (await s.execute(text("SELECT count(*) FROM machines"))).scalar_one() >= 0
+    async with ro.read() as s:
+        with pytest.raises(Exception, match="permission denied"):
+            await s.execute(text("SELECT * FROM users"))
+    await ro.dispose()

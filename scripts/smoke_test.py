@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 import time
 import uuid
@@ -51,7 +52,9 @@ def main() -> None:
     if args.phoenix:
         time.sleep(6)  # batch span exporter flushes every few seconds
         query = {"query": "{ projects { edges { node { name traceCount } } } }"}
-        resp = httpx.post(f"{args.phoenix}/graphql", json=query, timeout=20)
+        token = os.environ.get("PHOENIX_API_KEY", "")
+        auth = {"authorization": f"Bearer {token}"} if token else {}
+        resp = httpx.post(f"{args.phoenix}/graphql", json=query, headers=auth, timeout=20)
         assert resp.status_code == 200, f"Phoenix GraphQL returned {resp.status_code}"
         data = resp.json()
         projects = {e["node"]["name"]: e["node"]["traceCount"]

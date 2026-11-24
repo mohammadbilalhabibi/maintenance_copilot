@@ -73,12 +73,19 @@ class Settings(BaseSettings):
     jwt_expire_minutes: int = 12 * 60
     rate_limit_per_minute: int = 20
     allow_registration: bool = True
+    daily_question_limit: int = Field(
+        0, description="Questions per UTC day for all users together (protects the LLM budget "
+        "of a public demo; counted from stored messages, so restarts do not reset it); 0 = off."
+    )
 
     # --- Observability ---
     phoenix_collector_endpoint: str | None = Field(
         default=None, description="e.g. http://localhost:6006/v1/traces; unset = tracing off."
     )
     phoenix_project_name: str = "maintenance-copilot"
+    phoenix_api_key: SecretStr | None = Field(
+        default=None, description="API key for a Phoenix with login enabled (sent as Bearer)."
+    )
 
     @property
     def tools_url(self) -> str:

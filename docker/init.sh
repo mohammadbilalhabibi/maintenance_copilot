@@ -12,5 +12,9 @@ if [ ! -f models/failure_risk.joblib ]; then
   python scripts/train_model.py ${TRAIN_ARGS:---no-mlflow}
 fi
 echo "== loading the fleet into the database (skipped if already loaded)"
-python scripts/load_db.py --if-empty
+python scripts/load_db.py --if-empty ${LOAD_ARGS:-}
+if [ -n "${DEMO_USERNAME:-}" ]; then
+  echo "== creating the demo account (password from DEMO_PASSWORD)"
+  python scripts/create_user.py "$DEMO_USERNAME"
+fi
 echo "== init done"

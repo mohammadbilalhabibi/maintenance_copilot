@@ -10,6 +10,12 @@ log = logging.getLogger(__name__)
 _done = False
 
 
+def exporter_headers(settings: Settings) -> dict[str, str]:
+    """Auth header for a Phoenix with login enabled (system API key as Bearer token)."""
+    key = settings.phoenix_api_key.get_secret_value() if settings.phoenix_api_key else ""
+    return {"authorization": f"Bearer {key}"} if key else {}
+
+
 def setup_tracing(settings: Settings) -> bool:
     """Send LLM, tool and graph spans to Phoenix if PHOENIX_COLLECTOR_ENDPOINT is set."""
     global _done
@@ -25,9 +31,9 @@ def setup_tracing(settings: Settings) -> bool:
     provider = TracerProvider(
         resource=Resource.create({"openinference.project.name": settings.phoenix_project_name})
     )
-    provider.add_span_processor(
-        BatchSpanProcessor(OTLPSpanExporter(endpoint=settings.phoenix_collector_endpoint))
-    )
+    exporter = OTLPSpanExporter(endpoint=settings.phoenix_collector_endpoint,
+                                headers=exporter_headers(settings))
+    provider.add_span_processor(BatchSpanProcessor(exporter))
     trace.set_tracer_provider(provider)
     LangChainInstrumentor().instrument(tracer_provider=provider)
     log.info("tracing to %s", settings.phoenix_collector_endpoint)

@@ -183,6 +183,25 @@ def create_app(settings: Settings | None = None, **runtime_overrides: Any) -> Fa
         return None
 
     # --------------------------------------------------------------- chat
+    async def _check_daily_limit(request: Request) -> None:
+        """429 once the demo's questions for today (UTC, all users) are used up."""
+        limit = settings.daily_question_limit
+        if limit <= 0:
+            return
+        today = utcnow().replace(hour=0, minute=0, second=0, microsecond=0)
+        async with rt(request).db.session() as s:
+            asked = await s.scalar(
+                select(func.count()).select_from(Message)
+                .where(Message.role == "user", Message.created_at >= today)
+            )
+        if asked >= limit:
+            raise HTTPException(
+                status.HTTP_429_TOO_MANY_REQUESTS,
+                f"This demo answers {limit} questions per day in total, and today's are used "
+                "up. Please try again tomorrow (the limit resets at midnight UTC).",
+            )
+
+    # --------------------------------------------------------------- chat
     def _sse(event: dict) -> str:
         return f"event: {event['type']}\ndata: {json.dumps(event, default=str)}\n\n"
 
@@ -239,6 +258,7 @@ def create_app(settings: Settings | None = None, **runtime_overrides: Any) -> Fa
         conv = await _own_conversation(request, conv_id, user)
         if await _pending_confirmation(request, conv_id):
             raise HTTPException(status.HTTP_409_CONFLICT, "Confirm or reject the ticket first")
+        await _check_daily_limit(request)
         return await _run(request, conv, user, body.message, None)
 
     @app.post("/api/chat/{conv_id}/confirm")
