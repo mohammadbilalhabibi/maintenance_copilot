@@ -27,7 +27,9 @@ from opentelemetry import trace
 from pydantic import ValidationError
 
 from copilot.agent.llm import usage_from_message
+from copilot.agent.provenance import describe
 from copilot.agent.tools import TOOLS, TOOLS_BY_NAME, ToolContext, ToolError
+from copilot.db.querylog import QUERY_LOG
 
 RESET = "reset"
 _tracer = trace.get_tracer("copilot.tools")
@@ -111,7 +113,14 @@ async def run_tool(
         span.set_attribute("openinference.span.kind", "TOOL")
         span.set_attribute("tool.name", name)
         span.set_attribute("input.value", json.dumps(raw_args, default=str))
-        result, error = await _run_tool(ctx, name, raw_args, config)
+        token = QUERY_LOG.set([])
+        try:
+            result, error = await _run_tool(ctx, name, raw_args, config)
+            queries = QUERY_LOG.get() or []
+        finally:
+            QUERY_LOG.reset(token)
+        if result is not None:
+            result = {**result, "_queries": queries}  # removed before the LLM sees it
         span.set_attribute("output.value",
                            json.dumps(result if error is None else {"error": error},
                                       default=str)[:4000])
@@ -217,6 +226,8 @@ def build_graph(
                     name=call["name"], status="error",
                 ))
                 continue
+            # UI-only provenance; the LLM never sees these keys.
+            queries = result.pop("_queries", [])
             if call["name"] == "search_manuals":
                 # Provenance for the UI only; the LLM sees doc, section and text.
                 meta = result.pop("_meta", {})
@@ -236,6 +247,8 @@ def build_graph(
                     "id": f"S{n_sources}", "tool": call["name"],
                     "label": _source_label(call["name"], call["args"]), "args": call["args"],
                     "data": _source_data(result),
+                    "origin": describe(call["name"], call["args"], result),
+                    "queries": queries,
                 })
                 result = {"source_id": f"S{n_sources}", **result}
             messages.append(ToolMessage(

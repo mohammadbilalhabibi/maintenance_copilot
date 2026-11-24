@@ -80,7 +80,12 @@ def main() -> None:
         rec.shot(3500)
         page.locator(".answer button.cite[data-sid=S2]").first.click()  # model output
         rec.shot(3500)
-        page.keyboard.press("Escape")
+        # The record view: the raw sensor readings and errors behind the prediction.
+        page.locator("#source-body .record-btn").first.click()
+        page.wait_for_selector("#record-body svg.chart")
+        rec.shot(4000)
+        page.keyboard.press("Escape")  # closes the record view
+        page.keyboard.press("Escape")  # closes the source panel
         page.fill("#input", TICKET)
         rec.shot(1000)
         page.keyboard.press("Enter")

@@ -211,3 +211,18 @@ async def history_frames(
     for df in (tel, err, maint):
         df["ts"] = pd.to_datetime(df["ts"])
     return {"telemetry": tel, "errors": err, "maint": maint, "machines": machines}
+
+
+async def telemetry_rows(
+    session: AsyncSession, machine_id: int, start: datetime, end: datetime
+) -> list[dict]:
+    """Hourly sensor readings in (start, end], oldest first."""
+    stmt = (
+        select(Telemetry)
+        .where(Telemetry.machine_id == machine_id, Telemetry.ts > start, Telemetry.ts <= end)
+        .order_by(Telemetry.ts)
+    )
+    return [
+        {"ts": r.ts, **{s: round(getattr(r, s), 2) for s in SIGNALS}}
+        for r in (await session.execute(stmt)).scalars()
+    ]

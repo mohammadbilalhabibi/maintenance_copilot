@@ -128,12 +128,71 @@ function renderAssistant(el, answer, meta) {
 // ------------------------------------------------------------- sources
 function slugify(t) { return t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || "section"; }
 
-function dataTable(obj) {
-  const rows = Object.entries(obj || {}).filter(([k]) => k !== "source_id").map(([k, v]) => {
-    const val = v !== null && typeof v === "object" ? `<pre>${escapeHtml(JSON.stringify(v, null, 2))}</pre>` : escapeHtml(String(v));
-    return `<tr><th>${escapeHtml(k)}</th><td>${val}</td></tr>`;
-  }).join("");
-  return `<table class="kv">${rows}</table>`;
+// Readable rendering of tool output: tables instead of raw JSON.
+const label = (k) => escapeHtml(String(k).replace(/_/g, " "));
+const isScalar = (v) => v === null || typeof v !== "object";
+
+function cell(key, v) {
+  if (v === null || v === undefined) return '<span class="muted">-</span>';
+  if (typeof v === "boolean") return v ? "yes" : "no";
+  if (typeof v === "number" && /probability/.test(key)) {
+    const p = v * 100;  // keep "99.99%" and "0.01%" distinguishable from 100% / 0%
+    return p > 0 && p < 0.05 ? "<0.05%" : `${p.toFixed(p >= 99.95 && p < 100 ? 2 : 1)}%`;
+  }
+  if (isScalar(v)) return escapeHtml(String(v));
+  if (Array.isArray(v) && v.every(isScalar)) return v.length ? v.map((x) => escapeHtml(String(x))).join("<br>") : '<span class="muted">none</span>';
+  return smartRender(v);
+}
+
+function smartRender(value) {
+  if (Array.isArray(value)) {
+    if (!value.length) return '<span class="muted">none</span>';
+    if (value.every((x) => x && typeof x === "object" && !Array.isArray(x))) {
+      const cols = [...new Set(value.flatMap(Object.keys))].slice(0, 12);
+      const head = cols.map((c) => `<th>${label(c)}</th>`).join("");
+      const rows = value.map((r) => `<tr>${cols.map((c) => `<td>${cell(c, r[c])}</td>`).join("")}</tr>`).join("");
+      return `<table class="grid"><tr>${head}</tr>${rows}</table>`;
+    }
+    return value.map((x) => cell("", x)).join("<br>");
+  }
+  if (value && typeof value === "object") {
+    const entries = Object.entries(value).filter(([k]) => k !== "source_id");
+    // An object of objects (e.g. risk per horizon) reads best as one table, one row per key.
+    if (entries.length && entries.every(([, v]) => v && typeof v === "object" && !Array.isArray(v))) {
+      const cols = [...new Set(entries.flatMap(([, v]) => Object.keys(v)))].slice(0, 10);
+      const head = `<th></th>${cols.map((c) => `<th>${label(c)}</th>`).join("")}`;
+      const rows = entries.map(([k, v]) => `<tr><th>${label(k)}</th>${cols.map((c) => `<td>${cell(c, v[c])}</td>`).join("")}</tr>`).join("");
+      return `<table class="grid"><tr>${head}</tr>${rows}</table>`;
+    }
+    // Simple values in a key/value table; lists and nested objects as full-width sections.
+    const simple = entries.filter(([, v]) => isScalar(v) || (Array.isArray(v) && v.every(isScalar)));
+    const nested = entries.filter((e) => !simple.includes(e));
+    const kv = simple.length ? `<table class="kv">${simple.map(([k, v]) => `<tr><th>${label(k)}</th><td>${cell(k, v)}</td></tr>`).join("")}</table>` : "";
+    return kv + nested.map(([k, v]) => `<div class="sub"><p class="sub-title">${label(k)}</p>${smartRender(v)}</div>`).join("");
+  }
+  return cell("", value);
+}
+
+function originHtml(source) {
+  const o = source.origin;
+  if (!o) return '<p class="muted">Origin details are not stored for this older answer.</p>';
+  const kind = o.kind === "model" ? "ML model prediction" : "Database query";
+  const window = o.window ? ` · Time window: ${escapeHtml(o.window.from)} to ${escapeHtml(o.window.to)}` : "";
+  const buttons = (o.machine_ids || []).slice(0, 5).map((m) => `<button type="button" class="secondary record-btn" data-mid="${m}" data-from="${escapeHtml(o.window?.from || "")}" data-to="${escapeHtml(o.window?.to || "")}">Machine ${m} records</button>`);
+  if (o.kind === "model") buttons.push('<a class="button-link" href="/model" target="_blank" rel="noopener">How the model was tested</a>');
+  return `<div class="origin"><span class="badge ${o.kind}">${kind}</span><p>${escapeHtml(o.summary)}</p>`
+    + `<p class="muted small">Tables: ${escapeHtml((o.tables || []).join(", "))}${window}</p>`
+    + `<p class="muted small">Data: <a href="${escapeHtml(o.dataset.url)}" target="_blank" rel="noopener">${escapeHtml(o.dataset.name)}</a></p>`
+    + (o.caveat ? `<p class="caveat">${escapeHtml(o.caveat)}</p>` : "")
+    + (buttons.length ? `<p class="links">${buttons.join("")}</p>` : "") + "</div>";
+}
+
+function technicalHtml(source) {
+  const queries = (source.queries || []).map((qr) => `<pre>${escapeHtml(qr.sql)}\n-- parameters: ${escapeHtml(JSON.stringify(qr.params))}</pre>`).join("");
+  return `<details class="tech"><summary>Technical details</summary>`
+    + `<p class="muted small">Tool call</p><pre>${escapeHtml(source.tool)}(${escapeHtml(JSON.stringify(source.args || {}))})</pre>`
+    + (queries ? `<p class="muted small">SQL the tool ran (read-only connection)</p>${queries}` : "")
+    + `<p class="muted small">Raw output</p><pre>${escapeHtml(JSON.stringify(source.data || {}, null, 2))}</pre></details>`;
 }
 
 async function openSource(source) {
@@ -153,13 +212,72 @@ async function openSource(source) {
       + `<blockquote class="passage">${escapeHtml(s.text || "Passage text not available.")}</blockquote>`
       + `<p class="links">${links.join("")}</p>`;
   } else {
-    const args = escapeHtml(JSON.stringify(source.args || {}));
-    body.innerHTML = `<p class="muted">What the agent got from <code>${escapeHtml(source.tool)}</code>(${args}):</p>`
-      + (source.data ? dataTable(source.data) : '<p class="muted">Tool output was not stored for this older answer.</p>');
+    body.innerHTML = originHtml(source)
+      + `<h4>What the tool returned</h4>`
+      + (source.data ? smartRender(source.data) : '<p class="muted">Tool output was not stored for this older answer.</p>')
+      + technicalHtml(source);
   }
   panel.classList.remove("hidden");
   document.querySelector(".main").classList.add("panel-open");
 }
+
+// ------------------------------------------------------- machine records
+// Normal bands from the (synthetic) fleet handbook, derived from the fleet's own readings.
+const SIGNALS = [
+  { key: "volt", name: "Voltage", unit: "V", normal: [146, 197] },
+  { key: "rotate", name: "Rotation", unit: "rpm", normal: [359, 531] },
+  { key: "pressure", name: "Pressure", unit: "psi", normal: [84, 119] },
+  { key: "vibration", name: "Vibration", unit: "mm/s", normal: [32, 49] },
+];
+const toTime = (s) => new Date(String(s).replace(" ", "T")).getTime();
+const day = (t) => new Date(t).toISOString().slice(0, 10);
+
+function lineChart(rows, sig, shown, win, events) {
+  const W = 660, H = 120, L = 46, R = 8, T = 8, B = 20;
+  const t0 = toTime(shown.from), t1 = toTime(shown.to);
+  const vals = rows.map((r) => r[sig.key]);
+  const lo = Math.min(...vals, sig.normal[0]), hi = Math.max(...vals, sig.normal[1]);
+  const x = (t) => L + ((t - t0) / Math.max(t1 - t0, 1)) * (W - L - R);
+  const y = (v) => T + (1 - (v - lo) / Math.max(hi - lo, 1e-9)) * (H - T - B);
+  const pts = rows.map((r) => `${x(toTime(r.ts)).toFixed(1)},${y(r[sig.key]).toFixed(1)}`).join(" ");
+  const wx0 = x(Math.max(toTime(win.from), t0)), wx1 = x(Math.min(toTime(win.to), t1));
+  const marks = events.map((e) => {
+    const ex = x(toTime(e.ts)); const cls = e.kind === "failure" ? "ev-failure" : "ev-error";
+    return `<line class="${cls}" x1="${ex}" x2="${ex}" y1="${T}" y2="${H - B}"><title>${escapeHtml(e.label)}</title></line>`;
+  }).join("");
+  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${sig.name} readings">`
+    + `<rect class="win" x="${wx0}" y="${T}" width="${Math.max(wx1 - wx0, 1)}" height="${H - T - B}"><title>Time window the answer used</title></rect>`
+    + `<rect class="normal" x="${L}" y="${y(sig.normal[1])}" width="${W - L - R}" height="${y(sig.normal[0]) - y(sig.normal[1])}"><title>Handbook normal range</title></rect>`
+    + marks + `<polyline class="line" points="${pts}"/>`
+    + `<text x="4" y="${T + 8}" class="axis">${hi.toFixed(0)}</text><text x="4" y="${H - B}" class="axis">${lo.toFixed(0)}</text>`
+    + `<text x="${L}" y="${H - 4}" class="axis">${day(t0)}</text><text x="${W - R}" y="${H - 4}" class="axis" text-anchor="end">${day(t1)}</text>`
+    + `<text x="${L + 4}" y="${T + 12}" class="title">${sig.name} (${sig.unit})</text></svg>`;
+}
+
+async function openRecord(mid, from, to) {
+  const params = new URLSearchParams(); if (from) params.set("start", from.replace(" ", "T")); if (to) params.set("end", to.replace(" ", "T"));
+  $("record-title").textContent = `Machine ${mid} - records from the fleet database`;
+  $("record-body").innerHTML = '<p class="muted">Loading...</p>';
+  $("record-view").classList.remove("hidden");
+  try {
+    const r = await (await api(`/api/machines/${mid}/record?${params}`)).json();
+    const events = [
+      ...r.errors.map((e) => ({ ts: e.ts, kind: "error", label: `${e.error} at ${e.ts}` })),
+      ...r.maintenance.filter((m) => m.reason === "failure").map((m) => ({ ts: m.ts, kind: "failure", label: `${m.component} failed at ${m.ts}` })),
+    ];
+    const charts = r.telemetry.length ? SIGNALS.map((s) => lineChart(r.telemetry, s, r.shown, r.window, events)).join("") : '<p class="muted">No sensor readings in this period.</p>';
+    $("record-body").innerHTML =
+      `<p>Model <strong>${escapeHtml(r.machine.model)}</strong>, ${r.machine.age_years} years in service. Showing ${escapeHtml(r.shown.from)} to ${escapeHtml(r.shown.to)}: ${r.telemetry.length} hourly readings.</p>`
+      + `<p class="legend"><span class="key win"></span> time window the answer used <span class="key normal"></span> handbook normal range <span class="key err"></span> error <span class="key fail"></span> failure</p>`
+      + charts
+      + `<div class="record-tables"><div><h4>Errors (${r.errors.length})</h4>${smartRender(r.errors)}</div>`
+      + `<div><h4>Component replacements (${r.maintenance.length})</h4>${smartRender(r.maintenance)}</div>`
+      + `<div><h4>Last replacement per component</h4>${smartRender(r.last_replacement)}</div></div>`
+      + `<p class="muted small">Source: <a href="${escapeHtml(r.dataset.url)}" target="_blank" rel="noopener">${escapeHtml(r.dataset.name)}</a>. Hover a line for details.</p>`;
+  } catch (e) { $("record-body").innerHTML = `<p class="error">${escapeHtml(e.message)}</p>`; }
+}
+
+function closeRecord() { $("record-view").classList.add("hidden"); }
 
 function closeSource() {
   $("source-panel").classList.add("hidden");
@@ -247,6 +365,14 @@ $("messages").addEventListener("click", (e) => {
   if (src) openSource(src);
 });
 $("source-close").onclick = closeSource;
-document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeSource(); });
+$("source-body").addEventListener("click", (e) => {
+  const b = e.target.closest(".record-btn"); if (b) openRecord(b.dataset.mid, b.dataset.from, b.dataset.to);
+});
+$("record-close").onclick = closeRecord;
+$("record-view").addEventListener("click", (e) => { if (e.target.id === "record-view") closeRecord(); });
+document.addEventListener("keydown", (e) => {
+  if (e.key !== "Escape") return;
+  if (!$("record-view").classList.contains("hidden")) closeRecord(); else closeSource();
+});
 bindExamples();
 if (state.token) showApp().catch(logout); else logout();

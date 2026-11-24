@@ -8,6 +8,7 @@ import logging
 import uuid
 from collections.abc import AsyncIterator
 from contextlib import AsyncExitStack, asynccontextmanager
+from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any
 
@@ -17,10 +18,12 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 from sqlalchemy import delete, func, select, text
 
+from copilot.agent import data_access as q
 from copilot.agent.llm import cost_usd
+from copilot.agent.provenance import DATASET
 from copilot.agent.runner import stream_events
 from copilot.api.auth import create_token, current_user, hash_password, verify_password
-from copilot.api.documents import render_document
+from copilot.api.documents import render_document, render_model_card
 from copilot.api.ratelimit import RateLimiter
 from copilot.config import Settings, get_settings
 from copilot.db.models import Conversation, Message, Ticket, User, utcnow
@@ -29,6 +32,17 @@ from copilot.runtime import Runtime, build_runtime
 
 log = logging.getLogger(__name__)
 STATIC = Path(__file__).resolve().parents[1] / "static"
+
+
+def plain_dates(value: Any) -> Any:
+    """Datetimes as 'YYYY-MM-DD HH:MM' (same format as the tools), recursively."""
+    if isinstance(value, datetime):
+        return value.strftime("%Y-%m-%d %H:%M")
+    if isinstance(value, dict):
+        return {k: plain_dates(v) for k, v in value.items()}
+    if isinstance(value, list):
+        return [plain_dates(v) for v in value]
+    return value
 
 
 # ------------------------------------------------------------------ schemas
@@ -245,6 +259,42 @@ def create_app(settings: Settings | None = None, **runtime_overrides: Any) -> Fa
             if c.chunk_id == chunk_id:
                 return c.to_dict()
         raise HTTPException(status.HTTP_404_NOT_FOUND, "Passage not found")
+
+    @app.get("/api/machines/{machine_id}/record")
+    async def machine_record(machine_id: int, request: Request, start: datetime | None = None,
+                             end: datetime | None = None,
+                             user: User = Depends(current_user)) -> dict:
+        """The raw rows behind an answer: sensor readings, errors, maintenance, failures.
+
+        `start`/`end` is the window the answer used (highlighted); at least 3 days and at
+        most 31 days are shown, never after the simulated 'now'.
+        """
+        now = settings.sim_now
+        end = min(end or now, now)
+        start = start or end - timedelta(days=7)
+        start = max(start, end - timedelta(days=31))
+        shown_from = min(start, end - timedelta(days=3))
+        async with rt(request).db.read() as s:
+            machine = await q.get_machine(s, machine_id)
+            if machine is None:
+                raise HTTPException(status.HTTP_404_NOT_FOUND, "Machine not found")
+            return plain_dates({
+                "machine": {"machine_id": machine.machine_id, "model": machine.model,
+                            "age_years": machine.age},
+                "window": {"from": start, "to": end},
+                "shown": {"from": shown_from, "to": end},
+                "telemetry": await q.telemetry_rows(s, machine_id, shown_from, end),
+                "errors": await q.recent_errors(s, machine_id, shown_from, end, limit=500),
+                "maintenance": await q.maintenance_events(s, machine_id, shown_from, end,
+                                                          limit=200),
+                "last_replacement": await q.last_replacements(s, machine_id, end),
+                "dataset": DATASET,
+            })
+
+    @app.get("/model", response_class=HTMLResponse, include_in_schema=False)
+    async def model_card(request: Request) -> HTMLResponse:
+        """How the failure-risk model was trained and how well it did on the test period."""
+        return HTMLResponse(render_model_card(rt(request).risk_model))
 
     @app.get("/docs/{doc_id}", response_class=HTMLResponse, include_in_schema=False)
     async def document(doc_id: str) -> HTMLResponse:

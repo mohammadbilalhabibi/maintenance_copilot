@@ -11,8 +11,11 @@ does the handbook say?"*. A LangGraph agent calls the fleet database, the failur
 and the document search (in parallel where it can), streams the answer with numbered
 citations [S1], [S2], ... and, if asked, proposes a maintenance ticket that is written only
 after the user clicks *Create ticket*. Every citation can be clicked: it opens the exact
-passage the answer used (with links to the full document and the original PDF page) or the
-exact data a tool returned, so each claim can be checked.
+passage the answer used (with links to the full document and the original PDF page), or -
+for numbers - where they came from: which tables and time window, the SQL the tool ran, the
+returned data as a table, and a record view with the machine's raw sensor readings and
+errors. Model outputs are labelled as predictions and link to the model's measured test
+results, so each claim can be checked.
 
 ## Results
 
@@ -191,10 +194,15 @@ flowchart LR
 - **Backend** (`src/copilot/api/app.py`): async FastAPI, JWT login (argon2 hashes),
   conversations and messages stored per user, SSE streaming of tokens and tool events,
   per-user rate limit, one run per conversation at a time.
-- **Checkable sources**: each source keeps what the agent saw - the passage text with its
-  document, section and PDF page, or the tool's output. The chat page shows it in a side
-  panel; `/docs/<doc>` serves a readable copy of every document with page anchors, and the
-  OSHA links open the original PDF at that page.
+- **Checkable sources**: each source keeps what the agent saw. Documents: the passage with
+  its document, section and PDF page (`/docs/<doc>` serves a readable copy with page anchors;
+  OSHA links open the original PDF at that page). Data: a plain-language origin (tables, time
+  window, dataset link), the SQL statements the tool ran on the read-only connection
+  (recorded per tool call, even when tools run in parallel), the output as tables, and
+  `/api/machines/<id>/record` for the raw rows, shown as sensor charts with the window the
+  answer used. `/model` shows the risk model's measured test metrics.
+
+![Record view: raw sensor readings, errors and the time window behind an answer](docs/record_view.jpg)
 - **Observability**: OpenInference/OpenTelemetry spans for HTTP request, graph, every LLM call
   (prompt, tokens) and every tool call (input, output, latency) in Phoenix.
 

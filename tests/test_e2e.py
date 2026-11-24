@@ -99,6 +99,14 @@ def test_login_chat_and_history(server: str) -> None:
         page.locator(".answer button.cite").first.click()
         expect(page.locator("#source-panel")).to_be_visible()
         expect(page.locator("#source-body")).to_contain_text("model3")
+        expect(page.locator("#source-body")).to_contain_text("Database query")
+        # The record view shows the raw rows behind the answer.
+        page.locator("#source-body .record-btn").first.click()
+        expect(page.locator("#record-view")).to_be_visible()
+        expect(page.locator("#record-body")).to_contain_text("hourly readings")
+        expect(page.locator("#record-body svg.chart")).to_have_count(4)
+        page.keyboard.press("Escape")
+        expect(page.locator("#record-view")).to_be_hidden()
         page.keyboard.press("Escape")
         expect(page.locator("#source-panel")).to_be_hidden()
 

@@ -5,9 +5,12 @@ from __future__ import annotations
 import html
 import re
 from pathlib import Path
+from typing import Any
 
+from copilot.agent.provenance import DATASET
 from copilot.rag.chunking import PAGE, parse_front_matter
 
+DATA_URL = DATASET["url"]
 DOC_ID = re.compile(r"^[a-z0-9_]+$")
 
 
@@ -107,3 +110,54 @@ def render_document(knowledge_dir: Path, doc_id: str) -> str | None:
         licence=html.escape(meta.get("licence", "")), source=source,
         content=render_markdown(body),
     )
+
+
+HORIZON_TEXT = {
+    "24h": "a component fails within the next 24 hours",
+    "7d": "a component fails within the next 7 days",
+}
+
+
+def render_model_card(risk_model: Any) -> str:
+    """Model page built from the trained bundle (measured on the Oct-Dec 2015 test period)."""
+    if risk_model is None:
+        content = "<p>The failure-risk model is not loaded.</p>"
+    else:
+        rows = []
+        for name, h in risk_model.horizons.items():
+            t = h.get("test_metrics", {})
+
+            def fmt(key: str, t: dict = t) -> str:
+                v = t.get(key)
+                return "-" if v is None or v != v else f"{v:.3f}"
+
+            rows.append(
+                f"<tr><td>{html.escape(name)}</td><td>{HORIZON_TEXT.get(name, name)}</td>"
+                f"<td>{h.get('alert_rate', 0):.0%}</td><td>{fmt('pr_auc_any')}</td>"
+                f"<td>{fmt('precision_at_rate')}</td><td>{fmt('recall_at_rate')}</td>"
+                f"<td>{fmt('recall_early')}</td></tr>"
+            )
+        content = (
+            "<p>LightGBM classifiers trained on the Microsoft predictive-maintenance sample "
+            "(simulated, 1000 machines, hourly data for 2015). Inputs at time t: the last 3 h "
+            "and 24 h of sensor readings (mean and spread), error counts in the last 24 h, "
+            "hours since each component was last replaced, machine model and age. Only data "
+            "up to t is used.</p>"
+            "<p>Time-based split: trained on January-July, alert thresholds set on "
+            "August-September, measured on October-December 2015, with a gap of one horizon "
+            "at each boundary so labels cannot leak across the split.</p>"
+            "<h2>Measured on the test period</h2>"
+            "<table><tr><th>Horizon</th><th>Predicts that</th><th>Alerts on</th>"
+            "<th>PR-AUC</th><th>Precision</th><th>Recall</th>"
+            "<th>Recall &gt;24 h before failure</th></tr>" + "".join(rows) + "</table>"
+            "<p>PR-AUC: 1.0 is perfect, the base rate is a random guess. 'Alerts on' is the "
+            "share of machine-hours flagged.</p>"
+            "<h2>Caveat</h2><p>On this simulated data a warning error appears shortly before "
+            "almost every failure, which makes 24-hour prediction unrealistically easy. The "
+            "7-day horizon is the harder, more realistic task.</p>"
+            f'<p>Data: <a href="{DATA_URL}" target="_blank" rel="noopener">Microsoft '
+            "sample data</a> (CC BY 4.0).</p>"
+        )
+    return PAGE_TEMPLATE.format(title="Failure-risk model", notice="",
+                                licence="model trained in this project", source="",
+                                content=content)

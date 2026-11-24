@@ -13,6 +13,7 @@ from sqlalchemy.ext.asyncio import (
     create_async_engine,
 )
 
+from copilot.db import querylog
 from copilot.db.models import Base
 
 
@@ -43,6 +44,8 @@ class Database:
             if tools_url and tools_url != url
             else make_engine(url, read_only=True)
         )
+        for engine in (self.engine, self.ro_engine):
+            querylog.attach(engine.sync_engine)
         self.session = async_sessionmaker(self.engine, expire_on_commit=False)
         self.ro_session = async_sessionmaker(self.ro_engine, expire_on_commit=False)
 

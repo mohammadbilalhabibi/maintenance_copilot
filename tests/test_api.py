@@ -137,6 +137,24 @@ def test_passage_and_document_endpoints(make_client) -> None:  # noqa: ANN001
         assert client.get("/docs/..%2Fpyproject").status_code == 404
 
 
+def test_machine_record_and_model_page(make_client) -> None:  # noqa: ANN001
+    client, _ = make_client([])
+    with client:
+        assert client.get("/api/machines/1/record").status_code == 401
+        h = login(client)
+        r = client.get("/api/machines/1/record?start=2015-03-09T06:00&end=2015-03-10T06:00",
+                       headers=h).json()
+        assert r["window"] == {"from": "2015-03-09 06:00", "to": "2015-03-10 06:00"}
+        assert r["shown"]["from"] == "2015-03-07 06:00"  # at least 3 days are shown
+        assert len(r["telemetry"]) == 72 and r["telemetry"][-1]["ts"] == "2015-03-10 06:00"
+        assert {e["error"] for e in r["errors"]} == {"error4"}  # future error5 is hidden
+        future = client.get("/api/machines/1/record?end=2016-01-01T00:00", headers=h).json()
+        assert future["window"]["to"] == "2015-03-10 06:00"  # never after the simulated now
+        assert client.get("/api/machines/99/record", headers=h).status_code == 404
+        page = client.get("/model")
+        assert page.status_code == 200 and "Measured on the test period" in page.text
+
+
 def test_index_page(make_client) -> None:  # noqa: ANN001
     client, _ = make_client([])
     with client:

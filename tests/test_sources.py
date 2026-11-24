@@ -65,3 +65,42 @@ async def test_sources_from_tool_errors_are_not_listed(ctx, scripted) -> None:
                            AIMessage("no such machine")], seen=[])
     state = await build_graph(llm, ctx, "system").ainvoke(new_question("q"))
     assert state["sources"] == []
+
+
+async def test_data_sources_have_origin_and_sql(ctx, scripted) -> None:
+    llm = scripted(script=[
+        AIMessage("", tool_calls=[
+            {"name": "get_error_history", "args": {"machine_id": 1, "days_back": 7}, "id": "a",
+             "type": "tool_call"},
+            {"name": "predict_failure_risk", "args": {"machine_id": 1}, "id": "b",
+             "type": "tool_call"},
+        ]),
+        AIMessage("done [S1][S2]"),
+    ], seen=[])
+    state = await build_graph(llm, ctx, "system").ainvoke(new_question("q"))
+    errors_src, risk_src = state["sources"]
+    assert errors_src["origin"]["kind"] == "database"
+    assert errors_src["origin"]["tables"] == ["errors"]
+    assert errors_src["origin"]["window"] == {"from": "2015-03-03 06:00", "to": "2015-03-10 06:00"}
+    assert errors_src["origin"]["machine_ids"] == [1]
+    assert any("FROM errors" in q["sql"] for q in errors_src["queries"])
+    assert risk_src["origin"]["kind"] == "model" and risk_src["origin"]["caveat"]
+    assert risk_src["origin"]["window"]["to"] == "2015-03-10 06:00"
+    # Each tool gets only its own queries, and the LLM never sees them.
+    # The two tools ran concurrently; the risk tool's telemetry query must not leak.
+    assert not any("telemetry" in q["sql"] for q in errors_src["queries"])
+    assert any("telemetry" in q["sql"] for q in risk_src["queries"])
+    for msg in state["messages"]:
+        if isinstance(msg, ToolMessage):
+            assert "_queries" not in msg.content and "_meta" not in msg.content
+
+
+def test_describe_fleet_ranking_lists_machines() -> None:
+    from copilot.agent.provenance import describe
+
+    origin = describe("fleet_overview", {"metric": "failures"},
+                      {"metric": "failures", "from": "2015-10-16 08:00",
+                       "to": "2015-11-15 08:00", "ranking": [{"machine_id": 7, "count": 2},
+                                                            {"machine_id": 3, "count": 1}]})
+    assert origin["machine_ids"] == [7, 3] and origin["tables"] == ["failures"]
+    assert origin["dataset"]["url"].startswith("https://github.com/microsoft/")
