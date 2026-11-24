@@ -38,7 +38,9 @@ users together (`DAILY_QUESTION_LIMIT`), measured at $0.00035 per question with 
 - Secrets (LLM key, JWT secret, database passwords, Phoenix keys) exist only in `.env`,
   `.azure-deploy.env` (both gitignored) and as Container Apps secrets.
 - The agent's data tools use the read-only role `copilot_ro` (no access to users or chats).
-- Phoenix runs with login; the app sends traces with a system API key, not the admin secret.
+- Phoenix runs with login (admin@localhost gets a random password, `PHOENIX_ADMIN_PASSWORD` in
+  `.azure-deploy.env`, never the default); the app sends traces with a system API key, not the
+  admin secret.
 - Postgres allows connections from Azure services only, always over TLS.
 
 ## Steps

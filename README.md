@@ -17,6 +17,18 @@ returned data as a table, and a record view with the machine's raw sensor readin
 errors. Model outputs are labelled as predictions and link to the model's measured test
 results, so each claim can be checked.
 
+## Live demo
+
+**https://copilot-api.gentleriver-171694e3.polandcentral.azurecontainerapps.io**
+(Azure Container Apps + PostgreSQL in Poland Central; how it is deployed:
+[docs/deploy_azure.md](docs/deploy_azure.md)).
+
+Demo login: user `demo`, password `Demox5mBmU0NIYgR` (sign-up is switched off).
+
+The app scales to zero when idle: the first request then took 17.8 s (one measurement,
+`results/azure_deploy.json`), later requests 0.2 s. To protect the LLM budget the demo answers 20
+questions per day in total.
+
 ## Results
 
 <!-- TABLE:headline -->

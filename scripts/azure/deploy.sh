@@ -21,6 +21,8 @@ step() { echo; echo "== $*"; }
 die() { echo "ERROR: $*" >&2; exit 1; }
 from_env() { grep -E "^$1=" .env 2>/dev/null | head -1 | cut -d= -f2- || true; }
 rand() { python -c "import secrets; print('$1' + secrets.token_urlsafe($2).replace('-', 'x').replace('_', 'y'))"; }
+# Azure sometimes answers a successful change with a transient InternalServerError: retry.
+retry() { for i in 1 2 3; do "$@" && return 0; echo "   (attempt $i failed, retrying in 20 s)"; sleep 20; done; return 1; }
 
 LLM_API_KEY=$(from_env LLM_API_KEY)
 LLM_MODEL=$(from_env LLM_MODEL); LLM_MODEL=${LLM_MODEL:-gpt-4o-mini}
@@ -36,6 +38,7 @@ if [ ! -f "$STATE" ]; then
     echo "PHOENIX_SECRET=$(rand Ph1 32)"
     echo "PHOENIX_ADMIN_SECRET=$(rand Ad1 32)"
     echo "DEMO_PASSWORD=$(rand Demo 9)"
+    echo "PHOENIX_ADMIN_PASSWORD=$(rand Px1 24)"
   } > "$STATE"
 fi
 # shellcheck disable=SC1090
@@ -52,8 +55,8 @@ for ns in Microsoft.App Microsoft.DBforPostgreSQL Microsoft.OperationalInsights;
   az provider register --namespace "$ns" --wait
 done
 
-step "Resource group $RG in $LOC"
-az group create --name "$RG" --location "$LOC" --output none
+step "Resource group $RG (resources in $LOC)"
+az group show --name "$RG" --output none 2>/dev/null   || az group create --name "$RG" --location "$LOC" --output none
 
 step "Postgres Flexible Server $PG (Burstable B1ms, 32 GB, TLS)"
 if ! az postgres flexible-server show -g "$RG" -n "$PG" --output none 2>/dev/null; then
@@ -67,21 +70,22 @@ for db in copilot phoenix; do
     || az postgres flexible-server db create -g "$RG" -s "$PG" -n "$db" --output none
 done
 
-step "Container Apps environment $ENV_NAME (logs: none, live log stream still works)"
+step "Container Apps environment $ENV_NAME (Consumption only: supports jobs; logs: none)"
 az containerapp env show -g "$RG" -n "$ENV_NAME" --output none 2>/dev/null \
-  || az containerapp env create -g "$RG" -n "$ENV_NAME" -l "$LOC" --logs-destination none --output none
+  || az containerapp env create -g "$RG" -n "$ENV_NAME" -l "$LOC" --logs-destination none \
+       --environment-mode ConsumptionOnly --output none
 
 # create or update a container app; extra args: secrets then env vars
 upsert_app() {
   local name=$1 image=$2 port=$3 secrets=$4 envs=$5
   if az containerapp show -g "$RG" -n "$name" --output none 2>/dev/null; then
     # shellcheck disable=SC2086
-    az containerapp secret set -g "$RG" -n "$name" --secrets $secrets --output none
+    retry az containerapp secret set -g "$RG" -n "$name" --secrets $secrets --output none
     # shellcheck disable=SC2086
-    az containerapp update -g "$RG" -n "$name" --image "$image" --set-env-vars $envs --output none
+    retry az containerapp update -g "$RG" -n "$name" --image "$image" --set-env-vars $envs --output none
   else
     # shellcheck disable=SC2086
-    az containerapp create -g "$RG" -n "$name" --environment "$ENV_NAME" --image "$image" \
+    retry az containerapp create -g "$RG" -n "$name" --environment "$ENV_NAME" --image "$image" \
       --target-port "$port" --ingress external --min-replicas 0 --max-replicas 2 \
       --cpu 0.5 --memory 1.0Gi --secrets $secrets --env-vars $envs --output none
   fi
@@ -89,8 +93,8 @@ upsert_app() {
 
 step "Phoenix (login on, traces stored in the phoenix database)"
 upsert_app copilot-phoenix "$PHOENIX_IMAGE" 6006 \
-  "phx-db=$PHX_DB_URL phx-secret=$PHOENIX_SECRET phx-admin=$PHOENIX_ADMIN_SECRET" \
-  "PHOENIX_SQL_DATABASE_URL=secretref:phx-db PHOENIX_ENABLE_AUTH=true PHOENIX_SECRET=secretref:phx-secret PHOENIX_ADMIN_SECRET=secretref:phx-admin"
+  "phx-db=$PHX_DB_URL phx-secret=$PHOENIX_SECRET phx-admin=$PHOENIX_ADMIN_SECRET phx-admin-pw=$PHOENIX_ADMIN_PASSWORD" \
+  "PHOENIX_SQL_DATABASE_URL=secretref:phx-db PHOENIX_ENABLE_AUTH=true PHOENIX_SECRET=secretref:phx-secret PHOENIX_ADMIN_SECRET=secretref:phx-admin PHOENIX_DEFAULT_ADMIN_INITIAL_PASSWORD=secretref:phx-admin-pw"
 PHX_FQDN=$(az containerapp show -g "$RG" -n copilot-phoenix --query properties.configuration.ingress.fqdn -o tsv)
 
 if [ -z "${PHOENIX_API_KEY:-}" ]; then
@@ -109,12 +113,12 @@ JOB_SECRETS="db-url=$DB_URL ro-url=$RO_URL demo-pw=$DEMO_PASSWORD"
 JOB_ENVS="DATABASE_URL=secretref:db-url TOOLS_DATABASE_URL=secretref:ro-url LOAD_ARGS=--create-ro-role DEMO_USERNAME=demo DEMO_PASSWORD=secretref:demo-pw"
 if az containerapp job show -g "$RG" -n copilot-init --output none 2>/dev/null; then
   # shellcheck disable=SC2086
-  az containerapp job secret set -g "$RG" -n copilot-init --secrets $JOB_SECRETS --output none
+  retry az containerapp job secret set -g "$RG" -n copilot-init --secrets $JOB_SECRETS --output none
   # shellcheck disable=SC2086
-  az containerapp job update -g "$RG" -n copilot-init --image "$IMAGE" --set-env-vars $JOB_ENVS --output none
+  retry az containerapp job update -g "$RG" -n copilot-init --image "$IMAGE" --set-env-vars $JOB_ENVS --output none
 else
   # shellcheck disable=SC2086
-  az containerapp job create -g "$RG" -n copilot-init --environment "$ENV_NAME" \
+  retry az containerapp job create -g "$RG" -n copilot-init --environment "$ENV_NAME" \
     --trigger-type Manual --replica-timeout 3600 --replica-retry-limit 0 \
     --replica-completion-count 1 --parallelism 1 --image "$IMAGE" --cpu 2 --memory 4Gi \
     --command sh --args docker/init.sh --secrets $JOB_SECRETS --env-vars $JOB_ENVS --output none
@@ -139,4 +143,4 @@ API_FQDN=$(az containerapp show -g "$RG" -n copilot-api --query properties.confi
 
 step "Done"
 echo "App:     https://$API_FQDN   (demo login: user 'demo', password in $STATE)"
-echo "Phoenix: https://$PHX_FQDN   (admin login admin@localhost; see docs/deploy_azure.md)"
+echo "Phoenix: https://$PHX_FQDN   (login admin@localhost, password PHOENIX_ADMIN_PASSWORD in $STATE)"

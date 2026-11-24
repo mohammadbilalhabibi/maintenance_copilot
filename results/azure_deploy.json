@@ -1,0 +1,12 @@
+{
+  "measured_at": "2026-11-24T09:45Z",
+  "region": "polandcentral",
+  "app": "copilot-api (Azure Container Apps, Consumption, 0.5 vCPU / 1 GiB, min replicas 0)",
+  "image": "ghcr.io/mohammadbilalhabibi/maintenance-copilot:bab2ad8",
+  "first_request_after_deploy_s": 19.12,
+  "cold_start_after_scale_to_zero_s": 17.79,
+  "warm_request_s": 0.22,
+  "measurements": 1,
+  "method": "curl GET /api/health from a laptop in Germany; cold start = first request after `az containerapp replica list` showed 0 replicas",
+  "phoenix_traces_after_first_session": 42
+}
